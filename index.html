@@ -41,11 +41,15 @@
   --color-brand: #c00d20;
   --color-brand-bright: #d01022;
   --color-brand-light: #ff3860;
-  --color-brand-dim: #900914;
   --color-text: #f0f0f0;
   --color-text-muted: #b0b0b0;
   --color-border: #333333;
   --color-whatsapp: #25d366;
+
+  /* Excepción documentada: los tintes translúcidos de marca (rgba(192,13,32,α)),
+     de WhatsApp (rgba(37,211,102,α)) y de fondo (rgba(13,13,13,α)) se dejan como
+     literales a propósito — son variantes de opacidad de los tokens de color
+     sin un token de opacidad dedicado. */
 
   /* Tipografía */
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -608,7 +612,7 @@ button:focus-visible {
 
 .footer-copy {
   font-size: 0.8125rem;
-  color: #909090;
+  color: var(--color-text-muted);
   margin-top: var(--space-1);
 }
 
@@ -634,13 +638,13 @@ button:focus-visible {
 .whatsapp-float svg {
   width: 30px;
   height: 30px;
-  color: #0d0d0d;
+  color: var(--color-bg);
 }
 
 .whatsapp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 36px rgba(37, 211, 102, 0.5);
-  color: #0d0d0d;
+  color: var(--color-bg);
 }
 
 .whatsapp-float::before {
@@ -859,7 +863,7 @@ button:focus-visible {
   padding: 12px 24px;
   background: var(--color-brand);
   color: var(--color-text);
-  border-radius: var(--radius-s);
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 0.9375rem;
   transition: top 0.2s ease;
@@ -868,6 +872,16 @@ button:focus-visible {
   top: 16px;
 }
 </style>
+
+<!-- Fallback sin JavaScript: el contenido con .reveal debe verse sin animación -->
+<noscript>
+<style>
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</noscript>
 
 <!-- Structured Data: LocalBusiness -->
 <script type="application/ld+json">

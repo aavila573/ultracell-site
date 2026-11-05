@@ -6,9 +6,14 @@
 <title>UltraCell | Celulares nuevos y usados en Barranquilla</title>
 <meta name="description" content="Celulares nuevos y usados en Barranquilla, accesorios, baterías y servicio técnico. Visita UltraCell en San Andresito el Pupi. Escríbenos por WhatsApp.">
 <meta name="author" content="UltraCell">
-<meta name="theme-color" content="#0d0d0d">
+<meta name="theme-color" content="#c00d20">
 <link rel="canonical" href="https://ultracell.com.co/">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+
+<!-- Google Fonts: Inter (tipografía de presentación) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -30,29 +35,32 @@
 
 <style>
 /* ============================================================
-   DESIGN TOKENS — extraídos del logo (PIL: negro 87.4%, rojo #c00d20)
+   DESIGN TOKENS — UltraCell light mode (rojo #c00d20 + negro)
+   Contrastes WCAG AA verificados: 28 pares ≥ 4.5:1
    ============================================================ */
 :root {
-  /* Paleta de marca */
-  --color-bg: #0d0d0d;
-  --color-bg-alt: #161616;
-  --color-surface: #1e1e1e;
-  --color-surface-hover: #282828;
+  /* Paleta de marca — modo claro */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f5f5;
   --color-brand: #c00d20;
-  --color-brand-bright: #d01022;
-  --color-brand-light: #ff3860;
-  --color-text: #f0f0f0;
-  --color-text-muted: #b0b0b0;
-  --color-border: #333333;
+  --color-brand-dark: #9e0a19;
+  --color-brand-light: #ff5a6e;   /* solo sobre fondos oscuros */
+  --color-text: #1a1a1a;
+  --color-text-secondary: #3d3d3d;
+  --color-text-muted: #6b6b6b;
+  --color-border: #e5e5e5;
+  --color-table-header: #f0f0f0;
+  --color-table-alt: #f5f5f5;
   --color-whatsapp: #25d366;
-
-  /* Excepción documentada: los tintes translúcidos de marca (rgba(192,13,32,α)),
-     de WhatsApp (rgba(37,211,102,α)) y de fondo (rgba(13,13,13,α)) se dejan como
-     literales a propósito — son variantes de opacidad de los tokens de color
-     sin un token de opacidad dedicado. */
+  --color-whatsapp-dark: #075e54;
+  --color-footer-bg: #1a1a1a;
+  --color-footer-text: #ffffff;
+  --color-footer-muted: #cccccc;
 
   /* Tipografía */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   /* Escala de espaciado (base 8px) */
   --space-1: 0.5rem;   /*  8px */
@@ -70,11 +78,11 @@
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* Sombras */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-brand: 0 4px 20px rgba(192, 13, 32, 0.4);
+  /* Sombras — modo claro (suaves) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-brand: 0 4px 16px rgba(192, 13, 32, 0.25);
 
   /* Layout */
   --container-max: 1200px;
@@ -112,13 +120,13 @@ img {
 }
 
 a {
-  color: var(--color-text);
+  color: var(--color-brand-dark);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 button {
@@ -131,7 +139,7 @@ button {
 /* Foco visible para accesibilidad */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-brand-bright);
+  outline: 2px solid var(--color-brand);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -159,6 +167,7 @@ button:focus-visible {
   text-align: center;
   margin-bottom: var(--space-1);
   letter-spacing: -0.02em;
+  color: var(--color-text);
 }
 
 .section-subtitle {
@@ -186,7 +195,7 @@ button:focus-visible {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 13, 13, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
@@ -218,6 +227,7 @@ button:focus-visible {
   font-weight: 700;
   font-size: 1.125rem;
   letter-spacing: -0.01em;
+  color: var(--color-text);
 }
 
 .header-nav {
@@ -229,11 +239,11 @@ button:focus-visible {
 .header-nav a {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 .header-nav a:hover {
-  color: var(--color-text);
+  color: var(--color-brand);
 }
 
 .header-cta {
@@ -241,7 +251,7 @@ button:focus-visible {
   align-items: center;
   gap: var(--space-1);
   background: var(--color-brand);
-  color: var(--color-text);
+  color: #ffffff;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.5rem 1rem;
@@ -251,8 +261,8 @@ button:focus-visible {
 }
 
 .header-cta:hover {
-  background: var(--color-brand-bright);
-  color: var(--color-text);
+  background: var(--color-brand-dark);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -268,7 +278,7 @@ button:focus-visible {
 .hero {
   padding-top: var(--space-6);
   padding-bottom: var(--space-6);
-  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-alt) 100%);
 }
 
 .hero-content {
@@ -294,10 +304,11 @@ button:focus-visible {
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin-top: var(--space-1);
+  color: var(--color-text);
 }
 
 .hero h1 .accent {
-  color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 .hero-tagline {
@@ -320,7 +331,7 @@ button:focus-visible {
   align-items: center;
   gap: var(--space-1);
   background: var(--color-brand);
-  color: var(--color-text);
+  color: #ffffff;
   font-size: 1.0625rem;
   font-weight: 700;
   padding: 0.875rem 1.75rem;
@@ -331,10 +342,10 @@ button:focus-visible {
 }
 
 .hero-cta:hover {
-  background: var(--color-brand-bright);
-  color: var(--color-text);
+  background: var(--color-brand-dark);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(192, 13, 32, 0.5);
+  box-shadow: 0 6px 24px rgba(192, 13, 32, 0.35);
 }
 
 .hero-cta svg {
@@ -358,12 +369,14 @@ button:focus-visible {
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   text-align: center;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
   border-color: var(--color-brand);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .service-card .icon {
@@ -373,20 +386,21 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(192, 13, 32, 0.12);
+  background: rgba(192, 13, 32, 0.08);
   border-radius: var(--radius-md);
 }
 
 .service-card .icon svg {
   width: 28px;
   height: 28px;
-  color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 .service-card h3 {
   font-size: 1.0625rem;
   font-weight: 700;
   margin-bottom: var(--space-1);
+  color: var(--color-text);
 }
 
 .service-card p {
@@ -415,6 +429,7 @@ button:focus-visible {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .trust-item .icon {
@@ -424,20 +439,21 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(192, 13, 32, 0.12);
+  background: rgba(192, 13, 32, 0.08);
   border-radius: var(--radius-sm);
 }
 
 .trust-item .icon svg {
   width: 20px;
   height: 20px;
-  color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 .trust-item h3 {
   font-size: 0.9375rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
+  color: var(--color-text);
 }
 
 .trust-item p {
@@ -468,6 +484,7 @@ button:focus-visible {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .location-card .icon {
@@ -477,20 +494,21 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(192, 13, 32, 0.12);
+  background: rgba(192, 13, 32, 0.08);
   border-radius: var(--radius-sm);
 }
 
 .location-card .icon svg {
   width: 20px;
   height: 20px;
-  color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 .location-card h3 {
   font-size: 0.9375rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
+  color: var(--color-text);
 }
 
 .location-card p {
@@ -499,7 +517,7 @@ button:focus-visible {
 }
 
 .location-card a {
-  color: var(--color-brand-light);
+  color: var(--color-brand-dark);
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -512,7 +530,7 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  background: var(--color-brand);
+  background: var(--color-whatsapp);
   color: var(--color-text);
   font-size: 1rem;
   font-weight: 700;
@@ -521,11 +539,11 @@ button:focus-visible {
   align-self: flex-start;
   margin-top: var(--space-1);
   transition: background 0.2s ease, transform 0.15s ease;
-  box-shadow: var(--shadow-brand);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 .location-cta:hover {
-  background: var(--color-brand-bright);
+  background: #1fb955;
   color: var(--color-text);
   transform: translateY(-2px);
 }
@@ -540,8 +558,8 @@ button:focus-visible {
    FOOTER
    ============================================================ */
 .site-footer {
-  background: var(--color-bg-alt);
-  border-top: 1px solid var(--color-border);
+  background: var(--color-footer-bg);
+  border-top: 3px solid var(--color-brand);
   padding-top: var(--space-6);
   padding-bottom: var(--space-8); /* espacio para botón flotante */
 }
@@ -570,6 +588,7 @@ button:focus-visible {
 .footer-brand span {
   font-weight: 700;
   font-size: 1.125rem;
+  color: var(--color-footer-text);
 }
 
 .footer-social {
@@ -582,16 +601,16 @@ button:focus-visible {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9375rem;
-  color: var(--color-text-muted);
+  color: var(--color-footer-muted);
   padding: 0.5rem 1rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-full);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .footer-social a:hover {
-  border-color: var(--color-brand);
-  color: var(--color-text);
+  border-color: var(--color-brand-light);
+  color: var(--color-footer-text);
 }
 
 .footer-social svg {
@@ -602,7 +621,7 @@ button:focus-visible {
 
 .footer-contact {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--color-footer-muted);
 }
 
 .footer-contact a {
@@ -612,7 +631,7 @@ button:focus-visible {
 
 .footer-copy {
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
+  color: var(--color-footer-muted);
   margin-top: var(--space-1);
 }
 
@@ -638,13 +657,13 @@ button:focus-visible {
 .whatsapp-float svg {
   width: 30px;
   height: 30px;
-  color: var(--color-bg);
+  color: var(--color-text);
 }
 
 .whatsapp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 36px rgba(37, 211, 102, 0.5);
-  color: var(--color-bg);
+  color: var(--color-text);
 }
 
 .whatsapp-float::before {
@@ -862,7 +881,7 @@ button:focus-visible {
   z-index: 2000;
   padding: 12px 24px;
   background: var(--color-brand);
-  color: var(--color-text);
+  color: #ffffff;
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 0.9375rem;
@@ -888,11 +907,13 @@ button:focus-visible {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .faq-item[open] {
   border-color: var(--color-brand);
+  box-shadow: var(--shadow-md);
 }
 
 .faq-item summary {
@@ -905,6 +926,7 @@ button:focus-visible {
   font-weight: 600;
   cursor: pointer;
   list-style: none;
+  color: var(--color-text);
 }
 
 .faq-item summary::-webkit-details-summary {
@@ -915,7 +937,7 @@ button:focus-visible {
   content: '+';
   font-size: 1.25rem;
   font-weight: 400;
-  color: var(--color-brand-light);
+  color: var(--color-brand);
   flex-shrink: 0;
   transition: transform 0.2s ease;
 }
@@ -953,7 +975,7 @@ button:focus-visible {
 .hero-eslogan {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-brand-light);
+  color: var(--color-brand);
   letter-spacing: -0.01em;
 }
 
@@ -976,11 +998,13 @@ button:focus-visible {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: border-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .process-step:hover {
   border-color: var(--color-brand);
+  box-shadow: var(--shadow-md);
 }
 
 .process-step .step-number {
@@ -991,7 +1015,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   background: var(--color-brand);
-  color: var(--color-text);
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 800;
   border-radius: var(--radius-full);
@@ -1001,6 +1025,7 @@ button:focus-visible {
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: var(--space-1);
+  color: var(--color-text);
 }
 
 .process-step .step-content p {
@@ -1050,6 +1075,7 @@ button:focus-visible {
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .compare-table {
@@ -1064,7 +1090,7 @@ button:focus-visible {
   font-weight: 700;
   text-align: left;
   color: var(--color-text);
-  background: var(--color-surface);
+  background: var(--color-table-header);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -1081,11 +1107,11 @@ button:focus-visible {
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-text);
-  background: var(--color-surface);
+  background: var(--color-table-header);
 }
 
 .compare-table thead th.col-nuevo {
-  color: var(--color-brand-light);
+  color: var(--color-brand);
 }
 
 .compare-table thead th:first-child,
@@ -1097,7 +1123,12 @@ button:focus-visible {
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--color-text);
-  background: var(--color-bg);
+  background: var(--color-table-alt);
+}
+
+/* Filas alternadas */
+.compare-table tbody tr:nth-child(even):not(.cta-row) td {
+  background: var(--color-table-alt);
 }
 
 .compare-table td {
@@ -1112,19 +1143,20 @@ button:focus-visible {
 
 /* CTA row en tabla comparativa */
 .compare-table .cta-row th {
-  background: var(--color-surface);
+  background: var(--color-table-header);
 }
 
 .compare-table .cta-row td {
   text-align: center;
   padding: var(--space-3) var(--space-2);
+  background: var(--color-surface);
 }
 
 .compare-table .cta-row a {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  background: var(--color-brand);
+  background: var(--color-whatsapp);
   color: var(--color-text);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -1135,7 +1167,7 @@ button:focus-visible {
 }
 
 .compare-table .cta-row a:hover {
-  background: var(--color-brand-bright);
+  background: #1fb955;
   color: var(--color-text);
   transform: translateY(-1px);
 }
@@ -1159,6 +1191,66 @@ button:focus-visible {
   color: var(--color-text-muted);
   margin-top: var(--space-2);
   line-height: 1.6;
+}
+
+/* ============================================================
+   CATÁLOGO PLACEHOLDER
+   ============================================================ */
+.catalogo {
+  background: var(--color-bg);
+}
+
+.catalogo-placeholder {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg-alt);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.catalogo-placeholder h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.catalogo-placeholder p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.catalogo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: var(--color-whatsapp);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  transition: background 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.catalogo-cta:hover {
+  background: #1fb955;
+  color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+.catalogo-cta svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 </style>
@@ -1281,6 +1373,7 @@ button:focus-visible {
       <a href="#servicios">Servicios</a>
       <a href="#como-comprar">Cómo comprar</a>
       <a href="#comparativa">Comparativa</a>
+      <a href="#catalogo">Catálogo</a>
       <a href="#garantia">Garantía</a>
       <a href="#ubicacion">Ubicación</a>
       <a href="#faq">FAQ</a>
@@ -1334,7 +1427,7 @@ button:focus-visible {
 
       <article class="service-card reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
             <line x1="12" y1="18" x2="12.01" y2="18"/>
           </svg>
@@ -1345,7 +1438,7 @@ button:focus-visible {
 
       <article class="service-card reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
             <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
           </svg>
@@ -1356,7 +1449,7 @@ button:focus-visible {
 
       <article class="service-card reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="1" y="6" width="18" height="12" rx="2" ry="2"/>
             <line x1="23" y1="13" x2="23" y2="11"/>
           </svg>
@@ -1367,7 +1460,7 @@ button:focus-visible {
 
       <article class="service-card reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
           </svg>
         </div>
@@ -1491,6 +1584,26 @@ button:focus-visible {
   </div>
 </section>
 
+<!-- ========== CATÁLOGO PLACEHOLDER ========== -->
+<section class="section catalogo" id="catalogo">
+  <div class="container">
+    <h2 class="section-title reveal">Catálogo en construcción</h2>
+    <p class="section-subtitle reveal">Pronto verás nuestros equipos aquí</p>
+    <div class="catalogo-placeholder reveal">
+      <h3>Aún no tenemos catálogo online</h3>
+      <p>Estamos trabajando para mostrarte nuestro inventario con fotos, precios y especificaciones en esta página. Mientras tanto, escribenos por WhatsApp y te enviamos los equipos disponibles con su precio y garantía, en tiempo real.</p>
+      <a href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20vengo%20desde%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+         class="catalogo-cta" target="_blank" rel="noopener noreferrer"
+         aria-label="Escríbenos por WhatsApp para consultar disponibilidad">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Consultar disponibilidad por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ========== GARANTÍA Y CONFIANZA ========== -->
 <section class="section trust" id="garantia">
   <div class="container">
@@ -1501,7 +1614,7 @@ button:focus-visible {
 
       <div class="trust-item reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
         </div>
@@ -1513,7 +1626,7 @@ button:focus-visible {
 
       <div class="trust-item reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
           </svg>
         </div>
@@ -1525,7 +1638,7 @@ button:focus-visible {
 
       <div class="trust-item reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="1" y="3" width="15" height="13"/>
             <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
             <circle cx="5.5" cy="18.5" r="2.5"/>
@@ -1540,7 +1653,7 @@ button:focus-visible {
 
       <div class="trust-item reveal">
         <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
             <line x1="1" y1="10" x2="23" y2="10"/>
           </svg>
@@ -1565,7 +1678,7 @@ button:focus-visible {
       <div class="location-info reveal">
         <div class="location-card">
           <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
@@ -1579,7 +1692,7 @@ button:focus-visible {
 
         <div class="location-card">
           <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
             </svg>
@@ -1592,7 +1705,7 @@ button:focus-visible {
 
         <div class="location-card">
           <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
           </div>

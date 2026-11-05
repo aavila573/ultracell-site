@@ -695,6 +695,155 @@ button:focus-visible {
   transform: translateY(0);
 }
 
+
+/* ============================================================
+   CATÁLOGO DE PRODUCTOS
+   ============================================================ */
+.catalogo {
+  background: var(--color-bg-alt);
+}
+
+.catalogo-demo-note {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #78350f;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0 auto var(--space-5);
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+.catalogo-subsection {
+  margin-bottom: var(--space-5);
+}
+
+.catalogo-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.catalogo-subsection-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-1);
+  border-bottom: 2px solid var(--color-brand);
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.catalogo-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.catalogo-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.catalogo-card-img {
+  background: var(--color-bg);
+  padding: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 4;
+}
+
+.catalogo-card-img img {
+  max-height: 220px;
+  width: auto;
+  object-fit: contain;
+}
+
+.catalogo-card-body {
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.catalogo-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.catalogo-card-capacidad {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.catalogo-card-precio {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  margin-top: auto;
+}
+
+.catalogo-card-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background: var(--color-whatsapp);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+
+.catalogo-card-cta:hover {
+  background: var(--color-whatsapp-dark);
+  color: #ffffff;
+}
+
+.catalogo-card-cta svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .catalogo-card-img img {
+    max-height: 260px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .catalogo-subsection-title {
+    font-size: 1.5rem;
+  }
+}
+
 /* ============================================================
    RESPONSIVE — TABLET ≥ 768px
    ============================================================ */
@@ -1584,23 +1733,544 @@ button:focus-visible {
   </div>
 </section>
 
-<!-- ========== CATÁLOGO PLACEHOLDER ========== -->
+<!-- ========== CATÁLOGO DE PRODUCTOS ========== -->
 <section class="section catalogo" id="catalogo">
   <div class="container">
-    <h2 class="section-title reveal">Catálogo en construcción</h2>
-    <p class="section-subtitle reveal">Pronto verás nuestros equipos aquí</p>
-    <div class="catalogo-placeholder reveal">
-      <h3>Aún no tenemos catálogo online</h3>
-      <p>Estamos trabajando para mostrarte nuestro inventario con fotos, precios y especificaciones en esta página. Mientras tanto, escribenos por WhatsApp y te enviamos los equipos disponibles con su precio y garantía, en tiempo real.</p>
-      <a href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20vengo%20desde%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
-         class="catalogo-cta" target="_blank" rel="noopener noreferrer"
-         aria-label="Escríbenos por WhatsApp para consultar disponibilidad">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        Consultar disponibilidad por WhatsApp
-      </a>
+    <h2 class="section-title reveal">Catálogo de iPhone</h2>
+    <p class="section-subtitle reveal">Modelos disponibles con precios de referencia</p>
+    <div class="catalogo-demo-note reveal" role="note">
+      <strong>Catálogo de demostración:</strong> precios de referencia. Confirma disponibilidad y precio final por WhatsApp.
     </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 11</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-11.jpg" alt="iPhone 11 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 11</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$800.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2011%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 11 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 12</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-12.jpg" alt="iPhone 12 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 12</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$990.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2012%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 12 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-12-pro-max.jpg" alt="iPhone 12 Pro Max 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 12 Pro Max</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.199.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2012%20Pro%20Max%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 12 Pro Max 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 13</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-13.jpg" alt="iPhone 13 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 13</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.090.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2013%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 13 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-13.jpg" alt="iPhone 13 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 13</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$1.190.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2013%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 13 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-13-pro.jpg" alt="iPhone 13 Pro 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 13 Pro</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.450.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2013%20Pro%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 13 Pro 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-13-pro.jpg" alt="iPhone 13 Pro 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 13 Pro</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$1.550.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2013%20Pro%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 13 Pro 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 13 Pro Max</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.620.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2013%20Pro%20Max%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 13 Pro Max 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 13 Pro Max</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$1.770.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2013%20Pro%20Max%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 13 Pro Max 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 14</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14.jpg" alt="iPhone 14 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.190.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14.jpg" alt="iPhone 14 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$1.280.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14-plus.jpg" alt="iPhone 14 Plus 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14 Plus</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.350.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20Plus%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 Plus 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14-pro.jpg" alt="iPhone 14 Pro 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14 Pro</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.620.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20Pro%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 Pro 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14-pro.jpg" alt="iPhone 14 Pro 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14 Pro</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$1.720.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20Pro%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 Pro 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14-pro-max.jpg" alt="iPhone 14 Pro Max 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14 Pro Max</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.820.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20Pro%20Max%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 Pro Max 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-14-pro-max.jpg" alt="iPhone 14 Pro Max 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 14 Pro Max</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$1.990.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2014%20Pro%20Max%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 14 Pro Max 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 15</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-15.jpg" alt="iPhone 15 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 15</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.620.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2015%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 15 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-15-plus.jpg" alt="iPhone 15 Plus 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 15 Plus</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.700.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2015%20Plus%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 15 Plus 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-15-pro.jpg" alt="iPhone 15 Pro 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 15 Pro</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$1.950.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2015%20Pro%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 15 Pro 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-15-pro.jpg" alt="iPhone 15 Pro 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 15 Pro</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$2.050.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2015%20Pro%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 15 Pro 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-15-pro-max.jpg" alt="iPhone 15 Pro Max 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 15 Pro Max</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$2.350.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2015%20Pro%20Max%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 15 Pro Max 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-15-pro-max.jpg" alt="iPhone 15 Pro Max 512GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 15 Pro Max</h4>
+            <p class="catalogo-card-capacidad">512GB</p>
+            <p class="catalogo-card-precio">$2.450.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2015%20Pro%20Max%20512GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 15 Pro Max 512GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 16</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-16.jpg" alt="iPhone 16 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 16</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$2.050.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2016%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 16 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-16-plus.jpg" alt="iPhone 16 Plus 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 16 Plus</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$2.200.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2016%20Plus%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 16 Plus 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-16-pro.jpg" alt="iPhone 16 Pro 128GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 16 Pro</h4>
+            <p class="catalogo-card-capacidad">128GB</p>
+            <p class="catalogo-card-precio">$2.450.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2016%20Pro%20128GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 16 Pro 128GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-16-pro.jpg" alt="iPhone 16 Pro 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 16 Pro</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$2.650.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2016%20Pro%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 16 Pro 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-16-pro-max.jpg" alt="iPhone 16 Pro Max 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 16 Pro Max</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$2.850.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2016%20Pro%20Max%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 16 Pro Max 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-16-pro-max.jpg" alt="iPhone 16 Pro Max 512GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 16 Pro Max</h4>
+            <p class="catalogo-card-capacidad">512GB</p>
+            <p class="catalogo-card-precio">$2.990.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2016%20Pro%20Max%20512GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 16 Pro Max 512GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="catalogo-subsection reveal">
+      <h3 class="catalogo-subsection-title">iPhone 17</h3>
+      <div class="catalogo-grid">
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-17.jpg" alt="iPhone 17 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 17</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$2.650.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2017%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 17 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-17-air.jpg" alt="iPhone 17 Air 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 17 Air</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$2.750.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2017%20Air%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 17 Air 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-17-pro.jpg" alt="iPhone 17 Pro 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 17 Pro</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$3.490.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2017%20Pro%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 17 Pro 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="catalogo-card">
+          <div class="catalogo-card-img">
+            <img src="assets/catalogo/iphone-17-pro-max.jpg" alt="iPhone 17 Pro Max 256GB - UltraCell Barranquilla" loading="lazy" width="300" height="400">
+          </div>
+          <div class="catalogo-card-body">
+            <h4 class="catalogo-card-title">iPhone 17 Pro Max</h4>
+            <p class="catalogo-card-capacidad">256GB</p>
+            <p class="catalogo-card-precio">$3.750.000</p>
+            <a href="https://wa.me/573007527308?text=Hola%21%20Me%20interesa%20el%20iPhone%2017%20Pro%20Max%20256GB%2C%20%C2%BFest%C3%A1%20disponible%3F" class="catalogo-card-cta" target="_blank" rel="noopener noreferrer" aria-label="Consultar iPhone 17 Pro Max 256GB por WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>Consultar</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
   </div>
 </section>
 

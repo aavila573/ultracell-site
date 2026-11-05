@@ -935,6 +935,107 @@ button:focus-visible {
   line-height: 1.6;
 }
 
+/* ============================================================
+   SECTION BODY — párrafos comerciales
+   ============================================================ */
+.section-body {
+  max-width: 680px;
+  margin: 0 auto var(--space-5);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ============================================================
+   HERO ESLOGAN
+   ============================================================ */
+.hero-eslogan {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-brand-light);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   PROCESS — 3 pasos de compra
+   ============================================================ */
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s ease;
+}
+
+.process-step:hover {
+  border-color: var(--color-brand);
+}
+
+.process-step .step-number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-brand);
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+}
+
+.process-step .step-content h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.process-step .step-content p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Process — tablet/desktop */
+@media (min-width: 768px) {
+  .hero-eslogan {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .process-step {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .process-step .step-number {
+    margin-bottom: var(--space-1);
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-body {
+    font-size: 1.125rem;
+  }
+}
+
 </style>
 
 <!-- Fallback sin JavaScript: el contenido con .reveal debe verse sin animación -->
@@ -1053,6 +1154,7 @@ button:focus-visible {
     </a>
     <nav class="header-nav" aria-label="Navegación principal">
       <a href="#servicios">Servicios</a>
+      <a href="#como-comprar">Cómo comprar</a>
       <a href="#garantia">Garantía</a>
       <a href="#ubicacion">Ubicación</a>
       <a href="#faq">FAQ</a>
@@ -1077,7 +1179,8 @@ button:focus-visible {
       <div class="hero-text">
         <img src="assets/logo.jpeg" alt="Logo UltraCell tienda de celulares en Barranquilla" class="hero-logo" width="1280" height="1280" loading="eager">
         <h1>Celulares nuevos y usados en <span class="accent">Barranquilla</span></h1>
-        <p class="hero-tagline">Compra y venta de celulares en Barranquilla: equipos nuevos y usados, accesorios y servicio técnico en un solo lugar.</p>
+        <p class="hero-eslogan">Somos tus aliados a la hora de cambiar tu celular</p>
+        <p class="hero-tagline">Compra y venta de celulares en Barranquilla: equipos nuevos y usados, accesorios, baterías y servicio técnico en un solo lugar. Te ayudamos a elegir, te damos garantía y te lo entregas en el local o te lo enviamos.</p>
         <a href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20vengo%20desde%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
            class="hero-cta" target="_blank" rel="noopener noreferrer"
            aria-label="Escríbenos por WhatsApp para más información">
@@ -1098,8 +1201,9 @@ button:focus-visible {
 <!-- ========== SERVICIOS ========== -->
 <section class="section" id="servicios">
   <div class="container">
-    <h2 class="section-title reveal">Lo que encontrarás en UltraCell</h2>
-    <p class="section-subtitle reveal">Todo para tu celular en un solo lugar</p>
+    <h2 class="section-title reveal">Todo lo que tu celular necesita, bajo un mismo techo</h2>
+    <p class="section-subtitle reveal">Compra, venta, accesorios, baterías y servicio técnico de celulares en Barranquilla</p>
+    <p class="section-body reveal">En UltraCell no solo vendemos celulares: te acompañamos en cada etapa. Buscas un equipo nuevo o un usado en buen estado, necesitas accesorios para protegerlo o una batería que vuelva a durar todo el día, o tu teléfono dejó de funcionar y necesitas un servicio técnico de confianza. Todo eso lo resuelves aquí, en San Andresito el Pupi, sin tener que ir a tres tiendas distintas.</p>
     <div class="services-grid">
 
       <article class="service-card reveal">
@@ -1110,7 +1214,7 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Celulares nuevos y usados</h3>
-        <p>Encuentra celulares usados en Barranquilla y equipos nuevos, incluido iPhone en Barranquilla.</p>
+        <p>Encuentra celulares usados en Barranquilla revisados y con garantía, y equipos nuevos de distintas marcas. Si buscas iPhone en Barranquilla, pregúntanos la disponibilidad por WhatsApp antes de venir.</p>
       </article>
 
       <article class="service-card reveal">
@@ -1121,7 +1225,7 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Accesorios</h3>
-        <p>Fundas, protectores, cargadores y accesorios para celulares en Barranquilla.</p>
+        <p>Fundas, protectores de pantalla, cargadores, cables y accesorios para celulares en Barranquilla. Lo que tu equipo necesita para verse bien y rendir más, con opciones para distintas marcas y modelos.</p>
       </article>
 
       <article class="service-card reveal">
@@ -1132,7 +1236,7 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Baterías</h3>
-        <p>Baterías de reemplazo para que tu equipo vuelva a rendir.</p>
+        <p>Si tu celular no dura ni medio día, traélo. Vendemos baterías de reemplazo para que tu equipo vuelva a rendir como antes. Consulta disponibilidad para tu modelo por WhatsApp.</p>
       </article>
 
       <article class="service-card reveal">
@@ -1142,9 +1246,41 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Servicio técnico</h3>
-        <p>Servicio técnico de celulares en Barranquilla: reparaciones y mantenimiento.</p>
+        <p>Servicio técnico de celulares en Barranquilla: diagnóstico de pantallas, baterías, carga y problemas de software. Cuéntanos qué le pasa a tu equipo por WhatsApp y te orientamos antes de que vengas al local.</p>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ========== CÓMO COMPRAR ========== -->
+<section class="section" id="como-comprar">
+  <div class="container">
+    <h2 class="section-title reveal">Desde el primer mensaje hasta el equipo en tu mano</h2>
+    <p class="section-subtitle reveal">Comprar tu celular en Barranquilla nunca fue tan fácil</p>
+    <p class="section-body reveal">No tienes que venir a recorrer tiendas sin saber qué buscar. Te decimos cómo funciona el proceso desde que nos escribes por WhatsApp hasta que recibes tu equipo, sea en el local o por envío.</p>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="step-number" aria-hidden="true">1</div>
+        <div class="step-content">
+          <h3>Escríbenos por WhatsApp</h3>
+          <p>Cuéntanos qué equipo buscas, nuevo o usado, el presupuesto que tienes y la marca que prefieres. Te respondemos con opciones reales en stock.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-number" aria-hidden="true">2</div>
+        <div class="step-content">
+          <h3>Te mostramos opciones con precio y garantía</h3>
+          <p>Te enviamos los equipos disponibles con su precio y la garantía incluida. Comparas tranquilo, sin presión, y eliges el que más te conviene.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-number" aria-hidden="true">3</div>
+        <div class="step-content">
+          <h3>Pagas a tu manera y lo recibes</h3>
+          <p>Viene al local a recogerlo en San Andresito el Pupi, o te lo enviamos. Pregúntanos por las formas de pago disponibles para tu compra.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1152,8 +1288,9 @@ button:focus-visible {
 <!-- ========== GARANTÍA Y CONFIANZA ========== -->
 <section class="section trust" id="garantia">
   <div class="container">
-    <h2 class="section-title reveal">Por qué confiar en UltraCell</h2>
-    <p class="section-subtitle reveal">Tu tranquilidad es nuestra prioridad</p>
+    <h2 class="section-title reveal">Tu celular no se queda solo después de comprarlo</h2>
+    <p class="section-subtitle reveal">Garantía, reparaciones, envíos y formas de pago pensadas para ti</p>
+    <p class="section-body reveal">Comprar un celular usado o nuevo en Barranquilla no debería ser una lotería. Por eso en UltraCell cada equipo viene con garantía, te ofrecemos servicio técnico para cuando lo necesites, hacemos envíos para que lo recibas donde estés y manejamos varias formas de pago para tu comodidad.</p>
     <div class="trust-grid">
 
       <div class="trust-item reveal">
@@ -1164,7 +1301,7 @@ button:focus-visible {
         </div>
         <div>
           <h3>Garantía</h3>
-          <p>Todos nuestros equipos cuentan con garantía.</p>
+          <p>Todos nuestros equipos, nuevos y usados, se entregan con garantía. Escríbenos por WhatsApp con el equipo que te interesa y te confirmamos los detalles.</p>
         </div>
       </div>
 
@@ -1176,7 +1313,7 @@ button:focus-visible {
         </div>
         <div>
           <h3>Reparaciones</h3>
-          <p>Servicio técnico profesional para reparaciones de todo tipo.</p>
+          <p>Servicio técnico de celulares para reparaciones de pantallas, baterías, problemas de carga y software. Trae tu equipo al local o cuéntanos el problema por WhatsApp.</p>
         </div>
       </div>
 
@@ -1191,7 +1328,7 @@ button:focus-visible {
         </div>
         <div>
           <h3>Envíos</h3>
-          <p>Realizamos envíos para que recibas tu equipo.</p>
+          <p>Si no puedes venir al local, hacemos envíos. Escríbenos por WhatsApp con tu ubicación y te confirmamos cobertura y costo del envío.</p>
         </div>
       </div>
 
@@ -1204,7 +1341,7 @@ button:focus-visible {
         </div>
         <div>
           <h3>Formas de pago</h3>
-          <p>Múltiples formas de pago para tu comodidad.</p>
+          <p>Manejamos varias formas de pago para tu comodidad. Escríbenos por WhatsApp para confirmar las opciones disponibles para tu compra.</p>
         </div>
       </div>
 
@@ -1215,8 +1352,8 @@ button:focus-visible {
 <!-- ========== UBICACIÓN ========== -->
 <section class="section" id="ubicacion">
   <div class="container">
-    <h2 class="section-title reveal">Dónde encontrarnos</h2>
-    <p class="section-subtitle reveal">Visítanos en Barranquilla</p>
+    <h2 class="section-title reveal">Ven a vernos o te lo enviamos a donde estés</h2>
+    <p class="section-subtitle reveal">Estamos en Barranquilla, listos para atenderte</p>
     <div class="location-grid">
 
       <div class="location-info reveal">
@@ -1278,7 +1415,7 @@ button:focus-visible {
 <!-- ========== FAQ ========== -->
 <section class="section" id="faq">
   <div class="container">
-    <h2 class="section-title reveal">Preguntas frecuentes</h2>
+    <h2 class="section-title reveal">Todo lo que quieres saber antes de comprar</h2>
     <p class="section-subtitle reveal">Resolvemos tus dudas sobre UltraCell</p>
     <div class="faq-list">
       <details class="faq-item reveal">

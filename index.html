@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UltraCell | Celulares nuevos y usados en Barranquilla</title>
-<meta name="description" content="UltraCell en Barranquilla: celulares nuevos y usados, accesorios, baterías y servicio técnico. Somos tus aliados a la hora de cambiar tu celular. C.C. San Andresito el Pupi, Local 30.">
+<meta name="description" content="Celulares nuevos y usados en Barranquilla, accesorios, baterías y servicio técnico. Visita UltraCell en San Andresito el Pupi. Escríbenos por WhatsApp.">
 <meta name="author" content="UltraCell">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="canonical" href="https://ultracell.com.co/">
@@ -871,6 +871,70 @@ button:focus-visible {
 .skip-link:focus {
   top: 16px;
 }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item[open] {
+  border-color: var(--color-brand);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-summary {
+  list-style: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-brand-light);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item[open] summary {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-answer {
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
 </style>
 
 <!-- Fallback sin JavaScript: el contenido con .reveal debe verse sin animación -->
@@ -918,6 +982,64 @@ button:focus-visible {
   ]
 }
 </script>
+
+<!-- Structured Data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué venden en UltraCell?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Celulares nuevos y usados, accesorios, baterías y servicio técnico. Escríbenos por WhatsApp para conocer la disponibilidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los celulares usados tienen garantía?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, los equipos usados se entregan con garantía. Escribe por WhatsApp con el equipo que te interesa y te confirmamos los detalles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hacen servicio técnico y reparaciones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, ofrecemos servicio técnico y reparación de celulares. Consulta tu caso por WhatsApp y te orientamos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde queda UltraCell y qué horario maneja?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Estamos en el C.C. San Andresito el Pupi, Local 30, Barranquilla. Atendemos lunes a sábado de 9:00 am a 6:00 pm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hacen envíos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, manejamos envíos. Escribe por WhatsApp y te confirmamos cobertura y costo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué formas de pago aceptan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escribe por WhatsApp para confirmar las formas de pago disponibles para el equipo que te interesa."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a href="#contenido" class="skip-link">Saltar al contenido principal</a>
@@ -926,13 +1048,14 @@ button:focus-visible {
 <header class="site-header">
   <div class="container">
     <a href="#inicio" class="header-brand" aria-label="UltraCell — inicio">
-      <img src="assets/logo.jpeg" alt="Logo de UltraCell" width="1280" height="1280" loading="eager">
+      <img src="assets/logo.jpeg" alt="Logo UltraCell tienda de celulares en Barranquilla" width="1280" height="1280" loading="eager">
       <span>UltraCell</span>
     </a>
     <nav class="header-nav" aria-label="Navegación principal">
       <a href="#servicios">Servicios</a>
       <a href="#garantia">Garantía</a>
       <a href="#ubicacion">Ubicación</a>
+      <a href="#faq">FAQ</a>
     </nav>
     <a href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20vengo%20desde%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
        class="header-cta" target="_blank" rel="noopener noreferrer"
@@ -952,9 +1075,9 @@ button:focus-visible {
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <img src="assets/logo.jpeg" alt="Logo de UltraCell" class="hero-logo" width="1280" height="1280" loading="eager">
-        <h1><span class="accent">UltraCell</span></h1>
-        <p class="hero-tagline">Somos tus aliados a la hora de cambiar tu celular!</p>
+        <img src="assets/logo.jpeg" alt="Logo UltraCell tienda de celulares en Barranquilla" class="hero-logo" width="1280" height="1280" loading="eager">
+        <h1>Celulares nuevos y usados en <span class="accent">Barranquilla</span></h1>
+        <p class="hero-tagline">Compra y venta de celulares en Barranquilla: equipos nuevos y usados, accesorios y servicio técnico en un solo lugar.</p>
         <a href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20vengo%20desde%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
            class="hero-cta" target="_blank" rel="noopener noreferrer"
            aria-label="Escríbenos por WhatsApp para más información">
@@ -965,7 +1088,7 @@ button:focus-visible {
         </a>
       </div>
       <div class="hero-image-wrap">
-        <img src="assets/foto_local.png" alt="Fachada del local de UltraCell en el C.C. San Andresito el Pupi, Barranquilla"
+        <img src="assets/foto_local.png" alt="Local de UltraCell en el C.C. San Andresito el Pupi, Barranquilla"
              class="hero-photo" width="1200" height="480" loading="eager">
       </div>
     </div>
@@ -987,7 +1110,7 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Celulares nuevos y usados</h3>
-        <p>Encuentra el equipo que necesitas, nuevo o usado en buen estado.</p>
+        <p>Encuentra celulares usados en Barranquilla y equipos nuevos, incluido iPhone en Barranquilla.</p>
       </article>
 
       <article class="service-card reveal">
@@ -998,7 +1121,7 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Accesorios</h3>
-        <p>Fundas, protectores de pantalla, cargadores y accesorios para tu celular.</p>
+        <p>Fundas, protectores, cargadores y accesorios para celulares en Barranquilla.</p>
       </article>
 
       <article class="service-card reveal">
@@ -1019,7 +1142,7 @@ button:focus-visible {
           </svg>
         </div>
         <h3>Servicio técnico</h3>
-        <p>Reparaciones y mantenimiento con técnicos especializados.</p>
+        <p>Servicio técnico de celulares en Barranquilla: reparaciones y mantenimiento.</p>
       </article>
 
     </div>
@@ -1152,6 +1275,40 @@ button:focus-visible {
   </div>
 </section>
 
+<!-- ========== FAQ ========== -->
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title reveal">Preguntas frecuentes</h2>
+    <p class="section-subtitle reveal">Resolvemos tus dudas sobre UltraCell</p>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>¿Qué venden en UltraCell?</summary>
+        <div class="faq-answer">Celulares nuevos y usados, accesorios, baterías y servicio técnico. Escríbenos por WhatsApp para conocer la disponibilidad.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Los celulares usados tienen garantía?</summary>
+        <div class="faq-answer">Sí, los equipos usados se entregan con garantía. Escribe por WhatsApp con el equipo que te interesa y te confirmamos los detalles.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Hacen servicio técnico y reparaciones?</summary>
+        <div class="faq-answer">Sí, ofrecemos servicio técnico y reparación de celulares. Consulta tu caso por WhatsApp y te orientamos.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Dónde queda UltraCell y qué horario maneja?</summary>
+        <div class="faq-answer">Estamos en el C.C. San Andresito el Pupi, Local 30, Barranquilla. Atendemos lunes a sábado de 9:00 am a 6:00 pm.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Hacen envíos?</summary>
+        <div class="faq-answer">Sí, manejamos envíos. Escribe por WhatsApp y te confirmamos cobertura y costo.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>¿Qué formas de pago aceptan?</summary>
+        <div class="faq-answer">Escribe por WhatsApp para confirmar las formas de pago disponibles para el equipo que te interesa.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ========== FOOTER ========== -->
@@ -1159,7 +1316,7 @@ button:focus-visible {
   <div class="container">
     <div class="footer-content">
       <div class="footer-brand">
-        <img src="assets/logo.jpeg" alt="Logo de UltraCell" width="1280" height="1280" loading="lazy">
+        <img src="assets/logo.jpeg" alt="Logo UltraCell tienda de celulares en Barranquilla" width="1280" height="1280" loading="lazy">
         <span>UltraCell</span>
       </div>
 

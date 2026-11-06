@@ -148,7 +148,8 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .site-header{position:sticky;top:0;z-index:80;background:rgba(10,10,15,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
 .header-row{display:flex;align-items:center;gap:18px;min-height:68px}
 .logo{display:flex;align-items:center;gap:10px;flex:none}
-.logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#c00d20,#9e0a19);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(192,13,32,.4)}
+.logo-mark{width:36px;height:36px;border-radius:9px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.logo-mark img{width:100%;height:100%;object-fit:cover;border-radius:9px}
 .logo-mark svg{width:20px;height:20px}
 .logo-text{color:#fff;font-weight:800;font-size:19px;letter-spacing:-.02em}
 .logo-text em{font-style:normal;color:var(--accent)}
@@ -758,8 +759,8 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <a href="#/inicio" class="logo" aria-label="UltraCell — ir al inicio">
-      <span class="logo-mark"><svg viewBox="0 0 64 64"><circle cx="32" cy="36" r="17" fill="#fff"/><circle cx="41" cy="29" r="10" fill="#c00d20"/><rect x="27" y="8" width="10" height="17" rx="5" fill="#fff" transform="rotate(18 32 16)"/></svg></span>
-      <span class="logo-text">UltraCell<em>Mobile</em></span>
+      <span class="logo-mark"><img src="assets/logo.jpeg" alt="UltraCell" width="36" height="36"></span>
+      <span class="logo-text">UltraCell</span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
       <a href="#/inicio" data-nav="inicio">Inicio</a>
@@ -816,8 +817,8 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   <div class="container footer-grid">
     <div class="fcol fbrand">
       <a href="#/inicio" class="logo">
-        <span class="logo-mark"><svg viewBox="0 0 64 64"><circle cx="32" cy="36" r="17" fill="#fff"/><circle cx="41" cy="29" r="10" fill="#c00d20"/><rect x="27" y="8" width="10" height="17" rx="5" fill="#fff" transform="rotate(18 32 16)"/></svg></span>
-        <span class="logo-text">Ultra<em>Cell</em></span>
+        <span class="logo-mark"><img src="assets/logo.jpeg" alt="UltraCell" width="36" height="36"></span>
+        <span class="logo-text">UltraCell</span>
       </a>
       <p>Somos tus aliados a la hora de cambiar tu celular. Celulares nuevos y usados, accesorios, baterías y servicio técnico en Barranquilla.</p>
       <p class="fnote">C.C. San Andresito el Pupi, Local 30 — Barranquilla. Lunes a sábado, 9:00 am – 6:00 pm.</p>
@@ -2284,7 +2285,7 @@ function renderHome(main){
       <div class="hero-copy">
         <span class="hero-badge"><i></i> Demo comercial — precios de demostración</span>
         <h1>Tu próximo <span class="grad">iPhone</span> está aquí.</h1>
-        <p class="hero-sub">En UltraCell te ayudamos a elegir el iPhone perfecto: asesoría personalizada, precios claros y envío a tu puerta. Sin vueltas, sin letra pequeña.</p>
+        <p class="hero-sub">Somos tus aliados a la hora de cambiar tu celular. Asesoría personalizada, precios claros y envío a tu puerta.</p>
         <div class="hero-cta">
           <a class="btn btn-accent btn-lg" href="#/catalogo?categoria=iphone">Ver iPhone</a>
           <button class="btn btn-ghost btn-lg" data-action="open-chat">Hablar con un asesor IA</button>
@@ -2965,7 +2966,7 @@ function renderNosotros(main){
   </div></section>
   <div class="container page">
     <div class="about-grid stagger">
-      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></span><h3>Quiénes somos</h3><p>Somos <span class="ph">UltraCell nació en Barranquilla con la misión de hacer accesible la tecnología de punta. Empezamos como servicio técnico y hoy somos referentes en venta de celulares nuevos y usados, accesorios y reparaciones. Nuestra promesa: asesoría honesta y precios justos.</span>. En esta demo mostramos cómo se vería la tienda online con catálogo, asesor IA y pago integrado.</p></div>
+      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></span><h3>Quiénes somos</h3><p>UltraCell es un almacén de celulares ubicado en el C.C. San Andresito el Pupi, Local 30 de Barranquilla. Vendemos celulares nuevos y usados, accesorios, baterías y ofrecemos servicio técnico. Somos tus aliados a la hora de cambiar tu celular.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2.4 6.9L21 9l-5 4.4L17.8 21 12 17l-5.8 4 1.8-7.6L3 9l6.6-.1z"/></svg></span><h3>Por qué elegirnos</h3><p>Asesoría personalizada, catálogo curado de iPhone y acompañamiento antes, durante y después de la compra. Servicio técnico propio.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3 8 3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Nuestra selección</h3><p>Trabajamos una selección de iPhone nuevos y usados, accesorios, baterías y servicio técnico. Todos los precios son de demostración.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><h3>Atención personalizada</h3><p>Te atendemos por WhatsApp y con nuestro asesor IA. Horario: lunes a sábado, 9:00 am – 6:00 pm. Ciudad: Barranquilla.</p></div>
@@ -2974,7 +2975,7 @@ function renderNosotros(main){
     </div>
     <div class="story-card">
       <h2>Nuestra historia</h2>
-      <p><span class="ph">UltraCell nació en Barranquilla con la misión de hacer accesible la tecnología de punta. Empezamos como servicio técnico y hoy somos referentes en venta de celulares nuevos y usados, accesorios y reparaciones. Nuestra promesa: asesoría honesta y precios justos.</span></p>
+      <p>UltraCell es un almacén de celulares en el C.C. San Andresito el Pupi, Local 30 de Barranquilla. Nos dedicamos a la venta de celulares nuevos y usados, accesorios, baterías y servicio técnico. Somos tus aliados a la hora de cambiar tu celular.</p>
       <p><span class="demo-tag">Demo</span></p>
     </div>
   </div></div>`;

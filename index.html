@@ -2278,6 +2278,7 @@ function navigate(path){
 let routeToken = 0;
 function route(){
   const r = currentRoute();
+  closeDrawer(); // DEV-2026-041: cerrar drawer/backdrop al navegar (evita overlay de filtros persistente sobre la ficha)
   routeToken++;
   const tok = routeToken;
   track('page_view', { path: r.path, url: location.hash });

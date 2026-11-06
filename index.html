@@ -194,6 +194,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
   radial-gradient(500px 380px at 12% 85%,rgba(192,13,32,.1),transparent 60%),
   radial-gradient(900px 500px at 50% -10%,rgba(255,255,255,.05),transparent 60%)}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:84px 24px 96px;max-width:1200px;margin:0 auto}
+.hero-copy{min-width:0}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:999px;margin-bottom:26px}
 .hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2.2s ease infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
@@ -203,19 +204,21 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
 .hero-note{font-size:13.5px;color:rgba(255,255,255,.5);display:flex;gap:18px;flex-wrap:wrap}
 .hero-note b{color:rgba(255,255,255,.85);font-weight:600}
-.hero-art{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center}
-.hero-glow{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(192,13,32,.35),transparent 65%);filter:blur(30px);animation:floatGlow 7s ease-in-out infinite}
-@keyframes floatGlow{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.06)}}
+.hero-art{position:relative;min-height:540px;display:flex;align-items:center;justify-content:center}
+.hero-glow{position:absolute;width:min(380px,72%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(192,13,32,.35),transparent 65%);filter:blur(30px);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;animation:floatGlow 7s ease-in-out infinite}
+@keyframes floatGlow{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.06)}}
 .hero-phone{position:relative;z-index:2;animation:floaty 6.5s ease-in-out infinite}
-.hero-phone svg{width:min(300px,70vw);filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
-.hero-phone.back{z-index:1;position:absolute;right:2%;top:8%;opacity:.85;animation:floaty 7.5s ease-in-out infinite reverse}
-.hero-phone.back svg{width:min(240px,52vw);filter:drop-shadow(0 30px 44px rgba(0,0,0,.45))}
-@keyframes floaty{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-18px) rotate(-5deg)}}
-.hero-chip{position:absolute;z-index:3;background:rgba(22,22,30,.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,.85);box-shadow:var(--sh-lg);animation:floaty 5.5s ease-in-out infinite}
+.hero-phone svg{display:block;width:clamp(200px,24vw,300px);height:auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
+.hero-phone.back{z-index:1;position:absolute;right:8%;top:10%;opacity:.9;animation:floatyBack 7.5s ease-in-out infinite}
+.hero-phone.back svg{display:block;width:clamp(150px,18vw,240px);height:auto;filter:drop-shadow(0 30px 44px rgba(0,0,0,.45))}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-14px) rotate(-3deg)}}
+@keyframes floatyBack{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-16px) rotate(6deg)}}
+.hero-chip{position:absolute;z-index:3;background:rgba(22,22,30,.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,.85);box-shadow:var(--sh-lg);animation:chipFloat 5.5s ease-in-out infinite;max-width:min(240px,46%)}
 .hero-chip b{display:block;font-size:15px;color:#fff}
-.hero-chip.chip-price{left:2%;bottom:16%}
-.hero-chip.chip-ai{right:0;top:20%;display:flex;align-items:center;gap:8px}
+.hero-chip.chip-price{left:4%;bottom:12%}
+.hero-chip.chip-ai{right:4%;top:14%;display:flex;align-items:center;gap:8px}
 .hero-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 /* ---------- barra de confianza ---------- */
 .trustbar{background:var(--surface);border-bottom:1px solid var(--line)}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:26px 24px}
@@ -540,7 +543,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
    CHATBOT
    ============================================================ */
 .chat-fab{position:fixed;right:22px;bottom:22px;z-index:95;display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,var(--accent),#9e0a19);color:#fff;border-radius:999px;padding:8px 22px 8px 10px;min-height:56px;box-shadow:0 14px 34px rgba(192,13,32,.45);transition:transform .25s,box-shadow .25s;animation:fabIn .6s cubic-bezier(.2,.9,.3,1.2) both .4s}
-@keyframes fabIn{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fabIn{from{transform:translateY(12px);opacity:0}to{transform:translateY(0);opacity:1}}
 .chat-fab:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(192,13,32,.55)}
 .chat-fab::before{content:'';position:absolute;inset:-4px;border-radius:999px;border:2px solid rgba(192,13,32,.5);animation:fabPulse 2.4s ease-out infinite}
 @keyframes fabPulse{0%{transform:scale(1);opacity:1}70%,100%{transform:scale(1.16);opacity:0}}
@@ -717,9 +720,9 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .trust-grid{grid-template-columns:1fr;padding:18px 16px;gap:4px}
   .hero h1{font-size:36px}
   .hero-art{min-height:340px}
-  .hero-phone svg{width:min(230px,72vw)}
+  .hero-phone svg{width:clamp(170px,60vw,230px)}
   .hero-phone.back{display:none}
-  .hero-chip{display:none}
+  .hero-chip,.hero-chip.chip-ai{display:none}
   .quiz-head,.quiz-body{padding-left:20px;padding-right:20px}
   .quiz-opts{grid-template-columns:1fr}
   .cta-inner{padding:40px 20px}
@@ -737,7 +740,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .about-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr;gap:22px;padding:40px 16px 30px}
   .footer-bottom{flex-direction:column;gap:6px;padding:18px 16px}
-  .chat-fab{right:14px;bottom:14px;padding:0;width:60px;height:60px;justify-content:center;min-height:0}
+  .chat-fab{right:14px;bottom:16px;padding:0;width:60px;height:60px;justify-content:center;min-height:0}
   .chat-fab-text{display:none}
   .chat-fab-ico{width:44px;height:44px}
   .chat-win{inset:8px auto 8px 8px;right:8px;bottom:8px;width:auto;height:auto;max-height:none;border-radius:20px}
@@ -1495,7 +1498,7 @@ let __svgUid = 0;
 function svgColor(name){ return PAL[name] || PAL['Negro']; }
 
 function svgHeader(uid, c, alt){
-  const w = c.wall;
+  const w = c.wall || ['#16161c', '#0a0a0e'];
   return `<svg viewBox="0 0 320 660" role="img" aria-label="${esc(alt)}"><defs>
     <linearGradient id="b${uid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c.hex[0]}"/><stop offset="1" stop-color="${c.hex[1]}"/></linearGradient>
     <linearGradient id="w${uid}" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="${w[0]}"/><stop offset="1" stop-color="${w[1]}"/></linearGradient>
@@ -1744,6 +1747,13 @@ function productArt(p, view, color){
   if (!p) return '';
   if (p.img) return '<img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy" class="prod-img" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">';
   return '<div class="prod-art-fallback">' + esc(p.name) + '</div>';
+}
+function heroPhoneArt(p, view, colorName){
+  if (!p) return '';
+  const c = svgColor(colorName || (p.colors && p.colors[0]) || 'Negro');
+  const uid = ++__svgUid;
+  if (view === 'back') return phoneBack(p, c, uid);
+  return phoneFront(p, c, uid);
 }
 /* ============================================================
    CARRITO + PEDIDOS (lógica pura — testeable en Node)
@@ -2294,8 +2304,8 @@ function renderHome(main){
       </div>
       <div class="hero-art" id="heroArt">
         <div class="hero-glow"></div>
-        <div class="hero-phone back">${productArt(CATALOG.find(p => p.id === 'iphone-16'), 'front', 'Rosa')}</div>
-        <div class="hero-phone">${productArt(CATALOG.find(p => p.id === 'iphone-17-pro-max'), 'front')}</div>
+        <div class="hero-phone back">${heroPhoneArt(CATALOG.find(p => p.id === 'iphone-16'), 'front', 'Rosa')}</div>
+        <div class="hero-phone">${heroPhoneArt(CATALOG.find(p => p.id === 'iphone-17-pro-max'), 'front')}</div>
         <div class="hero-chip chip-price">iPhone 17 Pro Max<b>${fmtCOP(3750000)} <span class="faint" style="font-size:11px">· precio demo</span></b></div>
         <div class="hero-chip chip-ai"><span class="dot"></span> UltraCell IA en línea — <b>¡pregúntale!</b></div>
       </div>

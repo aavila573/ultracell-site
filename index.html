@@ -152,7 +152,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .hero-note{font-size:13.5px;color:rgba(255,255,255,.5);display:flex;gap:18px;flex-wrap:wrap}
 .hero-note b{color:rgba(255,255,255,.85);font-weight:600}
 .hero-art{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center}
-.hero-glow{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(192,13,32,.35),transparent 65%);filter:blur(30px);animation:floatGlow 7s ease-in-out infinite}
+.hero-glow{position:absolute;width:min(380px,100%);aspect-ratio:1;height:auto;border-radius:50%;background:radial-gradient(circle,rgba(192,13,32,.35),transparent 65%);filter:blur(30px);animation:floatGlow 7s ease-in-out infinite}
 @keyframes floatGlow{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.06)}}
 .hero-phone{position:relative;z-index:2;animation:floaty 6.5s ease-in-out infinite}
 .hero-phone svg{width:min(300px,70vw);filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}

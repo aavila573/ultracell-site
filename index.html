@@ -954,32 +954,32 @@ const track = (name, data) => { if (typeof window !== 'undefined' && window.Ultr
    PALETA DE COLORES PARA RENDERS SVG
    ============================================================ */
 const PAL = {
-  'Negro':          {hex:['#2e2e34','#0b0b0f']},
-  'Blanco':         {hex:['#f4f4f6','#c2c2c9']},
-  'Azul':           {hex:['#45556a','#1c2430']},
-  'Verde':          {hex:['#3a6b4e','#1e3a2a']},
-  'Rosa':           {hex:['#f5d0d6','#e8b4bc']},
-  'Morado':         {hex:['#6a5a8e','#3d3258']},
-  'Amarillo':       {hex:['#f5e6a8','#d4c870']},
-  'Rojo':           {hex:['#d4364a','#9e0a19']},
-  'Naranja':        {hex:['#f5a050','#d4732e']},
-  'Plata':          {hex:['#e0e0e8','#b8b8c2']},
-  'Oro':            {hex:['#f5e6c8','#d4bc8e']},
-  'Grafito':        {hex:['#4a4a52','#2a2a32']},
-  'Starlight':      {hex:['#f5f0e8','#d8d0c4']},
-  'Midnight':       {hex:['#1a1a2e','#0a0a18']},
-  'Pacific Blue':   {hex:['#2a5a7a','#1a3a55']},
-  'Sierra Blue':    {hex:['#9bc4d4','#6a9bb0']},
-  'Alpine Green':   {hex:['#4a6b4e','#2a4a2e']},
-  'Deep Purple':    {hex:['#5a4a6e','#3a2e4a']},
-  'Space Black':    {hex:['#2a2a2e','#141418']},
-  'Titanio negro':  {hex:['#2e2e34','#0b0b0f']},
-  'Titanio natural':{hex:['#e3d9c6','#a89c86']},
-  'Titanio blanco': {hex:['#f4f4f6','#c2c2c9']},
-  'Titanio azul':   {hex:['#45556a','#1c2430']},
-  'Titanio desierto':{hex:['#c4a878','#9e8456']},
-  'Pink':           {hex:['#f5d0d6','#e8b4bc']},
-  'Purple':         {hex:['#8a6abf','#5a3e8e']}
+  'Negro':          {hex:['#2e2e34','#0b0b0f'], wall:['#1f1f26','#060608']},
+  'Blanco':         {hex:['#f4f4f6','#c2c2c9'], wall:['#2e2e34','#131318']},
+  'Azul':           {hex:['#45556a','#1c2430'], wall:['#16202e','#0a0e15']},
+  'Verde':          {hex:['#3a6b4e','#1e3a2a'], wall:['#17331f','#0a1a10']},
+  'Rosa':           {hex:['#f5d0d6','#e8b4bc'], wall:['#4a2638','#241019']},
+  'Morado':         {hex:['#6a5a8e','#3d3258'], wall:['#2c2345','#120d20']},
+  'Amarillo':       {hex:['#f5e6a8','#d4c870'], wall:['#3a331a','#1a1609']},
+  'Rojo':           {hex:['#d4364a','#9e0a19'], wall:['#3a0a12','#1a0408']},
+  'Naranja':        {hex:['#f5a050','#d4732e'], wall:['#3a2010','#1a0e05']},
+  'Plata':          {hex:['#e0e0e8','#b8b8c2'], wall:['#2b2b31','#121218']},
+  'Oro':            {hex:['#f5e6c8','#d4bc8e'], wall:['#3a3420','#1a160c']},
+  'Grafito':        {hex:['#4a4a52','#2a2a32'], wall:['#20232c','#0a0b10']},
+  'Starlight':      {hex:['#f5f0e8','#d8d0c4'], wall:['#2e2c26','#141210']},
+  'Midnight':       {hex:['#1a1a2e','#0a0a18'], wall:['#12121f','#06060c']},
+  'Pacific Blue':   {hex:['#2a5a7a','#1a3a55'], wall:['#0e2433','#051019']},
+  'Sierra Blue':    {hex:['#9bc4d4','#6a9bb0'], wall:['#233844','#0e1a20']},
+  'Alpine Green':   {hex:['#4a6b4e','#2a4a2e'], wall:['#1c3320','#0c1a10']},
+  'Deep Purple':    {hex:['#5a4a6e','#3a2e4a'], wall:['#241c33','#0f0b18']},
+  'Space Black':    {hex:['#2a2a2e','#141418'], wall:['#1a1a1e','#08080a']},
+  'Titanio negro':  {hex:['#2e2e34','#0b0b0f'], wall:['#23232b','#060609']},
+  'Titanio natural':{hex:['#e3d9c6','#a89c86'], wall:['#4a4436','#17130d']},
+  'Titanio blanco': {hex:['#f4f4f6','#c2c2c9'], wall:['#2f2f36','#131318']},
+  'Titanio azul':   {hex:['#45556a','#1c2430'], wall:['#16202e','#0a0e15']},
+  'Titanio desierto':{hex:['#c4a878','#9e8456'], wall:['#3a3020','#191306']},
+  'Pink':           {hex:['#f5d0d6','#e8b4bc'], wall:['#4a2638','#241019']},
+  'Purple':         {hex:['#8a6abf','#5a3e8e'], wall:['#33265c','#140f2a']}
 };
 
 /* ============================================================
@@ -1754,8 +1754,33 @@ function artAndroid(p, c, uid, variant){
 /* Render principal: devuelve SVG según producto/variante/color */
 function productArt(p, view, color){
   if (!p) return '';
-  if (p.img) return '<img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy" class="prod-img" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">';
-  return '<div class="prod-art-fallback">' + esc(p.name) + '</div>';
+  view = view || 'front';
+  const c = svgColor(color || (p.colors && p.colors[0]) || 'Negro');
+  switch(p.art){
+    case 'iphone-pro':
+    case 'iphone':
+    case 'phone': {
+      const u = __svgUid++;
+      return view === 'back' ? phoneBack(p, c, u) : phoneFront(p, c, u);
+    }
+    case 'android': {
+      const u = __svgUid++;
+      return artAndroid(p, c, u, view);
+    }
+    case 'airpods': return artAirpods(view);
+    case 'watch': return artWatch(c, view);
+    case 'ipad': return artIpad(c, view);
+    case 'charger': return artCharger();
+    case 'cable': return artCable();
+    case 'case': return artCase(color);
+    case 'magsafe': return artMagsafe();
+    case 'powerbank': return artPowerbank();
+    case 'headphones': return artHeadphones();
+    case 'carmount': return artCarmount();
+    case 'glass': return artGlass();
+    case 'roundwatch': return artRoundwatch(c);
+    default: return phoneFront(p, c, __svgUid++);
+  }
 }
 function heroPhoneArt(p, view, colorName){
   if (!p) return '';

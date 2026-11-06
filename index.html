@@ -161,7 +161,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .search-box{position:relative;display:flex;align-items:center}
 .search-box svg{position:absolute;left:12px;width:15px;height:15px;color:rgba(255,255,255,.5);pointer-events:none}
 .search-box input{width:210px;min-height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;padding:0 14px 0 36px;font-size:14px;outline:none;transition:width .3s ease,border .2s,background .2s}
-.search-box input::placeholder{color:rgba(255,255,255,.45)}
+.search-box input::placeholder{color:rgba(255,255,255,.55)}
 .search-box input:focus{width:280px;border-color:rgba(192,13,32,.7);background:rgba(255,255,255,.1)}
 .header-cta{background:var(--accent);color:#fff;min-height:40px;font-size:13.5px;box-shadow:0 4px 16px rgba(192,13,32,.35)}
 .header-cta:hover{background:var(--accent2)}
@@ -182,7 +182,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .mobile-search.open{display:block}
 .mobile-search .ms-row{display:flex;gap:8px}
 .mobile-search input{flex:1;min-height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;padding:0 16px;outline:none}
-.mobile-search input::placeholder{color:rgba(255,255,255,.45)}
+.mobile-search input::placeholder{color:rgba(255,255,255,.55)}
 .search-toggle{display:none;color:#fff}
 .search-toggle svg{width:20px;height:20px}
 /* ============================================================
@@ -244,7 +244,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .pcard-name{font-size:16px;font-weight:700}
 .pcard-name a:hover{color:var(--accent)}
 .pcard-rating{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
-.stars{color:var(--gold);letter-spacing:1.5px;font-size:12.5px}
+.stars{color:#b8860b;letter-spacing:1.5px;font-size:12.5px}
 .pcard-price{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:17.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
 .pcard-price .was{font-size:13.5px;color:var(--faint);font-weight:500;text-decoration:line-through}
 .pcard-price .save{font-size:11.5px;font-weight:700;color:#b0241b;background:rgba(255,69,58,.1);padding:2px 7px;border-radius:6px}
@@ -3039,7 +3039,7 @@ function greetingMsg(){
     const p = UC_CTX.product;
     return 'Hola 👋 Soy el asesor IA de UltraCell. Veo que estás mirando el ' + p.name + ' (' + fmtCOP(p.price) + '). ¿Te cuento lo bueno o lo comparamos con otros?';
   }
-  return 'Hola 👋 Soy el asesor IA de UltraCell. Cuéntame tu presupuesto o para qué usas el celular, y te recomiendo el ideal. 💙';
+  return 'Hola 👋 Soy el asesor IA de UltraCell. Cuéntame tu presupuesto o para qué usas el celular, y te recomiendo el ideal. ❤️';
 }
 function renderChatMsgs(){
   const box = document.getElementById('chatMsgs');

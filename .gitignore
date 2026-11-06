@@ -1,0 +1,6 @@
+*.log
+node_modules/
+.DS_Store
+Thumbs.db
+*_image_map.json
+.env

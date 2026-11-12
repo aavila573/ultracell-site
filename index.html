@@ -238,8 +238,8 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .pcard{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;position:relative}
 .pcard:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:#dcdce4}
 .pcard-art{position:relative;display:flex;align-items:center;justify-content:center;background:#fff;padding:26px 18px 20px;overflow:hidden}
-.pcard-art svg{width:132px;height:auto;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
-.pcard-art img{width:132px;aspect-ratio:1/2;object-fit:contain;object-position:center;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.pcard-art svg{width:118px;height:auto;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.pcard-art img{width:118px;aspect-ratio:1/2;object-fit:contain;object-position:center;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
 .pcard:hover .pcard-art svg{transform:scale(1.06) translateY(-3px)}
 .pcard:hover .pcard-art img{transform:scale(1.06) translateY(-3px)}
 .pcard .badge{position:absolute;top:14px;left:14px;z-index:2;box-shadow:var(--sh-sm)}
@@ -711,6 +711,11 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width:1180px){
+  .catalog-layout{grid-template-columns:1fr}
+  .filters{display:none}
+  .filter-btn-mobile{display:inline-flex}
+}
 @media (max-width:1120px){
   .main-nav a{padding:10px 9px;font-size:13.5px}
   .search-box input{width:150px}
@@ -718,9 +723,6 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .header-cta{font-size:12.5px;padding:0 12px}
   .grid-4{grid-template-columns:repeat(3,1fr)}
   .cart-layout,.checkout-layout{grid-template-columns:1fr 320px}
-  .catalog-layout{grid-template-columns:1fr}
-  .filters{display:none}
-  .filter-btn-mobile{display:inline-flex}
 }
 @media (max-width:980px){
   .main-nav{display:none}
@@ -791,8 +793,8 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 }
 @media (max-width:400px){
   .grid-4,.grid-3{grid-template-columns:1fr}
-  .pcard-art svg{width:130px}
-  .pcard-art img{width:130px}
+  .pcard-art svg{width:118px}
+  .pcard-art img{width:118px}
 }
 
 </style>
@@ -811,9 +813,6 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
     <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
       <a href="#/inicio" data-nav="inicio">Inicio</a>
       <a href="#/catalogo?categoria=iphone" data-nav="iphone">iPhone</a>
-      
-      
-      
       <a href="#/nosotros" data-nav="nosotros">Nosotros</a>
     </nav>
     <div class="header-actions">
@@ -1990,7 +1989,9 @@ function recommendQuiz(answers){
   phones.forEach(p => { if (score[p.id] > bestScore) { bestScore = score[p.id]; best = p; } });
   const reasons = [];
   const poolName = ({'lt1':'presupuesto ajustado','1_2':'presupuesto medio','2_3':'presupuesto alto','gt3':'presupuesto sin límite'})[answers.budget];
-  reasons.push('Cabe en tu ' + poolName);
+  const budgetCeil = ({'lt1':999999,'1_2':2000000,'2_3':3000000,'gt3':Infinity})[answers.budget];
+  const overBudget = best && best.price > budgetCeil;
+  reasons.push(overBudget ? ('Queda por encima de tu ' + poolName + ', pero es el más cercano') : ('Cabe en tu ' + poolName));
   if (answers.cam === 'mucho') reasons.push('Cámara de nivel profesional para fotos y video');
   if (answers.use === 'juegos') reasons.push('Rinde duro con juegos exigentes');
   if (answers.use === 'trabajo') reasons.push('Ideal para trabajo y multitarea');
@@ -2366,7 +2367,7 @@ function updateHeaderActive(r){
   document.querySelectorAll('#mainNav a').forEach(a => a.classList.remove('active'));
   let key = null;
   if (r.path === '/inicio') key = 'inicio';
-  else if (r.path === '/catalogo') key = r.params.get('categoria') || (r.params.get('oferta') ? 'ofertas' : null);
+  else if (r.path === '/catalogo') key = r.params.get('categoria');
   else if (r.path === '/nosotros') key = 'nosotros';
   if (key){ const el = document.querySelector('#mainNav a[data-nav="' + key + '"]'); if (el) el.classList.add('active'); }
 }
@@ -2524,7 +2525,6 @@ function renderQuiz(box){
 const uiFilters = { cats:new Set(), brands:new Set(), pricePreset:'', min:'', max:'', storage:new Set(), estado:new Set(), color:new Set(), onlyStock:false };
 let uiSort = 'featured';
 let lastSearch = null;
-let ofertaOnly = false;
 
 const CATS = ['iphone','ipad'];
 const CAT_LABEL = { iphone:'iPhone', ipad:'iPad' };
@@ -2588,7 +2588,6 @@ function applyUiFilters(list){
 }
 function activeChipsHTML(){
   const chips = [];
-  if (ofertaOnly) chips.push(['oferta', 'Solo ofertas']);
   uiFilters.cats.forEach(c => chips.push(['cat', CAT_LABEL[c]]));
   uiFilters.brands.forEach(b => chips.push(['brand', b]));
   if (uiFilters.pricePreset){ const pp = PRICE_PRESETS.find(x => x[0] === uiFilters.pricePreset); if (pp) chips.push(['pricePreset', pp[1]]); }
@@ -2605,16 +2604,14 @@ function renderCatalog(main, params){
   UC_CTX.product = null;
   if (params.get('categoria')) uiFilters.cats = new Set([params.get('categoria')]);
   if (params.get('marca')) uiFilters.brands = new Set([params.get('marca')]);
-  ofertaOnly = params.get('oferta') === '1';
   const q = params.get('q');
   if (q){ if (!lastSearch || lastSearch.query !== q){ lastSearch = smartSearch(q); track('search', { query: q, mode: lastSearch.mode }); } }
   else lastSearch = null;
   let list = [ ...PRODUCTS ];
-  if (ofertaOnly) list = list.filter(p => p.compareAtPrice);
   if (lastSearch && lastSearch.filter) list = list.filter(lastSearch.filter);
   list = applyUiFilters(list);
   const sorted = sortList(list, lastSearch && lastSearch.sort ? lastSearch.sort : uiSort);
-  const title = params.get('categoria') ? CAT_LABEL[params.get('categoria')] : ofertaOnly ? 'Ofertas' : lastSearch ? 'Resultados de búsqueda' : 'Catálogo completo';
+  const title = params.get('categoria') ? CAT_LABEL[params.get('categoria')] : lastSearch ? 'Resultados de búsqueda' : 'Catálogo completo';
   main.innerHTML = `<div class="container page catalog-page">
     <div class="catalog-head" style="margin-bottom:22px">
       <h1 style="font-size:clamp(26px,3.4vw,36px)">${esc(title)}</h1>
@@ -2667,7 +2664,6 @@ function clearFilters(){
   uiFilters.cats = new Set(); uiFilters.brands = new Set(); uiFilters.pricePreset = '';
   uiFilters.min = ''; uiFilters.max = ''; uiFilters.storage = new Set(); uiFilters.estado = new Set();
   uiFilters.color = new Set(); uiFilters.onlyStock = false;
-  ofertaOnly = false;
 }
 
 /* ============================================================
@@ -2843,7 +2839,8 @@ const IMAGE_MANIFEST = {
     side: [],
     diagonal: ['assets/catalogo/iphone-17-pro-diagonal-color-individual-cosmic-orange-vista-3-4.webp'],
     colors: {
-      naranja: { diagonal: ['assets/catalogo/iphone-17-pro-diagonal-color-individual-cosmic-orange-vista-3-4.webp'] }
+      naranja: { diagonal: ['assets/catalogo/iphone-17-pro-diagonal-color-individual-cosmic-orange-vista-3-4.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-17-pro-color-silver.webp'] }
     }
   },
   'iphone-17-pro-max': {
@@ -2852,7 +2849,8 @@ const IMAGE_MANIFEST = {
     side: [],
     diagonal: ['assets/catalogo/iphone-17-pro-max-diagonal-color-individual-cosmic-orange-compartido.webp'],
     colors: {
-      naranja: { diagonal: ['assets/catalogo/iphone-17-pro-max-diagonal-color-individual-cosmic-orange-compartido.webp'] }
+      naranja: { diagonal: ['assets/catalogo/iphone-17-pro-max-diagonal-color-individual-cosmic-orange-compartido.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-17-pro-max-color-silver.webp'] }
     }
   }
 };
@@ -2872,7 +2870,9 @@ IMAGE_FILES.add('assets/catalogo/ipad-8a-generacion.webp');
    RENDERS INDIVIDUALES + FOTO INDIVIDUAL FOTOGRÁFICA (DEV-2026-052 / 053)
    - TARJETA (DEV-2026-053): SIEMPRE render individual <modelo>-render.webp
      (iPad: ipad-8a-generacion.webp). Consistencia total estilo Apple Store.
-   - PRINCIPAL DE FICHA: color con foto > foto individual fotográfica > render.
+   - PRINCIPAL DE FICHA: color con foto en colors{} > render neutro
+     <modelo>-render.webp. La individual fotográfica de color solo se muestra
+     al elegir ESE color o como miniatura de galería (NUNCA como neutra).
    NUNCA una compuesta/lineup/2-up como tarjeta o principal.
    ============================================================ */
 const RENDER_MODELS = ['iphone-11','iphone-12','iphone-12-pro-max','iphone-13','iphone-13-pro','iphone-13-pro-max','iphone-14','iphone-14-plus','iphone-14-pro','iphone-14-pro-max','iphone-15','iphone-15-plus','iphone-15-pro','iphone-15-pro-max','iphone-16','iphone-16-plus','iphone-16-pro','iphone-16-pro-max','iphone-17','iphone-17-air','iphone-17-pro','iphone-17-pro-max'];
@@ -2995,7 +2995,8 @@ function colorEntryFor(p, color){
   if (!m || !m.colors || !color) return null;
   return m.colors[imgSlug(color)] || null;
 }
-/* Imagen real para (producto, color, vista): foto específica del color > individual NEUTRA > placeholder.
+/* Imagen real para (producto, color, vista): foto específica del color > render neutro
+   (si el color no tiene foto) > individual NEUTRA (solo iPad, sin render) > placeholder.
    NUNCA una compuesta/lineup como principal de una variante (con o sin color). */
 function neutralSrc(p, view){
   const nm = NEUTRAL_MANIFEST[imgSlug((p && p.name) || '')] || {};
@@ -3005,10 +3006,10 @@ function viewSrc(p, color, view){
   const c = colorEntryFor(p, color);
   if (c && c[view] && c[view].length) return c[view][0];
   if (view === 'front'){
-    const ind = INDIVIDUAL_PHOTO[imgSlug((p && p.name) || '')];
-    if (ind && hasImage(ind)) return ind;
     const r = renderSrc(p);
     if (r) return r;
+    const ind = INDIVIDUAL_PHOTO[imgSlug((p && p.name) || '')];
+    if (ind && hasImage(ind)) return ind;
     if (p.img && hasImage(p.img)) return p.img;
     return null;
   }
@@ -3830,8 +3831,7 @@ function handleAction(action, el){
     case 'drawer-apply': closeDrawer(); reRenderCurrent(); break;
     case 'f-clear': clearFilters(); if (currentRoute().path === '/catalogo') reRenderCurrent(); else { closeDrawer(); navigate('/catalogo'); } break;
     case 'chip-clear': {
-      if (payload === 'oferta') ofertaOnly = false;
-      else if (payload === 'cat') uiFilters.cats = new Set();
+      if (payload === 'cat') uiFilters.cats = new Set();
       else if (payload === 'brand') uiFilters.brands = new Set();
       else if (payload === 'pricePreset') uiFilters.pricePreset = '';
       else if (payload === 'min') uiFilters.min = '';

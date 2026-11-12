@@ -1329,12 +1329,12 @@ const VARIANTS = [
   },
   {
     id: 'iphone-16-pro-max-512gb', productoId: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max',
-    capacidad: '512 GB', colores: ['Azul', 'Negro'], precio: 3000000, stock: 20,
+    capacidad: '512 GB', colores: ['Negro'], precio: 3000000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
   {
     id: 'iphone-16-pro-max-256gb', productoId: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max',
-    capacidad: '256 GB', colores: ['Natural', 'Negro', 'Azul', 'Lila'], precio: 2850000, stock: 20,
+    capacidad: '256 GB', colores: ['Natural', 'Negro'], precio: 2850000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
   {
@@ -1344,7 +1344,7 @@ const VARIANTS = [
   },
   {
     id: 'iphone-16-pro-128gb', productoId: 'iphone-16-pro', name: 'iPhone 16 Pro',
-    capacidad: '128 GB', colores: ['Natural', 'Blanco', 'Negro', 'Azul'], precio: 2450000, stock: 20,
+    capacidad: '128 GB', colores: ['Natural', 'Blanco', 'Negro'], precio: 2450000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
   {
@@ -1399,12 +1399,12 @@ const VARIANTS = [
   },
   {
     id: 'iphone-14-pro-256gb', productoId: 'iphone-14-pro', name: 'iPhone 14 Pro',
-    capacidad: '256 GB', colores: ['Azul', 'Negro', 'Blanco'], precio: 1700000, stock: 20,
+    capacidad: '256 GB', colores: ['Negro', 'Blanco'], precio: 1700000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
   {
     id: 'iphone-14-pro-128gb', productoId: 'iphone-14-pro', name: 'iPhone 14 Pro',
-    capacidad: '128 GB', colores: ['Negro', 'Azul', 'Natural'], precio: 1600000, stock: 20,
+    capacidad: '128 GB', colores: ['Negro'], precio: 1600000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
   {
@@ -1474,12 +1474,12 @@ const VARIANTS = [
   },
   {
     id: 'iphone-11-128gb', productoId: 'iphone-11', name: 'iPhone 11',
-    capacidad: '128 GB', colores: ['Negro', 'Azul blanco'], precio: 800000, stock: 20,
+    capacidad: '128 GB', colores: ['Negro'], precio: 800000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
   {
     id: 'ipad-8a-generacion-64gb', productoId: 'ipad-8a-generacion', name: 'iPad 8a generacion',
-    capacidad: '64 GB', colores: ['Negro', 'Azul', 'Blanco'], precio: 750000, stock: 20,
+    capacidad: '64 GB', colores: ['Negro', 'Blanco'], precio: 750000, stock: 20,
     estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
 ];
@@ -2689,23 +2689,29 @@ const IMAGE_MANIFEST = {
   'ipad-8a-generacion': {
     front: ['assets/catalogo/ipad-8a-generacion-front-frontal-con-smart-keyboard.webp', 'assets/catalogo/ipad-8a-generacion-front-lineup-frontal.webp'],
     back: ['assets/catalogo/ipad-8a-generacion-back-colores-silver-space-gray-gold.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro:  { front: ['assets/catalogo/ipad-8a-generacion-color-negro.webp'] },
+      blanco: { front: ['assets/catalogo/ipad-8a-generacion-color-blanco.webp'] }
+    }
   },
   'iphone-11': {
     front: ['assets/catalogo/iphone-11-front-lineup-frontal-de-la-familia-iphone-11-6-colores.webp'],
     back: ['assets/catalogo/iphone-11-back-roseta-de-los-6-colores-vistas-traseras.webp'],
     side: [],
     diagonal: ['assets/catalogo/iphone-11-diagonal-shot-de-resistencia-al-agua-ngulo-3-4-no-es-foto-de-cat-logo-limpia.webp'],
-    colors: {}
+    colors: {
+      negro: { front: ['assets/catalogo/iphone-11-color-negro.webp'] }
+    }
   },
   'iphone-12': {
     front: ['assets/catalogo/iphone-12-front-nuevo-dise-o-de-bordes-planos-frontal.webp', 'assets/catalogo/iphone-12-front-2-up-iphone-12-12-mini-frontal.webp'],
     back: ['assets/catalogo/iphone-12-back-color-individual-azul-trasera.webp', 'assets/catalogo/iphone-12-back-color-individual-blanco-trasera.webp', 'assets/catalogo/iphone-12-back-color-individual-negro-trasera.webp', 'assets/catalogo/iphone-12-back-color-individual-product-red-trasera-extra.webp', 'assets/catalogo/iphone-12-back-color-individual-verde-trasera-extra.webp'],
     side: [], diagonal: [],
     colors: {
-      azul:   { back: ['assets/catalogo/iphone-12-back-color-individual-azul-trasera.webp'] },
-      blanco: { back: ['assets/catalogo/iphone-12-back-color-individual-blanco-trasera.webp'] },
-      negro:  { back: ['assets/catalogo/iphone-12-back-color-individual-negro-trasera.webp'] },
+      azul:   { front: ['assets/catalogo/iphone-12-color-azul.webp'], back: ['assets/catalogo/iphone-12-back-color-individual-azul-trasera.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-12-color-blanco.webp'], back: ['assets/catalogo/iphone-12-back-color-individual-blanco-trasera.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-12-color-negro.webp'], back: ['assets/catalogo/iphone-12-back-color-individual-negro-trasera.webp'] },
       rojo:   { back: ['assets/catalogo/iphone-12-back-color-individual-product-red-trasera-extra.webp'] },
       verde:  { back: ['assets/catalogo/iphone-12-back-color-individual-verde-trasera-extra.webp'] }
     }
@@ -2716,8 +2722,10 @@ const IMAGE_MANIFEST = {
     side: [],
     diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-gold-detalle-banda-de-acero-3-4.webp', 'assets/catalogo/iphone-12-pro-max-diagonal-color-individual-pacific-blue-azul-vista-3-4.webp'],
     colors: {
-      azul: { diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-pacific-blue-azul-vista-3-4.webp'] },
-      oro:  { diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-gold-detalle-banda-de-acero-3-4.webp'] }
+      azul:   { front: ['assets/catalogo/iphone-12-pro-max-color-azul.webp'], diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-pacific-blue-azul-vista-3-4.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-12-pro-max-color-negro.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-12-pro-max-color-blanco.webp'] },
+      oro:    { diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-gold-detalle-banda-de-acero-3-4.webp'] }
     }
   },
   'iphone-13': {
@@ -2725,27 +2733,38 @@ const IMAGE_MANIFEST = {
     back: ['assets/catalogo/iphone-13-back-colores-traseras-apiladas.webp', 'assets/catalogo/iphone-13-back-dise-o-trasero-c-maras-diagonales.webp'],
     side: [], diagonal: [],
     colors: {
-      rosado: { front: ['assets/catalogo/iphone-13-front-individual-rosa-pink.webp'] }
+      rosado: { front: ['assets/catalogo/iphone-13-color-rosado.webp', 'assets/catalogo/iphone-13-front-individual-rosa-pink.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-13-color-blanco.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-13-color-negro.webp'] }
     }
   },
   'iphone-13-pro': {
     front: ['assets/catalogo/iphone-13-pro-front-hero-2-up-13-pro-13-pro-max-frontal.webp', 'assets/catalogo/iphone-13-pro-front-closeup-azul-sierra-sierra-blue.webp'],
     back: ['assets/catalogo/iphone-13-pro-back-colores-traseras.webp', 'assets/catalogo/iphone-13-pro-back-nuevo-sistema-de-c-maras-trasera.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro:  { front: ['assets/catalogo/iphone-13-pro-color-negro.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-13-pro-color-blanco.webp'] }
+    }
   },
   'iphone-13-pro-max': {
     front: ['assets/catalogo/iphone-13-pro-max-front-hero-2-up-13-pro-13-pro-max-frontal-imagen-compartida.webp'],
     back: ['assets/catalogo/iphone-13-pro-max-back-colores-traseras-imagen-compartida.webp', 'assets/catalogo/iphone-13-pro-max-back-nuevo-sistema-de-c-maras-trasera-imagen-compartida.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro:  { front: ['assets/catalogo/iphone-13-pro-max-color-negro.webp'] },
+      azul:   { front: ['assets/catalogo/iphone-13-pro-max-color-azul.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-13-pro-max-color-blanco.webp'] }
+    }
   },
   'iphone-14': {
     front: ['assets/catalogo/iphone-14-front-color-individual-midnight-negro.webp', 'assets/catalogo/iphone-14-front-hero-2-up-14-14-plus-frontal.webp', 'assets/catalogo/iphone-14-front-hero-5-colores-frontal.webp', 'assets/catalogo/iphone-14-front-color-individual-blue-extra.webp', 'assets/catalogo/iphone-14-front-color-individual-product-red-extra.webp', 'assets/catalogo/iphone-14-front-color-individual-purple-lila.webp', 'assets/catalogo/iphone-14-front-color-individual-starlight-blanco.webp'],
     back: ['assets/catalogo/iphone-14-back-trasera-c-maras-nota-alojada-bajo-ruta-product-watch-en-el-cdn-de-apple.webp'],
     side: [], diagonal: [],
     colors: {
-      blanco: { front: ['assets/catalogo/iphone-14-front-color-individual-starlight-blanco.webp'] },
-      lila:   { front: ['assets/catalogo/iphone-14-front-color-individual-purple-lila.webp'] },
-      negro:  { front: ['assets/catalogo/iphone-14-front-color-individual-midnight-negro.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-14-color-blanco.webp', 'assets/catalogo/iphone-14-front-color-individual-starlight-blanco.webp'] },
+      lila:   { front: ['assets/catalogo/iphone-14-color-lila.webp', 'assets/catalogo/iphone-14-front-color-individual-purple-lila.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-14-color-negro.webp', 'assets/catalogo/iphone-14-front-color-individual-midnight-negro.webp'] },
       azul:   { front: ['assets/catalogo/iphone-14-front-color-individual-blue-extra.webp'] },
       rojo:   { front: ['assets/catalogo/iphone-14-front-color-individual-product-red-extra.webp'] }
     }
@@ -2755,8 +2774,8 @@ const IMAGE_MANIFEST = {
     back: ['assets/catalogo/iphone-14-plus-back-trasera-c-maras-compartido.webp'],
     side: [], diagonal: [],
     colors: {
-      negro:  { front: ['assets/catalogo/iphone-14-plus-front-color-individual-midnight-negro.webp'] },
-      blanco: { front: ['assets/catalogo/iphone-14-plus-front-color-individual-starlight-blanco.webp'] }
+      negro:  { front: ['assets/catalogo/iphone-14-plus-color-negro.webp', 'assets/catalogo/iphone-14-plus-front-color-individual-midnight-negro.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-14-plus-color-blanco.webp', 'assets/catalogo/iphone-14-plus-front-color-individual-starlight-blanco.webp'] }
     }
   },
   'iphone-14-pro': {
@@ -2766,8 +2785,8 @@ const IMAGE_MANIFEST = {
     colors: {
       morado: { front: ['assets/catalogo/iphone-14-pro-front-color-individual-deep-purple.webp'] },
       oro:    { front: ['assets/catalogo/iphone-14-pro-front-color-individual-gold.webp'] },
-      blanco: { front: ['assets/catalogo/iphone-14-pro-front-color-individual-silver-blanco.webp'] },
-      negro:  { front: ['assets/catalogo/iphone-14-pro-front-color-individual-space-black-negro.webp'] }
+      blanco: { front: ['assets/catalogo/iphone-14-pro-color-blanco.webp', 'assets/catalogo/iphone-14-pro-front-color-individual-silver-blanco.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-14-pro-color-negro.webp', 'assets/catalogo/iphone-14-pro-front-color-individual-space-black-negro.webp'] }
     }
   },
   'iphone-14-pro-max': {
@@ -2775,8 +2794,8 @@ const IMAGE_MANIFEST = {
     back: ['assets/catalogo/iphone-14-pro-max-back-trasera-c-maras-compartido.webp'],
     side: [], diagonal: [],
     colors: {
-      blanco: { front: ['assets/catalogo/iphone-14-pro-max-front-color-individual-silver-blanco.webp'] },
-      negro:  { front: ['assets/catalogo/iphone-14-pro-max-front-color-individual-space-black-negro.webp'] }
+      blanco: { front: ['assets/catalogo/iphone-14-pro-max-color-blanco.webp', 'assets/catalogo/iphone-14-pro-max-front-color-individual-silver-blanco.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-14-pro-max-color-negro.webp', 'assets/catalogo/iphone-14-pro-max-front-color-individual-space-black-negro.webp'] }
     }
   },
   'iphone-15': {
@@ -2784,43 +2803,77 @@ const IMAGE_MANIFEST = {
     back: ['assets/catalogo/iphone-15-back-colores-traseras.webp', 'assets/catalogo/iphone-15-back-dise-o-trasero-vidrio-con-infusi-n-de-color.webp'],
     side: [], diagonal: [],
     colors: {
-      azul: { front: ['assets/catalogo/iphone-15-front-individual-azul.webp'] }
+      azul:   { front: ['assets/catalogo/iphone-15-color-azul.webp', 'assets/catalogo/iphone-15-front-individual-azul.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-15-color-negro.webp'] },
+      rosado: { front: ['assets/catalogo/iphone-15-color-rosado.webp'] }
     }
   },
   'iphone-15-plus': {
     front: ['assets/catalogo/iphone-15-plus-front-hero-2-up-compartido.webp'],
     back: ['assets/catalogo/iphone-15-plus-back-colores-compartido.webp', 'assets/catalogo/iphone-15-plus-back-dise-o-trasero-compartido.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro: { front: ['assets/catalogo/iphone-15-plus-color-negro.webp'] }
+    }
   },
   'iphone-15-pro': {
     front: ['assets/catalogo/iphone-15-pro-front-hero-2-up-15-pro-15-pro-max-frontal.webp', 'assets/catalogo/iphone-15-pro-front-individual-n-a-closeup.webp'],
     back: ['assets/catalogo/iphone-15-pro-back-colores-titanio-traseras.webp', 'assets/catalogo/iphone-15-pro-back-dise-o-titanio-trasera-alojada-en-art-culo-del-iphone-15.webp', 'assets/catalogo/iphone-15-pro-back-sistema-de-c-maras-trasera.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro:   { front: ['assets/catalogo/iphone-15-pro-color-negro.webp'] },
+      azul:    { front: ['assets/catalogo/iphone-15-pro-color-azul.webp'] },
+      natural: { front: ['assets/catalogo/iphone-15-pro-color-natural.webp'] },
+      blanco:  { front: ['assets/catalogo/iphone-15-pro-color-blanco.webp'] }
+    }
   },
   'iphone-15-pro-max': {
     front: ['assets/catalogo/iphone-15-pro-max-front-hero-2-up-compartido.webp', 'assets/catalogo/iphone-15-pro-max-front-closeup-n-a-closeup.webp'],
     back: ['assets/catalogo/iphone-15-pro-max-back-colores-titanio-compartido.webp', 'assets/catalogo/iphone-15-pro-max-back-dise-o-titanio-compartido.webp', 'assets/catalogo/iphone-15-pro-max-back-sistema-de-c-maras-compartido.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      azul:    { front: ['assets/catalogo/iphone-15-pro-max-color-azul.webp'] },
+      negro:   { front: ['assets/catalogo/iphone-15-pro-max-color-negro.webp'] },
+      blanco:  { front: ['assets/catalogo/iphone-15-pro-max-color-blanco.webp'] },
+      natural: { front: ['assets/catalogo/iphone-15-pro-max-color-natural.webp'] }
+    }
   },
   'iphone-16': {
     front: ['assets/catalogo/iphone-16-front-hero-2-up-16-16-plus-frontal.webp', 'assets/catalogo/iphone-16-front-lineup-frontal.webp'],
     back: ['assets/catalogo/iphone-16-back-acabados-colores-traseras.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro: { front: ['assets/catalogo/iphone-16-color-negro.webp'] }
+    }
   },
   'iphone-16-plus': {
     front: ['assets/catalogo/iphone-16-plus-front-hero-2-up-compartido.webp', 'assets/catalogo/iphone-16-plus-front-lineup-compartido.webp'],
     back: ['assets/catalogo/iphone-16-plus-back-acabados-colores-compartido.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro: { front: ['assets/catalogo/iphone-16-plus-color-negro.webp'] },
+      azul:  { front: ['assets/catalogo/iphone-16-plus-color-azul.webp'] }
+    }
   },
   'iphone-16-pro': {
     front: ['assets/catalogo/iphone-16-pro-front-hero-2-up-16-pro-16-pro-max-frontal.webp', 'assets/catalogo/iphone-16-pro-front-closeup-n-a-closeup.webp'],
     back: ['assets/catalogo/iphone-16-pro-back-acabados-titanio-traseras.webp', 'assets/catalogo/iphone-16-pro-back-sistema-de-c-maras-trasera.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      desierto: { front: ['assets/catalogo/iphone-16-pro-color-desierto.webp'] },
+      natural:  { front: ['assets/catalogo/iphone-16-pro-color-natural.webp'] },
+      blanco:   { front: ['assets/catalogo/iphone-16-pro-color-blanco.webp'] },
+      negro:    { front: ['assets/catalogo/iphone-16-pro-color-negro.webp'] }
+    }
   },
   'iphone-16-pro-max': {
     front: ['assets/catalogo/iphone-16-pro-max-front-hero-2-up-compartido.webp'],
     back: ['assets/catalogo/iphone-16-pro-max-back-acabados-titanio-compartido.webp', 'assets/catalogo/iphone-16-pro-max-back-sistema-de-c-maras-compartido.webp'],
-    side: [], diagonal: [], colors: {}
+    side: [], diagonal: [],
+    colors: {
+      negro:   { front: ['assets/catalogo/iphone-16-pro-max-color-negro.webp'] },
+      natural: { front: ['assets/catalogo/iphone-16-pro-max-color-natural.webp'] }
+    }
   },
   'iphone-17-air': {
     front: ['assets/catalogo/iphone-17-air-front-hero-individual-frontal.webp', 'assets/catalogo/iphone-17-air-front-lineup-familia-frontal.webp'],

@@ -1,39 +1,43 @@
-# UltraCell — Sitio web (demo)
+# UltraCell — Sitio web (entorno de PRUEBA)
 
-SPA de una sola página para UltraCell, almacén de celulares nuevos y usados en Barranquilla, Colombia. Clon de la demo Juls adaptado a la marca UltraCell con catálogo de productos, carrito, checkout por WhatsApp, asesor IA integrado y notas de demostración.
+SPA de una sola página para UltraCell, almacén de celulares nuevos y usados en Barranquilla, Colombia. Incluye catálogo de productos, carrito, checkout por WhatsApp, asesor IA con reglas locales y catálogo real de equipos usados.
+
+> ⚠️ **Este repositorio es el entorno de PRUEBA** (`ultracell-preview`). Producción vive en un repo separado y no se toca desde acá. Los cambios se validan antes de pasar a producción.
 
 ## Qué hace
 
-- Catálogo de 32 productos iPhone (nuevos y usados, múltiples capacidades y colores).
-- Carrito de compras con checkout que envía el resumen por WhatsApp a UltraCell.
-- Asesor IA con reglas locales (recomendador por presupuesto, comparador, dudas frecuentes).
-- Sección "Nosotros" con historia basada en datos reales del brief.
-- SEO completo (title, meta, Open Graph, Twitter Card, schema Store, FAQPage).
-- Diseño mobile-first con modo oscuro, identidad roja (#c00d20).
+- Catálogo de **22 modelos** (21 iPhone + 1 iPad) con **variantes de capacidad y color** (arrays `PRODUCTS` + `VARIANTS` en `index.html`).
+- Carrito de compras en memoria con checkout que **envía el pedido por WhatsApp** con la **variante exacta** (modelo + capacidad + color) y el total.
+- Pago **simulado (demo)**: no hay pasarela real ni se realiza ningún cobro. Los textos de confirmación lo dejan explícito.
+- Asesor IA con reglas locales: quiz recomendador por presupuesto, comparador y búsqueda por modelos.
+- Hero real con imagen webp (`hero-17pm-plata.webp`) precargada vía `<link rel="preload">`.
+- Sección "Nosotros", FAQ y ficha de producto con galería, lightbox y selector de color.
+- SEO completo (title, meta description, Open Graph, canonical, schema Store + FAQPage, sitemap, robots).
 
 ## Tecnologías
 
 - HTML5 semántico
-- CSS3 embebido (design tokens con custom properties, mobile-first, modo oscuro)
+- CSS3 embebido (design tokens con custom properties, mobile-first)
 - JavaScript vanilla embebido (SPA con hash routing, IntersectionObserver, carrito en memoria)
 - Sin dependencias externas ni frameworks
+- Sin modo oscuro (paleta clara fija)
 
 ## Estructura del proyecto
 
 ```
-ultracell-site/
-├── index.html              # HTML + CSS + JS embebidos (SPA completa)
-├── README.md               # Este archivo
-├── sitemap.xml             # Sitemap para SEO
-├── robots.txt              # Directivas para crawlers
+ultracell-preview/
+├── index.html                # HTML + CSS + JS embebidos (SPA completa)
+├── README.md                 # Este archivo
+├── sitemap.xml               # Sitemap para SEO
+├── robots.txt                # Directivas para crawlers
+├── imagenes_pendientes.txt   # Referencia de nomenclatura de imágenes
 └── assets/
-    ├── logo.jpeg               # Logo de UltraCell (1280×1280)
-    ├── foto_local.png          # Foto del local (1200×480)
-    └── catalogo/               # Imágenes de productos (22 archivos .jpg)
-        ├── iphone-11.jpg
-        ├── iphone-12.jpg
-        ├── ...
-        └── iphone-17-pro-max.jpg
+    ├── logo.jpeg             # Logo de UltraCell
+    ├── foto_local.png        # Foto del local (Open Graph)
+    └── catalogo/             # Fotos reales de productos en .webp (141 archivos)
+        ├── hero-17pm-plata.webp
+        ├── iphone-11-*.webp
+        └── ...
 ```
 
 ## Instalación
@@ -41,25 +45,24 @@ ultracell-site/
 No requiere instalación ni dependencias. Es un sitio estático.
 
 ```bash
-# Clonar (cuando el repo remoto exista)
 git clone <repo-url>
-cd ultracell-site
+cd ultracell-preview
 ```
 
 ## Uso local
 
-Abrir `index.html` directamente en un navegador, o servir con cualquier servidor estático:
+Servir con cualquier servidor estático (usar `file://` directo puede fallar por rutas):
 
 ```bash
-python -m http.server 8000
-# visitar http://localhost:8000
+python -m http.server 8801
+# visitar http://localhost:8801
 ```
 
 ## Configuración
 
 ### Variables de entorno
 
-No requiere variables de entorno. Es un sitio estático sin backend. La pasarela de pagos (Wompi) está en modo Sandbox (simulada); en producción las llaves privadas se manejarían solo en el backend.
+No requiere variables de entorno. Es un sitio estático sin backend. **No hay pasarela de pagos**: el checkout es un pedido por WhatsApp y el pago es simulado (demo).
 
 ### Datos de contacto (hardcodeados en el HTML)
 
@@ -76,20 +79,33 @@ Para cambiar estos datos, editar `index.html` directamente.
 
 ## Catálogo y carrito
 
-- 32 productos iPhone en el catálogo (array `CATALOG` en `index.html`), desde iPhone 11 hasta iPhone 17 Pro Max.
+- **22 modelos** en `PRODUCTS`, cada uno con variantes en `VARIANTS` (capacidad, colores, precio, stock, condición de batería, garantía).
+- Fotos reales en `.webp` bajo `assets/catalogo/` (141 archivos). El manifiesto `IMAGE_MANIFEST` en `index.html` lista los archivos disponibles; si un archivo no está en el manifiesto, la vista cae a un SVG paramétrico (sin 404 ni errores de consola).
 - Carrito en memoria (sin persistencia): agregar, quitar, ajustar cantidades.
-- Checkout envía el resumen del carrito por WhatsApp al número de UltraCell con mensaje prellenado.
-- Precios de demostración (COP). Badges de oferta, novedad y más vendidos.
+- Checkout por WhatsApp: arma un mensaje con cada línea (modelo + capacidad + color + cantidad + precio) y el total, para confirmar disponibilidad y entrega.
+- Badge `Usado` (condición y batería reales por variante, garantía 6 meses).
+
+## Ficha de producto: galería, lightbox y selector de colores
+
+La ficha (`#/producto/:id`) muestra una galería de hasta 4 vistas por producto
+(`front`, `back`, `side`, `camera`), lightbox con navegación y selector de colores
+con círculos y nombre visible. Las vistas se resuelven desde `assets/catalogo/`
+según `IMAGE_MANIFEST`; el resto usa SVG paramétrico por color.
+
+### Selector de colores
+
+Derivado de `colors[]` + `PAL`. Al cambiar de color se actualizan la imagen y las
+miniaturas; el precio, la capacidad y la disponibilidad no cambian.
 
 ## Integraciones
 
 ### WhatsApp
 
-El botón flotante, el checkout y todos los CTAs apuntan a `https://wa.me/573007527308` con mensaje prellenado. No requiere credenciales ni API — es un enlace wa.me estándar.
+El botón flotante, el checkout y los CTAs apuntan a `https://wa.me/573007527308` con mensaje prellenado. No requiere credenciales ni API — es un enlace `wa.me` estándar.
 
 ### Asesor IA
 
-Chat con reglas locales que conoce el catálogo: recomienda por presupuesto, compara modelos y resuelve dudas de envíos y pagos. No comparte datos con terceros; funciona offline.
+Chat con reglas locales que conoce el catálogo: recomienda por presupuesto (quiz), compara modelos y resuelve dudas de envíos y pagos. No comparte datos con terceros; funciona offline.
 
 ## Deployment
 
@@ -98,11 +114,11 @@ Chat con reglas locales que conoce el catálogo: recomienda por presupuesto, com
 1. Crear repositorio en GitHub
 2. Subir el contenido del proyecto
 3. Activar GitHub Pages en Settings → Pages, rama `main`, carpeta `/root`
-4. El sitio quedará disponible en `https://<usuario>.github.io/ultracell-site/`
+4. El sitio quedará disponible en `https://<usuario>.github.io/ultracell-preview/`
 
 ### Dominio personalizado
 
-El dominio `ultracell.com.co` está pendiente de compra por el cliente en Hostinger. Cuando se adquiera:
+El dominio `ultracell.com.co` está pendiente de compra por el cliente. Cuando se adquiera:
 1. Configurar registros DNS A/CNAME según GitHub Pages
 2. En Settings → Pages → Custom domain, agregar `ultracell.com.co`
 3. Actualizar `sitemap.xml` y `robots.txt` con el dominio final
@@ -111,23 +127,22 @@ El dominio `ultracell.com.co` está pendiente de compra por el cliente en Hostin
 ## SEO
 
 - `lang="es"` en `<html>`
-- `<title>` (53 caracteres) y `<meta name="description">`
+- `<title>` y `<meta name="description">`
 - Open Graph completo (og:image con foto del local)
-- Twitter Card
-- `sitemap.xml` y `robots.txt`
 - `<link rel="canonical">`
 - `<link rel="icon">`
 - Schema JSON-LD: `Store` con teléfono y dirección, `FAQPage` con preguntas frecuentes
+- `sitemap.xml` y `robots.txt`
 
 ## Mantenimiento
 
 ### Cambiar contenido
 
-Todo el contenido está en `index.html`. El catálogo se edita en el array `CATALOG`. Las rutas SPA usan hash routing (`#/inicio`, `#/catalogo`, `#/nosotros`, `#/faq`, `#/carrito`).
+Todo el contenido está en `index.html`. El catálogo se edita en los arrays `PRODUCTS` y `VARIANTS`. Las rutas SPA usan hash routing (`#/inicio`, `#/catalogo`, `#/nosotros`, `#/faq`, `#/carrito`).
 
 ### Responsive
 
-Diseño mobile-first con breakpoints en 768px (tablet), 1024px (desktop) y 1440px (large desktop). Sin scroll horizontal ni solapes en 360, 768, 1280 y 1920 px.
+Diseño mobile-first con breakpoints en **1120px**, **980px**, **640px** y **400px**. El sidebar de filtros del catálogo se colapsa desde 1120px (botón de filtros móvil) para evitar solape del badge `Usado` con la imagen en anchos intermedios. Sin scroll horizontal ni solapes en 360, 768, 1024, 1120 y 1280 px.
 
 ### Paleta de colores
 

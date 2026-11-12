@@ -14,6 +14,7 @@
 <meta property="og:image:alt" content="UltraCell — Barranquilla">
 <meta name="theme-color" content="#c00d20">
 <link rel="icon" href="assets/logo.jpeg">
+<link rel="preload" as="image" href="assets/catalogo/hero-17pm-plata.webp">
 <link rel="canonical" href="https://ultracell.com.co/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +71,7 @@
 </script>
 <style>
 /* ============================================================
-   ULTRACELL — Demo · Estilos
+   ULTRACELL · Estilos
    Paleta UltraCell: rojo #c00d20 · blanco · grises
    ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -140,6 +141,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .badge-new{background:var(--ink);color:#fff}
 .badge-offer{background:var(--danger);color:#fff}
 .badge-best{background:var(--gold);color:#3a2a00}
+.badge-used{background:var(--accent-soft);color:var(--accent2)}
 .badge-stock{background:rgba(47,209,88,.14);color:#177a37}
 .badge-stock-out{background:rgba(255,69,58,.12);color:#b0241b}
 /* ============================================================
@@ -207,12 +209,12 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .hero-art{position:relative;min-height:540px;display:flex;align-items:center;justify-content:center}
 .hero-glow{position:absolute;width:min(380px,72%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(192,13,32,.35),transparent 65%);filter:blur(30px);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;animation:floatGlow 7s ease-in-out infinite}
 @keyframes floatGlow{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.06)}}
-.hero-phone{position:relative;z-index:2;animation:floaty 6.5s ease-in-out infinite}
-.hero-phone svg{display:block;width:clamp(200px,24vw,300px);height:auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
-.hero-phone.back{z-index:1;position:absolute;right:8%;top:10%;opacity:.9;animation:floatyBack 7.5s ease-in-out infinite}
-.hero-phone.back svg{display:block;width:clamp(150px,18vw,240px);height:auto;filter:drop-shadow(0 30px 44px rgba(0,0,0,.45))}
+.hero-phone{position:relative;z-index:2;width:clamp(210px,24vw,320px);animation:floaty 6.5s ease-in-out infinite}
+.hero-phone img{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
+.hero-phone.back{z-index:1;position:absolute;right:-3%;top:7%;opacity:.92;width:clamp(220px,20vw,280px);animation:floatyBack 7.5s ease-in-out infinite}
+.hero-phone.back img{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 30px 44px rgba(0,0,0,.45))}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-14px) rotate(-3deg)}}
-@keyframes floatyBack{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-16px) rotate(6deg)}}
+@keyframes floatyBack{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(-6deg)}}
 .hero-chip{position:absolute;z-index:3;background:rgba(22,22,30,.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,.85);box-shadow:var(--sh-lg);animation:chipFloat 5.5s ease-in-out infinite;max-width:min(240px,46%)}
 .hero-chip b{display:block;font-size:15px;color:#fff}
 .hero-chip.chip-price{left:4%;bottom:12%}
@@ -235,9 +237,11 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .pcard{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;position:relative}
 .pcard:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:#dcdce4}
-.pcard-art{position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 50% 0%,#fff 30%,var(--line2));padding:26px 18px 20px;overflow:hidden}
+.pcard-art{position:relative;display:flex;align-items:center;justify-content:center;background:#fff;padding:26px 18px 20px;overflow:hidden}
 .pcard-art svg{width:132px;height:auto;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.pcard-art img{width:132px;aspect-ratio:1/2;object-fit:contain;object-position:center;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
 .pcard:hover .pcard-art svg{transform:scale(1.06) translateY(-3px)}
+.pcard:hover .pcard-art img{transform:scale(1.06) translateY(-3px)}
 .pcard .badge{position:absolute;top:14px;left:14px;z-index:2;box-shadow:var(--sh-sm)}
 .pcard-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .pcard-brand{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--faint)}
@@ -248,8 +252,8 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .pcard-price{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:17.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
 .pcard-price .was{font-size:13.5px;color:var(--faint);font-weight:500;text-decoration:line-through}
 .pcard-price .save{font-size:11.5px;font-weight:700;color:#b0241b;background:rgba(255,69,58,.1);padding:2px 7px;border-radius:6px}
-.pcard-actions{display:flex;gap:8px;margin-top:10px}
-.pcard-actions .btn{flex:1}
+.pcard-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pcard-actions .btn{flex:1 1 auto}
 /* ---------- categorías ---------- */
 .cat-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .3s,box-shadow .3s;min-height:230px;position:relative;overflow:hidden}
 .cat-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
@@ -287,6 +291,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .res-card{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:18px}
 .res-card .res-art{width:130px;height:130px;border-radius:16px;background:radial-gradient(120% 120% at 50% 0%,#fff 30%,var(--line2));display:flex;align-items:center;justify-content:center;overflow:hidden}
 .res-card .res-art svg{width:76px}
+.res-card .res-art img{width:100%;height:100%;object-fit:contain;padding:8px}
 .res-card b{font-size:18px;display:block}
 .res-card .res-price{font-size:20px;font-weight:800;color:var(--ink);margin:4px 0 2px}
 .res-card .res-reasons{margin-top:8px;display:flex;flex-direction:column;gap:5px}
@@ -349,7 +354,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 /* ============================================================
    PÁGINA DE PRODUCTO
    ============================================================ */
-.pdp{display:grid;grid-template-columns:45% 55%;gap:48px;align-items:start}
+.pdp{display:grid;grid-template-columns:minmax(0,9fr) minmax(0,11fr);gap:48px;align-items:start}
 .gallery{position:sticky;top:88px;min-width:0}
 .gal-main{display:block;width:100%;margin:0;padding:0;font:inherit;color:inherit;text-align:inherit;background:radial-gradient(130% 130% at 50% 0%,#fff 35%,var(--line2));border:1px solid var(--line);border-radius:26px;position:relative;overflow:hidden;transition:box-shadow .3s;cursor:zoom-in}
 .gal-main:hover{box-shadow:var(--sh-md)}
@@ -670,6 +675,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 .modal .m-prod{display:flex;gap:14px;align-items:center;background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}
 .modal .m-prod .mp-art{width:56px;height:56px;flex:none;border-radius:11px;background:var(--line2);display:flex;align-items:center;justify-content:center}
 .modal .m-prod .mp-art svg{width:38px}
+.modal .m-prod .mp-art img{width:100%;height:100%;object-fit:contain;padding:4px}
 .modal .m-prod b{font-size:14.5px;display:block}
 .modal .m-prod span{font-size:13.5px;color:var(--muted)}
 #toastRoot{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:10px;align-items:center;pointer-events:none;width:min(480px,92vw)}
@@ -712,6 +718,9 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .header-cta{font-size:12.5px;padding:0 12px}
   .grid-4{grid-template-columns:repeat(3,1fr)}
   .cart-layout,.checkout-layout{grid-template-columns:1fr 320px}
+  .catalog-layout{grid-template-columns:1fr}
+  .filters{display:none}
+  .filter-btn-mobile{display:inline-flex}
 }
 @media (max-width:980px){
   .main-nav{display:none}
@@ -724,12 +733,10 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .hero-sub{margin-left:auto;margin-right:auto}
   .hero-cta,.hero-note{justify-content:center}
   .hero-art{min-height:440px}
+  .hero-phone.back{right:20%;top:9%;width:clamp(180px,24vw,220px)}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .grid-4{grid-template-columns:repeat(2,1fr)}
   .grid-3{grid-template-columns:repeat(2,1fr)}
-  .catalog-layout{grid-template-columns:1fr}
-  .filters{display:none}
-  .filter-btn-mobile{display:inline-flex}
   .pdp{grid-template-columns:1fr;gap:28px}
   .gallery{position:static}
   .gal-stage{height:320px}
@@ -747,6 +754,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .section{padding:44px 0}
   .grid-4,.grid-3,.grid-2{grid-template-columns:1fr 1fr;gap:12px}
   .pcard-art svg{width:96px}
+  .pcard-art img{width:96px}
   .pcard-body{padding:12px 13px 14px}
   .pcard-name{font-size:14px}
   .pcard-price{font-size:15px}
@@ -754,8 +762,8 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .trust-grid{grid-template-columns:1fr;padding:18px 16px;gap:4px}
   .hero h1{font-size:36px}
   .hero-art{min-height:340px}
-  .hero-phone svg{width:clamp(170px,60vw,230px)}
-  .hero-phone.back{display:none}
+  .hero-phone{width:clamp(150px,48vw,210px)}
+  .hero-phone.back{display:block;width:clamp(120px,36vw,160px);right:2%;top:4%;opacity:.92}
   .hero-chip,.hero-chip.chip-ai{display:none}
   .quiz-head,.quiz-body{padding-left:20px;padding-right:20px}
   .quiz-opts{grid-template-columns:1fr}
@@ -784,6 +792,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 @media (max-width:400px){
   .grid-4,.grid-3{grid-template-columns:1fr}
   .pcard-art svg{width:130px}
+  .pcard-art img{width:130px}
 }
 
 </style>
@@ -805,7 +814,6 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
       
       
       
-      <a href="#/catalogo?oferta=1" data-nav="ofertas">Ofertas</a>
       <a href="#/nosotros" data-nav="nosotros">Nosotros</a>
     </nav>
     <div class="header-actions">
@@ -838,7 +846,6 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
     
     
     
-    <a href="#/catalogo?oferta=1">Ofertas</a>
     <a href="#/nosotros">Nosotros</a>
     <a href="#/faq">Preguntas frecuentes</a>
     <div class="mm-cta">
@@ -882,8 +889,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
     </div>
   </div>
   <div class="footer-bottom"><div class="container">
-    <span>© 2026 UltraCell. Sitio de demostración — precios ficticios.</span>
-    <span class="demo-tag">DEMO</span>
+    <span>© 2026 UltraCell. Celulares nuevos y usados en Barranquilla.</span>
   </div></div>
 </footer>
 
@@ -902,7 +908,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
     </div>
     <div class="chat-id">
       <strong>UltraCell IA</strong>
-      <span class="chat-status"><i></i> En línea · Asesor demo</span>
+      <span class="chat-status"><i></i> En línea · Asesor IA</span>
     </div>
     <div class="chat-head-actions">
       <button class="icon-btn" data-action="wa" data-msg="Hola, estoy hablando con el asesor IA de UltraCell y quiero más información." aria-label="Hablar por WhatsApp" title="Hablar por WhatsApp">
@@ -952,8 +958,8 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 <script>
 'use strict';
 /* ============================================================
-   ULTRACELL — Demo · Lógica (vanilla JS, sin deps)
-   Todos los precios son ficticios ("Precio demo").
+   ULTRACELL · Lógica (vanilla JS, sin deps)
+   Catálogo real de equipos usados (35 productos).
    ============================================================ */
 /* ============================================================
    CONFIGURACIÓN (editables por UltraCell)
@@ -1023,526 +1029,487 @@ const PAL = {
   'Titanio azul':   {hex:['#45556a','#1c2430'], wall:['#16202e','#0a0e15']},
   'Titanio desierto':{hex:['#c4a878','#9e8456'], wall:['#3a3020','#191306']},
   'Pink':           {hex:['#f5d0d6','#e8b4bc'], wall:['#4a2638','#241019']},
-  'Purple':         {hex:['#8a6abf','#5a3e8e'], wall:['#33265c','#140f2a']}
+  'Purple':         {hex:['#8a6abf','#5a3e8e'], wall:['#33265c','#140f2a']},
+  'Natural':         {hex:['#d8cfc0','#a99c88'], wall:['#3a342c','#211e1a']},
+  'Desierto':        {hex:['#c9a86a','#9c7f45'], wall:['#3a2f1c','#201a0f']},
+  'Lila':            {hex:['#cbb8e8','#9e86c4'], wall:['#2f2740','#1a1524']},
+  'Rosado':          {hex:['#f5d0d8','#e8b0bc'], wall:['#3a232a','#201317']},
+  'Azul blanco':     {hex:['#dfe9f2','#b8c9d8'], wall:['#232d38','#12171e']}
 };
 
 /* ============================================================
-   CATÁLOGO (datos DEMO — precios ficticios "Precio demo")
+   CATÁLOGO (35 equipos usados — precios y stock reales)
    ============================================================ */
-const CATALOG = [
+const PRODUCTS = [
   {
-    id:'iphone-11', name:'iPhone 11', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-11.jpg',
-    price:800000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.7, reviews:296, sold:1270,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Negro','Blanco','Verde','Amarillo','Morado','Rosa'], estado:'Seminuevo', released:'2019-09-20',
-    tags:['redes'],
-    short:'iPhone 11 128GB — A13 Bionic, 6.1" Liquid Retina HD', description:'El iPhone 11 con chip A13 Bionic, pantalla 6.1" Liquid Retina HD, cámara Dual 12MP y batería de 3110 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A13 Bionic','Pantalla: 6.1" Liquid Retina HD','Cámara: Dual 12MP','Batería: 3110 mAh','Almacenamiento: 128GB','Colores: Negro, Blanco, Verde, Amarillo, Morado, Rosa'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A13 Bionic',pantalla:'6.1" Liquid Retina HD',camara:'Dual 12MP',bateria:'3110 mAh'},
-    faq:[{q:'¿El iPhone 11 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-pro-max', name: 'iPhone 17 Pro Max', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-17-pro-max.webp',
+    badge: 'Usado', featured: true, rating: null, reviews: 0, sold: 0, released: '2025-09-19',
+    tags: ['pro','fotos','camara','rendimiento','bateria'],
+    short: 'iPhone 17 Pro Max — A19 Pro, 6.9" Super Retina XDR ProMotion, Triple 48MP, 4700 mAh',
+    description: 'iPhone 17 Pro Max, usado en excelente estado (10/10). Chip A19 Pro, pantalla 6.9" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A19 Pro', 'Pantalla: 6.9" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 48MP + 12MP', 'Batería: 4700 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A19 Pro',pantalla:'6.9" Super Retina XDR ProMotion',camara:'Triple 48MP + 48MP + 12MP',bateria:'4700 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-12', name:'iPhone 12', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-12.jpg',
-    price:990000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.7, reviews:288, sold:1235,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Negro','Blanco','Azul','Verde','Rosa'], estado:'Seminuevo', released:'2020-10-23',
-    tags:['redes'],
-    short:'iPhone 12 128GB — A14 Bionic, 6.1" Super Retina XDR', description:'El iPhone 12 con chip A14 Bionic, pantalla 6.1" Super Retina XDR, cámara Dual 12MP y batería de 2815 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A14 Bionic','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 12MP','Batería: 2815 mAh','Almacenamiento: 128GB','Colores: Negro, Blanco, Azul, Verde, Rosa'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A14 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'2815 mAh'},
-    faq:[{q:'¿El iPhone 12 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-pro', name: 'iPhone 17 Pro', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-17-pro.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2025-09-19',
+    tags: ['pro','fotos','camara','rendimiento'],
+    short: 'iPhone 17 Pro — A19 Pro, 6.3" Super Retina XDR ProMotion, Triple 48MP, 3200 mAh',
+    description: 'iPhone 17 Pro, usado en excelente estado (10/10). Chip A19 Pro, pantalla 6.3" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A19 Pro', 'Pantalla: 6.3" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 48MP + 12MP', 'Batería: 3200 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A19 Pro',pantalla:'6.3" Super Retina XDR ProMotion',camara:'Triple 48MP + 48MP + 12MP',bateria:'3200 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-12-pro-max', name:'iPhone 12 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-12-pro-max.jpg',
-    price:1199000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:280, sold:1200,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Grafito','Plata','Oro','Pacific Blue'], estado:'Seminuevo', released:'2020-11-13',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 12 Pro Max 128GB — A14 Bionic, 6.7" Super Retina XDR', description:'El iPhone 12 Pro Max con chip A14 Bionic, pantalla 6.7" Super Retina XDR, cámara Triple 12MP + LiDAR y batería de 3687 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A14 Bionic','Pantalla: 6.7" Super Retina XDR','Cámara: Triple 12MP + LiDAR','Batería: 3687 mAh','Almacenamiento: 128GB','Colores: Grafito, Plata, Oro, Pacific Blue'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A14 Bionic',pantalla:'6.7" Super Retina XDR',camara:'Triple 12MP + LiDAR',bateria:'3687 mAh'},
-    faq:[{q:'¿El iPhone 12 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-air', name: 'iPhone 17 Air', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-17-air.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2025-09-19',
+    tags: ['rendimiento','bateria'],
+    short: 'iPhone 17 Air — A19, 6.6" Super Retina XDR, Dual 48MP, 3000 mAh',
+    description: 'iPhone 17 Air, usado en excelente estado (10/10). Chip A19, pantalla 6.6" Super Retina XDR y cámara dual de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A19', 'Pantalla: 6.6" Super Retina XDR', 'Cámara: Dual 48MP + 12MP', 'Batería: 3000 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A19',pantalla:'6.6" Super Retina XDR',camara:'Dual 48MP + 12MP',bateria:'3000 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-13', name:'iPhone 13', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-13.jpg',
-    price:1090000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.7, reviews:272, sold:1165,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Starlight','Midnight','Azul','Rosa','Verde'], estado:'Seminuevo', released:'2021-09-24',
-    tags:['redes'],
-    short:'iPhone 13 128GB — A15 Bionic, 6.1" Super Retina XDR', description:'El iPhone 13 con chip A15 Bionic, pantalla 6.1" Super Retina XDR, cámara Dual 12MP y batería de 3240 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 12MP','Batería: 3240 mAh','Almacenamiento: 128GB','Colores: Starlight, Midnight, Azul, Rosa, Verde'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'3240 mAh'},
-    faq:[{q:'¿El iPhone 13 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-16-pro-max.webp',
+    badge: 'Usado', featured: true, rating: null, reviews: 0, sold: 0, released: '2024-09-20',
+    tags: ['pro','fotos','camara','rendimiento','bateria'],
+    short: 'iPhone 16 Pro Max — A18 Pro, 6.9" Super Retina XDR ProMotion, Triple 48MP, 4685 mAh',
+    description: 'iPhone 16 Pro Max, usado en excelente estado (10/10). Chip A18 Pro, pantalla 6.9" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A18 Pro', 'Pantalla: 6.9" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 48MP + 12MP', 'Batería: 4685 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A18 Pro',pantalla:'6.9" Super Retina XDR ProMotion',camara:'Triple 48MP + 48MP + 12MP',bateria:'4685 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-13-pro', name:'iPhone 13 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-13-pro.jpg',
-    price:1450000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:264, sold:1130,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Grafito','Plata','Oro','Sierra Blue','Alpine Green'], estado:'Seminuevo', released:'2021-09-24',
-    tags:['fotos','camara'],
-    short:'iPhone 13 Pro 128GB — A15 Bionic, 6.1" Super Retina XDR ProMotion', description:'El iPhone 13 Pro con chip A15 Bionic, pantalla 6.1" Super Retina XDR ProMotion, cámara Triple 12MP + LiDAR y batería de 3095 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.1" Super Retina XDR ProMotion','Cámara: Triple 12MP + LiDAR','Batería: 3095 mAh','Almacenamiento: 128GB','Colores: Grafito, Plata, Oro, Sierra Blue, Alpine Green'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 12MP + LiDAR',bateria:'3095 mAh'},
-    faq:[{q:'¿El iPhone 13 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-pro', name: 'iPhone 16 Pro', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-16-pro.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2024-09-20',
+    tags: ['pro','fotos','camara','rendimiento'],
+    short: 'iPhone 16 Pro — A18 Pro, 6.3" Super Retina XDR ProMotion, Triple 48MP, 3082 mAh',
+    description: 'iPhone 16 Pro, usado en excelente estado (10/10). Chip A18 Pro, pantalla 6.3" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A18 Pro', 'Pantalla: 6.3" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 48MP + 12MP', 'Batería: 3082 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A18 Pro',pantalla:'6.3" Super Retina XDR ProMotion',camara:'Triple 48MP + 48MP + 12MP',bateria:'3082 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-13-pro-max', name:'iPhone 13 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-13-pro-max.jpg',
-    price:1620000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:256, sold:1095,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Grafito','Plata','Oro','Sierra Blue','Alpine Green'], estado:'Seminuevo', released:'2021-09-24',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 13 Pro Max 128GB — A15 Bionic, 6.7" Super Retina XDR ProMotion', description:'El iPhone 13 Pro Max con chip A15 Bionic, pantalla 6.7" Super Retina XDR ProMotion, cámara Triple 12MP + LiDAR y batería de 4352 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.7" Super Retina XDR ProMotion','Cámara: Triple 12MP + LiDAR','Batería: 4352 mAh','Almacenamiento: 128GB','Colores: Grafito, Plata, Oro, Sierra Blue, Alpine Green'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 12MP + LiDAR',bateria:'4352 mAh'},
-    faq:[{q:'¿El iPhone 13 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-plus', name: 'iPhone 16 Plus', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-16-plus.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2024-09-20',
+    tags: ['bateria','redes'],
+    short: 'iPhone 16 Plus — A18, 6.7" Super Retina XDR, Dual 48MP, 4674 mAh',
+    description: 'iPhone 16 Plus, usado en excelente estado (10/10). Chip A18, pantalla 6.7" Super Retina XDR y cámara dual de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A18', 'Pantalla: 6.7" Super Retina XDR', 'Cámara: Dual 48MP + 12MP', 'Batería: 4674 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A18',pantalla:'6.7" Super Retina XDR',camara:'Dual 48MP + 12MP',bateria:'4674 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-14', name:'iPhone 14', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14.jpg',
-    price:1190000, compareAtPrice:null, badge:'Más vendido',
-    stock:12, featured:false,
-    rating:4.7, reviews:248, sold:1060,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Midnight','Starlight','Azul','Rosa','Rojo'], estado:'Seminuevo', released:'2022-09-16',
-    tags:['redes'],
-    short:'iPhone 14 128GB — A15 Bionic, 6.1" Super Retina XDR', description:'El iPhone 14 con chip A15 Bionic, pantalla 6.1" Super Retina XDR, cámara Dual 12MP y batería de 3279 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 12MP','Batería: 3279 mAh','Almacenamiento: 128GB','Colores: Midnight, Starlight, Azul, Rosa, Rojo'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'3279 mAh'},
-    faq:[{q:'¿El iPhone 14 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16', name: 'iPhone 16', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-16.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2024-09-20',
+    tags: ['redes'],
+    short: 'iPhone 16 — A18, 6.1" Super Retina XDR, Dual 48MP, 3561 mAh',
+    description: 'iPhone 16, usado en excelente estado (10/10). Chip A18, pantalla 6.1" Super Retina XDR y cámara dual de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A18', 'Pantalla: 6.1" Super Retina XDR', 'Cámara: Dual 48MP + 12MP', 'Batería: 3561 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A18',pantalla:'6.1" Super Retina XDR',camara:'Dual 48MP + 12MP',bateria:'3561 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-14-plus', name:'iPhone 14 Plus', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14-plus.jpg',
-    price:1350000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.7, reviews:240, sold:1025,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Midnight','Starlight','Azul','Rosa','Rojo'], estado:'Seminuevo', released:'2022-10-07',
-    tags:['redes'],
-    short:'iPhone 14 Plus 128GB — A15 Bionic, 6.7" Super Retina XDR', description:'El iPhone 14 Plus con chip A15 Bionic, pantalla 6.7" Super Retina XDR, cámara Dual 12MP y batería de 4325 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.7" Super Retina XDR','Cámara: Dual 12MP','Batería: 4325 mAh','Almacenamiento: 128GB','Colores: Midnight, Starlight, Azul, Rosa, Rojo'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.7" Super Retina XDR',camara:'Dual 12MP',bateria:'4325 mAh'},
-    faq:[{q:'¿El iPhone 14 Plus es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-15-pro-max', name: 'iPhone 15 Pro Max', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-15-pro-max.webp',
+    badge: 'Usado', featured: true, rating: null, reviews: 0, sold: 0, released: '2023-09-22',
+    tags: ['pro','fotos','camara','rendimiento','bateria'],
+    short: 'iPhone 15 Pro Max — A17 Pro, 6.7" Super Retina XDR ProMotion, Triple 48MP, 4422 mAh',
+    description: 'iPhone 15 Pro Max, usado en excelente estado (10/10). Chip A17 Pro, pantalla 6.7" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A17 Pro', 'Pantalla: 6.7" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 12MP + 12MP', 'Batería: 4422 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A17 Pro',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 48MP + 12MP + 12MP',bateria:'4422 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-14-pro', name:'iPhone 14 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14-pro.jpg',
-    price:1620000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:232, sold:990,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Space Black','Plata','Oro','Deep Purple'], estado:'Seminuevo', released:'2022-09-16',
-    tags:['fotos','camara'],
-    short:'iPhone 14 Pro 128GB — A16 Bionic, 6.1" Super Retina XDR ProMotion', description:'El iPhone 14 Pro con chip A16 Bionic, pantalla 6.1" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 3200 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A16 Bionic','Pantalla: 6.1" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 3200 mAh','Almacenamiento: 128GB','Colores: Space Black, Plata, Oro, Deep Purple'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A16 Bionic',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'3200 mAh'},
-    faq:[{q:'¿El iPhone 14 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-15-pro', name: 'iPhone 15 Pro', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-15-pro.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2023-09-22',
+    tags: ['pro','fotos','camara','rendimiento'],
+    short: 'iPhone 15 Pro — A17 Pro, 6.1" Super Retina XDR ProMotion, Triple 48MP, 3274 mAh',
+    description: 'iPhone 15 Pro, usado en excelente estado (10/10). Chip A17 Pro, pantalla 6.1" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A17 Pro', 'Pantalla: 6.1" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 12MP + 12MP', 'Batería: 3274 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A17 Pro',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 48MP + 12MP + 12MP',bateria:'3274 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-14-pro-max', name:'iPhone 14 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14-pro-max.jpg',
-    price:1820000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:224, sold:955,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Space Black','Plata','Oro','Deep Purple'], estado:'Seminuevo', released:'2022-09-16',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 14 Pro Max 128GB — A16 Bionic, 6.7" Super Retina XDR ProMotion', description:'El iPhone 14 Pro Max con chip A16 Bionic, pantalla 6.7" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 4323 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A16 Bionic','Pantalla: 6.7" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 4323 mAh','Almacenamiento: 128GB','Colores: Space Black, Plata, Oro, Deep Purple'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A16 Bionic',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'4323 mAh'},
-    faq:[{q:'¿El iPhone 14 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-15-plus', name: 'iPhone 15 Plus', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-15-plus.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2023-09-22',
+    tags: ['bateria','redes'],
+    short: 'iPhone 15 Plus — A16 Bionic, 6.7" Super Retina XDR, Dual 48MP, 4383 mAh',
+    description: 'iPhone 15 Plus, usado en excelente estado (10/10). Chip A16 Bionic, pantalla 6.7" Super Retina XDR y cámara dual de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A16 Bionic', 'Pantalla: 6.7" Super Retina XDR', 'Cámara: Dual 48MP + 12MP', 'Batería: 4383 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A16 Bionic',pantalla:'6.7" Super Retina XDR',camara:'Dual 48MP + 12MP',bateria:'4383 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-15', name:'iPhone 15', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-15.jpg',
-    price:1620000, compareAtPrice:null, badge:'Más vendido',
-    stock:12, featured:false,
-    rating:4.7, reviews:216, sold:920,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Rosa','Azul','Verde','Amarillo','Midnight','Starlight'], estado:'Seminuevo', released:'2023-09-22',
-    tags:['redes'],
-    short:'iPhone 15 128GB — A16 Bionic, 6.1" Super Retina XDR', description:'El iPhone 15 con chip A16 Bionic, pantalla 6.1" Super Retina XDR, cámara Dual 48MP+12MP y batería de 3349 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A16 Bionic','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 48MP+12MP','Batería: 3349 mAh','Almacenamiento: 128GB','Colores: Rosa, Azul, Verde, Amarillo, Midnight, Starlight'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A16 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 48MP+12MP',bateria:'3349 mAh'},
-    faq:[{q:'¿El iPhone 15 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-15', name: 'iPhone 15', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-15.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2023-09-22',
+    tags: ['redes'],
+    short: 'iPhone 15 — A16 Bionic, 6.1" Super Retina XDR, Dual 48MP, 3349 mAh',
+    description: 'iPhone 15, usado en excelente estado (10/10). Chip A16 Bionic, pantalla 6.1" Super Retina XDR y cámara dual de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A16 Bionic', 'Pantalla: 6.1" Super Retina XDR', 'Cámara: Dual 48MP + 12MP', 'Batería: 3349 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A16 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 48MP + 12MP',bateria:'3349 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-15-plus', name:'iPhone 15 Plus', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-15-plus.jpg',
-    price:1700000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.7, reviews:208, sold:885,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Rosa','Azul','Verde','Amarillo','Midnight','Starlight'], estado:'Seminuevo', released:'2023-09-22',
-    tags:['redes'],
-    short:'iPhone 15 Plus 128GB — A16 Bionic, 6.7" Super Retina XDR', description:'El iPhone 15 Plus con chip A16 Bionic, pantalla 6.7" Super Retina XDR, cámara Dual 48MP+12MP y batería de 4383 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A16 Bionic','Pantalla: 6.7" Super Retina XDR','Cámara: Dual 48MP+12MP','Batería: 4383 mAh','Almacenamiento: 128GB','Colores: Rosa, Azul, Verde, Amarillo, Midnight, Starlight'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A16 Bionic',pantalla:'6.7" Super Retina XDR',camara:'Dual 48MP+12MP',bateria:'4383 mAh'},
-    faq:[{q:'¿El iPhone 15 Plus es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-14-pro-max', name: 'iPhone 14 Pro Max', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-14-pro-max.webp',
+    badge: 'Usado', featured: true, rating: null, reviews: 0, sold: 0, released: '2022-09-16',
+    tags: ['pro','fotos','camara','rendimiento','bateria'],
+    short: 'iPhone 14 Pro Max — A16 Bionic, 6.7" Super Retina XDR ProMotion, Triple 48MP, 4323 mAh',
+    description: 'iPhone 14 Pro Max, usado en excelente estado (10/10). Chip A16 Bionic, pantalla 6.7" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A16 Bionic', 'Pantalla: 6.7" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 12MP + 12MP', 'Batería: 4323 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A16 Bionic',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 48MP + 12MP + 12MP',bateria:'4323 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-15-pro', name:'iPhone 15 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-15-pro.jpg',
-    price:1950000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:200, sold:850,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Titanio negro','Titanio blanco','Titanio azul','Titanio natural'], estado:'Seminuevo', released:'2023-09-22',
-    tags:['fotos','camara'],
-    short:'iPhone 15 Pro 128GB — A17 Pro, 6.1" Super Retina XDR ProMotion', description:'El iPhone 15 Pro con chip A17 Pro, pantalla 6.1" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 3274 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A17 Pro','Pantalla: 6.1" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 3274 mAh','Almacenamiento: 128GB','Colores: Titanio negro, Titanio blanco, Titanio azul, Titanio natural'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A17 Pro',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'3274 mAh'},
-    faq:[{q:'¿El iPhone 15 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-14-pro', name: 'iPhone 14 Pro', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-14-pro.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2022-09-16',
+    tags: ['pro','fotos','camara','rendimiento'],
+    short: 'iPhone 14 Pro — A16 Bionic, 6.1" Super Retina XDR ProMotion, Triple 48MP, 3200 mAh',
+    description: 'iPhone 14 Pro, usado en excelente estado (10/10). Chip A16 Bionic, pantalla 6.1" Super Retina XDR ProMotion y cámara triple de 48 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A16 Bionic', 'Pantalla: 6.1" Super Retina XDR ProMotion', 'Cámara: Triple 48MP + 12MP + 12MP', 'Batería: 3200 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A16 Bionic',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 48MP + 12MP + 12MP',bateria:'3200 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-15-pro-max', name:'iPhone 15 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-15-pro-max.jpg',
-    price:2350000, compareAtPrice:null, badge:null,
-    stock:12, featured:true,
-    rating:4.8, reviews:192, sold:815,
-    storage:'256GB', storageOptions:['256GB','512GB'],
-    colors:['Titanio negro','Titanio blanco','Titanio azul','Titanio natural'], estado:'Seminuevo', released:'2023-09-22',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 15 Pro Max 256GB — A17 Pro, 6.7" Super Retina XDR ProMotion', description:'El iPhone 15 Pro Max con chip A17 Pro, pantalla 6.7" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 4422 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A17 Pro','Pantalla: 6.7" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 4422 mAh','Almacenamiento: 256GB','Colores: Titanio negro, Titanio blanco, Titanio azul, Titanio natural'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A17 Pro',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'4422 mAh'},
-    faq:[{q:'¿El iPhone 15 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-14-plus', name: 'iPhone 14 Plus', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-14-plus.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2022-09-16',
+    tags: ['bateria','redes'],
+    short: 'iPhone 14 Plus — A15 Bionic, 6.7" Super Retina XDR, Dual 12MP, 4325 mAh',
+    description: 'iPhone 14 Plus, usado en excelente estado (10/10). Chip A15 Bionic, pantalla 6.7" Super Retina XDR y cámara dual de 12 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A15 Bionic', 'Pantalla: 6.7" Super Retina XDR', 'Cámara: Dual 12MP', 'Batería: 4325 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A15 Bionic',pantalla:'6.7" Super Retina XDR',camara:'Dual 12MP',bateria:'4325 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-16', name:'iPhone 16', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-16.jpg',
-    price:2050000, compareAtPrice:null, badge:null,
-    stock:8, featured:true,
-    rating:4.7, reviews:184, sold:780,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Rosa','Azul','Verde','Blanco','Negro'], estado:'Seminuevo', released:'2024-09-20',
-    tags:['redes'],
-    short:'iPhone 16 128GB — A18, 6.1" Super Retina XDR', description:'El iPhone 16 con chip A18, pantalla 6.1" Super Retina XDR, cámara Dual 48MP+12MP y batería de 3561 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A18','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 48MP+12MP','Batería: 3561 mAh','Almacenamiento: 128GB','Colores: Rosa, Azul, Verde, Blanco, Negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A18',pantalla:'6.1" Super Retina XDR',camara:'Dual 48MP+12MP',bateria:'3561 mAh'},
-    faq:[{q:'¿El iPhone 16 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-14', name: 'iPhone 14', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-14.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2022-09-16',
+    tags: ['redes'],
+    short: 'iPhone 14 — A15 Bionic, 6.1" Super Retina XDR, Dual 12MP, 3279 mAh',
+    description: 'iPhone 14, usado en excelente estado (10/10). Chip A15 Bionic, pantalla 6.1" Super Retina XDR y cámara dual de 12 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A15 Bionic', 'Pantalla: 6.1" Super Retina XDR', 'Cámara: Dual 12MP', 'Batería: 3279 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'3279 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-16-plus', name:'iPhone 16 Plus', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-16-plus.jpg',
-    price:2200000, compareAtPrice:null, badge:null,
-    stock:8, featured:false,
-    rating:4.7, reviews:176, sold:745,
-    storage:'128GB', storageOptions:['128GB'],
-    colors:['Rosa','Azul','Verde','Blanco','Negro'], estado:'Seminuevo', released:'2024-09-20',
-    tags:['redes'],
-    short:'iPhone 16 Plus 128GB — A18, 6.7" Super Retina XDR', description:'El iPhone 16 Plus con chip A18, pantalla 6.7" Super Retina XDR, cámara Dual 48MP+12MP y batería de 4674 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A18','Pantalla: 6.7" Super Retina XDR','Cámara: Dual 48MP+12MP','Batería: 4674 mAh','Almacenamiento: 128GB','Colores: Rosa, Azul, Verde, Blanco, Negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A18',pantalla:'6.7" Super Retina XDR',camara:'Dual 48MP+12MP',bateria:'4674 mAh'},
-    faq:[{q:'¿El iPhone 16 Plus es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-13-pro-max', name: 'iPhone 13 Pro Max', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-13-pro-max.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2021-09-24',
+    tags: ['pro','fotos','camara','rendimiento','bateria'],
+    short: 'iPhone 13 Pro Max — A15 Bionic, 6.7" Super Retina XDR ProMotion, Triple 12MP + LiDAR, 4352 mAh',
+    description: 'iPhone 13 Pro Max, usado en excelente estado (10/10). Chip A15 Bionic, pantalla 6.7" Super Retina XDR ProMotion y cámara triple de 12 MP con LiDAR. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A15 Bionic', 'Pantalla: 6.7" Super Retina XDR ProMotion', 'Cámara: Triple 12MP + LiDAR', 'Batería: 4352 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A15 Bionic',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 12MP + LiDAR',bateria:'4352 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-16-pro', name:'iPhone 16 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-16-pro.jpg',
-    price:2450000, compareAtPrice:null, badge:null,
-    stock:8, featured:false,
-    rating:4.8, reviews:168, sold:710,
-    storage:'128GB', storageOptions:['128GB','256GB'],
-    colors:['Titanio desierto','Titanio natural','Titanio blanco','Titanio negro'], estado:'Seminuevo', released:'2024-09-20',
-    tags:['fotos','camara'],
-    short:'iPhone 16 Pro 128GB — A18 Pro, 6.3" Super Retina XDR ProMotion', description:'El iPhone 16 Pro con chip A18 Pro, pantalla 6.3" Super Retina XDR ProMotion, cámara Triple 48MP+48MP+12MP y batería de 3082 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A18 Pro','Pantalla: 6.3" Super Retina XDR ProMotion','Cámara: Triple 48MP+48MP+12MP','Batería: 3082 mAh','Almacenamiento: 128GB','Colores: Titanio desierto, Titanio natural, Titanio blanco, Titanio negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A18 Pro',pantalla:'6.3" Super Retina XDR ProMotion',camara:'Triple 48MP+48MP+12MP',bateria:'3082 mAh'},
-    faq:[{q:'¿El iPhone 16 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-13-pro', name: 'iPhone 13 Pro', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-13-pro.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2021-09-24',
+    tags: ['pro','fotos','camara','rendimiento'],
+    short: 'iPhone 13 Pro — A15 Bionic, 6.1" Super Retina XDR ProMotion, Triple 12MP + LiDAR, 3095 mAh',
+    description: 'iPhone 13 Pro, usado en excelente estado (10/10). Chip A15 Bionic, pantalla 6.1" Super Retina XDR ProMotion y cámara triple de 12 MP con LiDAR. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A15 Bionic', 'Pantalla: 6.1" Super Retina XDR ProMotion', 'Cámara: Triple 12MP + LiDAR', 'Batería: 3095 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 12MP + LiDAR',bateria:'3095 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-16-pro-max', name:'iPhone 16 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-16-pro-max.jpg',
-    price:2850000, compareAtPrice:null, badge:null,
-    stock:8, featured:true,
-    rating:4.8, reviews:160, sold:675,
-    storage:'256GB', storageOptions:['256GB','512GB'],
-    colors:['Titanio desierto','Titanio natural','Titanio blanco','Titanio negro'], estado:'Seminuevo', released:'2024-09-20',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 16 Pro Max 256GB — A18 Pro, 6.9" Super Retina XDR ProMotion', description:'El iPhone 16 Pro Max con chip A18 Pro, pantalla 6.9" Super Retina XDR ProMotion, cámara Triple 48MP+48MP+12MP y batería de 4685 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A18 Pro','Pantalla: 6.9" Super Retina XDR ProMotion','Cámara: Triple 48MP+48MP+12MP','Batería: 4685 mAh','Almacenamiento: 256GB','Colores: Titanio desierto, Titanio natural, Titanio blanco, Titanio negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A18 Pro',pantalla:'6.9" Super Retina XDR ProMotion',camara:'Triple 48MP+48MP+12MP',bateria:'4685 mAh'},
-    faq:[{q:'¿El iPhone 16 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-13', name: 'iPhone 13', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-13.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2021-09-24',
+    tags: ['redes'],
+    short: 'iPhone 13 — A15 Bionic, 6.1" Super Retina XDR, Dual 12MP, 3240 mAh',
+    description: 'iPhone 13, usado en excelente estado (10/10). Chip A15 Bionic, pantalla 6.1" Super Retina XDR y cámara dual de 12 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A15 Bionic', 'Pantalla: 6.1" Super Retina XDR', 'Cámara: Dual 12MP', 'Batería: 3240 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'3240 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-17', name:'iPhone 17', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-17.jpg',
-    price:2650000, compareAtPrice:null, badge:'Nuevo',
-    stock:5, featured:true,
-    rating:4.7, reviews:152, sold:640,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Azul','Rosa','Verde','Blanco','Negro'], estado:'Nuevo', released:'2025-09-19',
-    tags:['redes'],
-    short:'iPhone 17 256GB — A19, 6.3" Super Retina XDR', description:'El iPhone 17 con chip A19, pantalla 6.3" Super Retina XDR, cámara Dual 48MP+12MP y batería de 3600 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A19','Pantalla: 6.3" Super Retina XDR','Cámara: Dual 48MP+12MP','Batería: 3600 mAh','Almacenamiento: 256GB','Colores: Azul, Rosa, Verde, Blanco, Negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A19',pantalla:'6.3" Super Retina XDR',camara:'Dual 48MP+12MP',bateria:'3600 mAh'},
-    faq:[{q:'¿El iPhone 17 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-12-pro-max', name: 'iPhone 12 Pro Max', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-12-pro-max.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2020-10-23',
+    tags: ['pro','fotos','camara','rendimiento','bateria'],
+    short: 'iPhone 12 Pro Max — A14 Bionic, 6.7" Super Retina XDR, Triple 12MP + LiDAR, 3687 mAh',
+    description: 'iPhone 12 Pro Max, usado en excelente estado (10/10). Chip A14 Bionic, pantalla 6.7" Super Retina XDR y cámara triple de 12 MP con LiDAR. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A14 Bionic', 'Pantalla: 6.7" Super Retina XDR', 'Cámara: Triple 12MP + LiDAR', 'Batería: 3687 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A14 Bionic',pantalla:'6.7" Super Retina XDR',camara:'Triple 12MP + LiDAR',bateria:'3687 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-17-air', name:'iPhone 17 Air', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-17-air.jpg',
-    price:2750000, compareAtPrice:null, badge:'Nuevo',
-    stock:5, featured:false,
-    rating:4.7, reviews:144, sold:605,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Azul','Rosa','Blanco','Negro'], estado:'Nuevo', released:'2025-09-19',
-    tags:['redes'],
-    short:'iPhone 17 Air 256GB — A19, 6.6" Super Retina XDR', description:'El iPhone 17 Air con chip A19, pantalla 6.6" Super Retina XDR, cámara Dual 48MP+12MP y batería de 3000 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A19','Pantalla: 6.6" Super Retina XDR','Cámara: Dual 48MP+12MP','Batería: 3000 mAh','Almacenamiento: 256GB','Colores: Azul, Rosa, Blanco, Negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A19',pantalla:'6.6" Super Retina XDR',camara:'Dual 48MP+12MP',bateria:'3000 mAh'},
-    faq:[{q:'¿El iPhone 17 Air es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-12', name: 'iPhone 12', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-12.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2020-10-23',
+    tags: ['redes'],
+    short: 'iPhone 12 — A14 Bionic, 6.1" Super Retina XDR, Dual 12MP, 2815 mAh',
+    description: 'iPhone 12, usado en excelente estado (10/10). Chip A14 Bionic, pantalla 6.1" Super Retina XDR y cámara dual de 12 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A14 Bionic', 'Pantalla: 6.1" Super Retina XDR', 'Cámara: Dual 12MP', 'Batería: 2815 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A14 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'2815 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-17-pro', name:'iPhone 17 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-17-pro.jpg',
-    price:3490000, compareAtPrice:null, badge:'Nuevo',
-    stock:5, featured:true,
-    rating:4.8, reviews:136, sold:570,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Titanio negro','Titanio blanco','Titanio azul','Titanio desierto'], estado:'Nuevo', released:'2025-09-19',
-    tags:['fotos','camara'],
-    short:'iPhone 17 Pro 256GB — A19 Pro, 6.3" Super Retina XDR ProMotion', description:'El iPhone 17 Pro con chip A19 Pro, pantalla 6.3" Super Retina XDR ProMotion, cámara Triple 48MP+48MP+12MP y batería de 3200 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A19 Pro','Pantalla: 6.3" Super Retina XDR ProMotion','Cámara: Triple 48MP+48MP+12MP','Batería: 3200 mAh','Almacenamiento: 256GB','Colores: Titanio negro, Titanio blanco, Titanio azul, Titanio desierto'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A19 Pro',pantalla:'6.3" Super Retina XDR ProMotion',camara:'Triple 48MP+48MP+12MP',bateria:'3200 mAh'},
-    faq:[{q:'¿El iPhone 17 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-11', name: 'iPhone 11', brand: 'Apple', category: 'iphone',
+    art: 'phone', img: 'assets/catalogo/iphone-11.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2019-09-20',
+    tags: ['redes'],
+    short: 'iPhone 11 — A13 Bionic, 6.1" Liquid Retina HD, Dual 12MP, 3110 mAh',
+    description: 'iPhone 11, usado en excelente estado (10/10). Chip A13 Bionic, pantalla 6.1" Liquid Retina HD y cámara dual de 12 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A13 Bionic', 'Pantalla: 6.1" Liquid Retina HD', 'Cámara: Dual 12MP', 'Batería: 3110 mAh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A13 Bionic',pantalla:'6.1" Liquid Retina HD',camara:'Dual 12MP',bateria:'3110 mAh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
-
   {
-    id:'iphone-17-pro-max', name:'iPhone 17 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-17-pro-max.jpg',
-    price:3750000, compareAtPrice:null, badge:'Nuevo',
-    stock:5, featured:true,
-    rating:4.8, reviews:128, sold:535,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Titanio negro','Titanio blanco','Titanio azul','Titanio desierto'], estado:'Nuevo', released:'2025-09-19',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 17 Pro Max 256GB — A19 Pro, 6.9" Super Retina XDR ProMotion', description:'El iPhone 17 Pro Max con chip A19 Pro, pantalla 6.9" Super Retina XDR ProMotion, cámara Triple 48MP+48MP+12MP y batería de 4700 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A19 Pro','Pantalla: 6.9" Super Retina XDR ProMotion','Cámara: Triple 48MP+48MP+12MP','Batería: 4700 mAh','Almacenamiento: 256GB','Colores: Titanio negro, Titanio blanco, Titanio azul, Titanio desierto'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A19 Pro',pantalla:'6.9" Super Retina XDR ProMotion',camara:'Triple 48MP+48MP+12MP',bateria:'4700 mAh'},
-    faq:[{q:'¿El iPhone 17 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
-  }
-
-,
-
-  {
-    id:'iphone-13-256gb', name:'iPhone 13', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-13.jpg',
-    price:1190000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.7, reviews:272, sold:1165,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Starlight','Midnight','Azul','Rosa','Verde'], estado:'Seminuevo', released:'2021-09-24',
-    tags:['redes'],
-    short:'iPhone 13 256GB — A15 Bionic, 6.1" Super Retina XDR', description:'El iPhone 13 con chip A15 Bionic, pantalla 6.1" Super Retina XDR, cámara Dual 12MP y batería de 3240 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 12MP','Batería: 3240 mAh','Almacenamiento: 128GB','Colores: Starlight, Midnight, Azul, Rosa, Verde'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'3240 mAh'},
-    faq:[{q:'¿El iPhone 13 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'ipad-8a-generacion', name: 'iPad 8a generación', brand: 'Apple', category: 'ipad',
+    art: 'ipad', img: 'assets/catalogo/ipad-8a-generacion.webp',
+    badge: 'Usado', featured: false, rating: null, reviews: 0, sold: 0, released: '2020-09-18',
+    tags: ['redes'],
+    short: 'iPad 8a generación — A12 Bionic, 10.2" Retina, 8MP',
+    description: 'iPad de 8.ª generación, usado en excelente estado (10/10). Chip A12 Bionic, pantalla 10.2" Retina y cámara de 8 MP. Batería al 100% y garantía de 6 meses. Disponible en UltraCell, Barranquilla.',
+    specs: ['Chip: A12 Bionic', 'Pantalla: 10.2" Retina', 'Cámara: 8MP', 'Batería: 32.4 Wh'],
+    includes: 'Equipo usado revisado, cable de carga, garantía de 6 meses',
+    keyFacts: {chip:'A12 Bionic',pantalla:'10.2" Retina',camara:'8MP',bateria:'32.4 Wh'},
+    faq: [{q:'¿Es nuevo?',a:'Es un equipo usado en excelente estado (10/10), revisado por UltraCell, con batería al 100% y 6 meses de garantía.'}]
   },
+];
 
+const VARIANTS = [
   {
-    id:'iphone-13-pro-256gb', name:'iPhone 13 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-13-pro.jpg',
-    price:1550000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:264, sold:1130,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Grafito','Plata','Oro','Sierra Blue','Alpine Green'], estado:'Seminuevo', released:'2021-09-24',
-    tags:['fotos','camara'],
-    short:'iPhone 13 Pro 256GB — A15 Bionic, 6.1" Super Retina XDR ProMotion', description:'El iPhone 13 Pro con chip A15 Bionic, pantalla 6.1" Super Retina XDR ProMotion, cámara Triple 12MP + LiDAR y batería de 3095 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.1" Super Retina XDR ProMotion','Cámara: Triple 12MP + LiDAR','Batería: 3095 mAh','Almacenamiento: 128GB','Colores: Grafito, Plata, Oro, Sierra Blue, Alpine Green'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 12MP + LiDAR',bateria:'3095 mAh'},
-    faq:[{q:'¿El iPhone 13 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-pro-max-512gb', productoId: 'iphone-17-pro-max', name: 'iPhone 17 Pro Max',
+    capacidad: '512 GB', colores: ['Blanco'], precio: 4100000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-13-pro-max-256gb', name:'iPhone 13 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-13-pro-max.jpg',
-    price:1770000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:256, sold:1095,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Grafito','Plata','Oro','Sierra Blue','Alpine Green'], estado:'Seminuevo', released:'2021-09-24',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 13 Pro Max 256GB — A15 Bionic, 6.7" Super Retina XDR ProMotion', description:'El iPhone 13 Pro Max con chip A15 Bionic, pantalla 6.7" Super Retina XDR ProMotion, cámara Triple 12MP + LiDAR y batería de 4352 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.7" Super Retina XDR ProMotion','Cámara: Triple 12MP + LiDAR','Batería: 4352 mAh','Almacenamiento: 128GB','Colores: Grafito, Plata, Oro, Sierra Blue, Alpine Green'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 12MP + LiDAR',bateria:'4352 mAh'},
-    faq:[{q:'¿El iPhone 13 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-pro-max-256gb', productoId: 'iphone-17-pro-max', name: 'iPhone 17 Pro Max',
+    capacidad: '256 GB', colores: ['Blanco'], precio: 3750000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-14-256gb', name:'iPhone 14', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14.jpg',
-    price:1280000, compareAtPrice:null, badge:'Más vendido',
-    stock:12, featured:false,
-    rating:4.7, reviews:248, sold:1060,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Midnight','Starlight','Azul','Rosa','Rojo'], estado:'Seminuevo', released:'2022-09-16',
-    tags:['redes'],
-    short:'iPhone 14 256GB — A15 Bionic, 6.1" Super Retina XDR', description:'El iPhone 14 con chip A15 Bionic, pantalla 6.1" Super Retina XDR, cámara Dual 12MP y batería de 3279 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A15 Bionic','Pantalla: 6.1" Super Retina XDR','Cámara: Dual 12MP','Batería: 3279 mAh','Almacenamiento: 128GB','Colores: Midnight, Starlight, Azul, Rosa, Rojo'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A15 Bionic',pantalla:'6.1" Super Retina XDR',camara:'Dual 12MP',bateria:'3279 mAh'},
-    faq:[{q:'¿El iPhone 14 es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-pro-256gb', productoId: 'iphone-17-pro', name: 'iPhone 17 Pro',
+    capacidad: '256 GB', colores: ['Blanco'], precio: 3500000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-14-pro-256gb', name:'iPhone 14 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14-pro.jpg',
-    price:1720000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:232, sold:990,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Space Black','Plata','Oro','Deep Purple'], estado:'Seminuevo', released:'2022-09-16',
-    tags:['fotos','camara'],
-    short:'iPhone 14 Pro 256GB — A16 Bionic, 6.1" Super Retina XDR ProMotion', description:'El iPhone 14 Pro con chip A16 Bionic, pantalla 6.1" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 3200 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A16 Bionic','Pantalla: 6.1" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 3200 mAh','Almacenamiento: 128GB','Colores: Space Black, Plata, Oro, Deep Purple'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A16 Bionic',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'3200 mAh'},
-    faq:[{q:'¿El iPhone 14 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-17-air-256gb', productoId: 'iphone-17-air', name: 'iPhone 17 Air',
+    capacidad: '256 GB', colores: ['Blanco'], precio: 2750000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-14-pro-max-256gb', name:'iPhone 14 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-14-pro-max.jpg',
-    price:1990000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:224, sold:955,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Space Black','Plata','Oro','Deep Purple'], estado:'Seminuevo', released:'2022-09-16',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 14 Pro Max 256GB — A16 Bionic, 6.7" Super Retina XDR ProMotion', description:'El iPhone 14 Pro Max con chip A16 Bionic, pantalla 6.7" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 4323 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A16 Bionic','Pantalla: 6.7" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 4323 mAh','Almacenamiento: 128GB','Colores: Space Black, Plata, Oro, Deep Purple'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A16 Bionic',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'4323 mAh'},
-    faq:[{q:'¿El iPhone 14 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-pro-max-512gb', productoId: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max',
+    capacidad: '512 GB', colores: ['Azul', 'Negro'], precio: 3000000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-15-pro-256gb', name:'iPhone 15 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-15-pro.jpg',
-    price:2050000, compareAtPrice:null, badge:null,
-    stock:12, featured:false,
-    rating:4.8, reviews:200, sold:850,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Titanio negro','Titanio blanco','Titanio azul','Titanio natural'], estado:'Seminuevo', released:'2023-09-22',
-    tags:['fotos','camara'],
-    short:'iPhone 15 Pro 256GB — A17 Pro, 6.1" Super Retina XDR ProMotion', description:'El iPhone 15 Pro con chip A17 Pro, pantalla 6.1" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 3274 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A17 Pro','Pantalla: 6.1" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 3274 mAh','Almacenamiento: 128GB','Colores: Titanio negro, Titanio blanco, Titanio azul, Titanio natural'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A17 Pro',pantalla:'6.1" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'3274 mAh'},
-    faq:[{q:'¿El iPhone 15 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-pro-max-256gb', productoId: 'iphone-16-pro-max', name: 'iPhone 16 Pro Max',
+    capacidad: '256 GB', colores: ['Natural', 'Negro', 'Azul', 'Lila'], precio: 2850000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-15-pro-max-512gb', name:'iPhone 15 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-15-pro-max.jpg',
-    price:2450000, compareAtPrice:null, badge:null,
-    stock:12, featured:true,
-    rating:4.8, reviews:192, sold:815,
-    storage:'512GB', storageOptions:['512GB'],
-    colors:['Titanio negro','Titanio blanco','Titanio azul','Titanio natural'], estado:'Seminuevo', released:'2023-09-22',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 15 Pro Max 512GB — A17 Pro, 6.7" Super Retina XDR ProMotion', description:'El iPhone 15 Pro Max con chip A17 Pro, pantalla 6.7" Super Retina XDR ProMotion, cámara Triple 48MP+12MP+12MP y batería de 4422 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A17 Pro','Pantalla: 6.7" Super Retina XDR ProMotion','Cámara: Triple 48MP+12MP+12MP','Batería: 4422 mAh','Almacenamiento: 256GB','Colores: Titanio negro, Titanio blanco, Titanio azul, Titanio natural'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A17 Pro',pantalla:'6.7" Super Retina XDR ProMotion',camara:'Triple 48MP+12MP+12MP',bateria:'4422 mAh'},
-    faq:[{q:'¿El iPhone 15 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-pro-256gb', productoId: 'iphone-16-pro', name: 'iPhone 16 Pro',
+    capacidad: '256 GB', colores: ['Desierto', 'Natural', 'Blanco', 'Negro'], precio: 2650000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-16-pro-256gb', name:'iPhone 16 Pro', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-16-pro.jpg',
-    price:2650000, compareAtPrice:null, badge:null,
-    stock:8, featured:false,
-    rating:4.8, reviews:168, sold:710,
-    storage:'256GB', storageOptions:['256GB'],
-    colors:['Titanio desierto','Titanio natural','Titanio blanco','Titanio negro'], estado:'Seminuevo', released:'2024-09-20',
-    tags:['fotos','camara'],
-    short:'iPhone 16 Pro 256GB — A18 Pro, 6.3" Super Retina XDR ProMotion', description:'El iPhone 16 Pro con chip A18 Pro, pantalla 6.3" Super Retina XDR ProMotion, cámara Triple 48MP+48MP+12MP y batería de 3082 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A18 Pro','Pantalla: 6.3" Super Retina XDR ProMotion','Cámara: Triple 48MP+48MP+12MP','Batería: 3082 mAh','Almacenamiento: 128GB','Colores: Titanio desierto, Titanio natural, Titanio blanco, Titanio negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A18 Pro',pantalla:'6.3" Super Retina XDR ProMotion',camara:'Triple 48MP+48MP+12MP',bateria:'3082 mAh'},
-    faq:[{q:'¿El iPhone 16 Pro es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
+    id: 'iphone-16-pro-128gb', productoId: 'iphone-16-pro', name: 'iPhone 16 Pro',
+    capacidad: '128 GB', colores: ['Natural', 'Blanco', 'Negro', 'Azul'], precio: 2450000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
   },
-
   {
-    id:'iphone-16-pro-max-512gb', name:'iPhone 16 Pro Max', brand:'Apple', category:'iphone',
-    art:'phone', img:'assets/catalogo/iphone-16-pro-max.jpg',
-    price:2990000, compareAtPrice:null, badge:null,
-    stock:8, featured:true,
-    rating:4.8, reviews:160, sold:675,
-    storage:'512GB', storageOptions:['512GB'],
-    colors:['Titanio desierto','Titanio natural','Titanio blanco','Titanio negro'], estado:'Seminuevo', released:'2024-09-20',
-    tags:['fotos','camara','pantalla'],
-    short:'iPhone 16 Pro Max 512GB — A18 Pro, 6.9" Super Retina XDR ProMotion', description:'El iPhone 16 Pro Max con chip A18 Pro, pantalla 6.9" Super Retina XDR ProMotion, cámara Triple 48MP+48MP+12MP y batería de 4685 mAh. Disponible en UltraCell, Barranquilla.',
-    specs:['Chip: A18 Pro','Pantalla: 6.9" Super Retina XDR ProMotion','Cámara: Triple 48MP+48MP+12MP','Batería: 4685 mAh','Almacenamiento: 256GB','Colores: Titanio desierto, Titanio natural, Titanio blanco, Titanio negro'],
-    includes:'Cable USB-C, adaptador no incluido, manual',
-    keyFacts:{chip:'A18 Pro',pantalla:'6.9" Super Retina XDR ProMotion',camara:'Triple 48MP+48MP+12MP',bateria:'4685 mAh'},
-    faq:[{q:'¿El iPhone 16 Pro Max es nuevo?',a:'(Respuesta demo) Disponibilidad de estado nuevo o seminuevo la confirma UltraCell.'}]
-  }];
+    id: 'iphone-16-plus-128gb', productoId: 'iphone-16-plus', name: 'iPhone 16 Plus',
+    capacidad: '128 GB', colores: ['Negro', 'Azul'], precio: 2200000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-16-128gb', productoId: 'iphone-16', name: 'iPhone 16',
+    capacidad: '128 GB', colores: ['Negro'], precio: 2150000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-15-pro-max-512gb', productoId: 'iphone-15-pro-max', name: 'iPhone 15 Pro Max',
+    capacidad: '512 GB', colores: ['Azul'], precio: 2450000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-15-pro-max-256gb', productoId: 'iphone-15-pro-max', name: 'iPhone 15 Pro Max',
+    capacidad: '256 GB', colores: ['Azul', 'Negro', 'Blanco', 'Natural'], precio: 2350000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-15-pro-256gb', productoId: 'iphone-15-pro', name: 'iPhone 15 Pro',
+    capacidad: '256 GB', colores: ['Negro', 'Azul', 'Natural'], precio: 2050000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-15-pro-128gb', productoId: 'iphone-15-pro', name: 'iPhone 15 Pro',
+    capacidad: '128 GB', colores: ['Negro', 'Blanco'], precio: 1950000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-15-plus-128gb', productoId: 'iphone-15-plus', name: 'iPhone 15 Plus',
+    capacidad: '128 GB', colores: ['Negro'], precio: 1700000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-15-128gb', productoId: 'iphone-15', name: 'iPhone 15',
+    capacidad: '128 GB', colores: ['Negro', 'Azul', 'Rosado'], precio: 1600000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-pro-max-256gb', productoId: 'iphone-14-pro-max', name: 'iPhone 14 Pro Max',
+    capacidad: '256 GB', colores: ['Negro'], precio: 2000000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-pro-max-128gb', productoId: 'iphone-14-pro-max', name: 'iPhone 14 Pro Max',
+    capacidad: '128 GB', colores: ['Blanco'], precio: 1800000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-pro-256gb', productoId: 'iphone-14-pro', name: 'iPhone 14 Pro',
+    capacidad: '256 GB', colores: ['Azul', 'Negro', 'Blanco'], precio: 1700000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-pro-128gb', productoId: 'iphone-14-pro', name: 'iPhone 14 Pro',
+    capacidad: '128 GB', colores: ['Negro', 'Azul', 'Natural'], precio: 1600000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-plus-128gb', productoId: 'iphone-14-plus', name: 'iPhone 14 Plus',
+    capacidad: '128 GB', colores: ['Negro', 'Blanco'], precio: 1350000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-256gb', productoId: 'iphone-14', name: 'iPhone 14',
+    capacidad: '256 GB', colores: ['Blanco', 'Lila', 'Negro'], precio: 1300000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-14-128gb', productoId: 'iphone-14', name: 'iPhone 14',
+    capacidad: '128 GB', colores: ['Blanco', 'Lila', 'Negro'], precio: 1200000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-pro-max-1tb', productoId: 'iphone-13-pro-max', name: 'iPhone 13 Pro Max',
+    capacidad: '1 TB', colores: ['Negro'], precio: 1900000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-pro-max-256gb', productoId: 'iphone-13-pro-max', name: 'iPhone 13 Pro Max',
+    capacidad: '256 GB', colores: ['Negro', 'Azul'], precio: 1750000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-pro-max-128gb', productoId: 'iphone-13-pro-max', name: 'iPhone 13 Pro Max',
+    capacidad: '128 GB', colores: ['Azul', 'Negro', 'Blanco'], precio: 1600000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-pro-256gb', productoId: 'iphone-13-pro', name: 'iPhone 13 Pro',
+    capacidad: '256 GB', colores: ['Negro', 'Blanco'], precio: 1550000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-pro-128gb', productoId: 'iphone-13-pro', name: 'iPhone 13 Pro',
+    capacidad: '128 GB', colores: ['Blanco', 'Negro'], precio: 1450000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-256gb', productoId: 'iphone-13', name: 'iPhone 13',
+    capacidad: '256 GB', colores: ['Rosado', 'Blanco', 'Negro'], precio: 1200000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-13-128gb', productoId: 'iphone-13', name: 'iPhone 13',
+    capacidad: '128 GB', colores: ['Rosado', 'Blanco', 'Negro'], precio: 1100000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-12-pro-max-512gb', productoId: 'iphone-12-pro-max', name: 'iPhone 12 Pro Max',
+    capacidad: '512 GB', colores: ['Azul', 'Negro', 'Blanco'], precio: 1300000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-12-pro-max-128gb', productoId: 'iphone-12-pro-max', name: 'iPhone 12 Pro Max',
+    capacidad: '128 GB', colores: ['Blanco', 'Negro'], precio: 1200000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-12-128gb', productoId: 'iphone-12', name: 'iPhone 12',
+    capacidad: '128 GB', colores: ['Negro', 'Azul', 'Blanco'], precio: 1000000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'iphone-11-128gb', productoId: 'iphone-11', name: 'iPhone 11',
+    capacidad: '128 GB', colores: ['Negro', 'Azul blanco'], precio: 800000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+  {
+    id: 'ipad-8a-generacion-64gb', productoId: 'ipad-8a-generacion', name: 'iPad 8a generacion',
+    capacidad: '64 GB', colores: ['Negro', 'Azul', 'Blanco'], precio: 750000, stock: 20,
+    estado: 'Excelente', bateria: 100, garantia: '6 meses', notas: ''
+  },
+];
+
+/* Campos derivados por producto: minimo ('Desde'), stock agregado, capacidades y colores reales. */
+PRODUCTS.forEach(p => {
+  const vs = VARIANTS.filter(v => v.productoId === p.id);
+  p.price = Math.min(...vs.map(v => v.precio));
+  p.compareAtPrice = null;
+  p.stock = vs.reduce((a, v) => a + v.stock, 0);
+  p.storage = vs.map(v => v.capacidad).join(' · ');
+  p.storageOptions = vs.map(v => v.capacidad);
+  p.colors = [ ...new Set(vs.flatMap(v => v.colores)) ];
+  p.estado = 'Excelente';
+  p.bateria = 100;
+  p.garantia = '6 meses';
+});
+/* Accesores y utilidades de capacidad. */
+const productById = id => PRODUCTS.find(p => p.id === id);
+const variantById = id => VARIANTS.find(v => v.id === id);
+const variantsOf = pid => VARIANTS.filter(v => v.productoId === pid);
+function capSort(cap){
+  const m = String(cap).toLowerCase().match(/(\d+(?:[.,]\d+)?)\s*(gb|tb)/);
+  if (!m) return 0;
+  const n = parseFloat(m[1].replace(',', '.'));
+  return m[2] === 'tb' ? n * 1024 : n;
+}
+function capKey(s){ return norm(s).replace(/[^a-z0-9]+/g, ''); }
+
 
 /* ============================================================
    RENDERS SVG DE PRODUCTOS (premium, sin imágenes externas)
@@ -1881,17 +1848,26 @@ function cartTotals(){
 function addToCart(pid, qty, opts){
   qty = qty == null ? 1 : qty;
   opts = opts || {};
-  const p = CATALOG.find(x => x.id === pid);
-  if (!p) return { ok:false, msg:'Producto no encontrado' };
-  if (p.stock <= 0) return { ok:false, msg:'Producto agotado en la demo' };
+  /* Acepta un id de variante (modelo+capacidad) o de producto (modelo). */
+  let v = variantById(pid);
+  if (!v){
+    const prod = productById(pid);
+    if (prod){
+      const vs = variantsOf(prod.id);
+      if (!vs.length) return { ok:false, msg:'Producto no encontrado' };
+      const inStock = vs.filter(x => x.stock > 0);
+      v = (inStock.length ? inStock : vs).slice().sort((a,b) => a.precio - b.precio)[0]; /* variante mas economica CON stock por defecto */
+    }
+  }
+  if (!v) return { ok:false, msg:'Producto no encontrado' };
+  if (v.stock <= 0) return { ok:false, msg:'Producto agotado' };
+  const color = (opts.color && v.colores.includes(opts.color)) ? opts.color : (v.colores && v.colores[0]) || 'Unico';
   const cart = getCart();
-  const color = opts.color || (p.colors && p.colors[0]) || 'Único';
-  const storage = opts.storage || p.storage || '—';
-  const line = cart.find(l => l.id === pid && l.color === color && l.storage === storage);
-  if (line) line.qty = Math.min(line.qty + qty, Math.max(p.stock, 1));
-  else cart.push({ id: pid, qty, color, storage, price: p.price, added: Date.now() });
+  const line = cart.find(l => l.id === v.id && l.color === color);
+  if (line) line.qty = Math.min(line.qty + qty, Math.max(v.stock, 1));
+  else cart.push({ id: v.id, productId: v.productoId, name: v.name, qty, color, storage: v.capacidad, price: v.precio, added: Date.now() });
   saveCart(cart);
-  track('add_to_cart', { product: pid, qty, color, storage });
+  track('add_to_cart', { product: v.id, qty, color, storage: v.capacidad });
   return { ok:true, count: cartCount() };
 }
 function updateQty(lineIdx, qty){
@@ -1913,18 +1889,17 @@ function removeLine(lineIdx){
 function placeOrder(form, method){
   const cart = getCart();
   if (!cart.length) return { ok:false, msg:'El carrito está vacío' };
-  let seq = +(sGet('uc_order_seq', 100)) + 1;   // Primer pedido demo: UC-DEMO-000123
+  let seq = +(sGet('uc_order_seq', 100)) + 1;   // Primer pedido: UC-000123
   sSet('uc_order_seq', seq);
   const totals = cartTotals();
   const order = {
-    id: 'UC-DEMO-' + String(seq).padStart(6, '0'),
+    id: 'UC-' + String(seq).padStart(6, '0'),
     date: new Date().toISOString(),
     items: cart.map(l => ({ ...l })),
     totals,
     customer: { ...form },
     payment: { method, label: ({ card:'Tarjeta de crédito/débito', pse:'PSE', nequi:'Nequi' })[method] || method },
-    status: 'Confirmado',
-    demo: true
+    status: 'Confirmado'
   };
   const orders = sGet('uc_orders_v1', []);
   orders.unshift(order);
@@ -1956,12 +1931,14 @@ function smartSearch(qRaw){
   if (/(mam[aá]|pap[aá]|regalo|regalar|abuela|abuelo|esposa|novia|hijo|hermano)/.test(q))
     return { ...base, filter: p => p.category === 'iphone' && p.price <= 4200000, sort:'price-desc', msg:'🎁 Perfectos para regalar: fáciles de usar, buena batería y precio amable' };
   if (/(android|samsung|xiaomi|motorola|redmi|galaxy|edge)/.test(q))
-    return { ...base, filter: p => p.category === 'android', sort:'featured', msg:'🤖 Opciones Android de la demo' };
+    return { ...base, filter: p => p.category === 'android', sort:'featured', msg:'🤖 Opciones Android' };
   if (/(airpods|watch|ipad|apple)/.test(q) && !/iphone/.test(q))
     return { ...base, filter: p => p.category === 'apple', sort:'featured', msg:'🍎 Ecosistema Apple' };
   if (/iphone/.test(q))
-    return { ...base, filter: p => p.category === 'iphone', sort:'featured', msg:'📱 Todos nuestros iPhone (demo)' };
-  const hits = CATALOG.filter(p => norm(p.name + ' ' + p.brand + ' ' + p.short + ' ' + p.description).includes(q));
+    return { ...base, filter: p => p.category === 'iphone', sort:'featured', msg:'📱 Todos nuestros iPhone usados' };
+  const capM = q.match(/(\d+)\s*(gb|tb)/);
+  if (capM) return { ...base, filter: p => (p.storageOptions || []).some(s => capKey(s) === (capM[1] + capM[2])), sort:'featured', msg:'💾 Equipos de ' + esc(capM[1] + ' ' + capM[2].toUpperCase()) + ':' };
+  const hits = PRODUCTS.filter(p => norm(p.name + ' ' + p.brand + ' ' + p.short + ' ' + p.description + ' ' + (p.storageOptions || []).join(' ') + ' ' + (p.storageOptions || []).map(capKey).join(' ')).includes(q));
   if (hits.length)
     return { ...base, filter: p => hits.some(h => h.id === p.id), sort:'featured', msg:'Resultados para "' + esc(qRaw) + '"' };
   return { ...base, filter:null, sort:'featured', msg:'No encontramos resultados exactos para "' + esc(qRaw) + '". Te mostramos lo más popular 👇' };
@@ -1979,14 +1956,14 @@ function sortList(list, sort){
    RECOMENDADOR — QUIZ (5 preguntas → 1 iPhone)
    ============================================================ */
 const QUIZ = [
-  { q:'¿Cuál es tu presupuesto?', opts:[ ['lt1','Menos de $1 millón','💰'], ['1_2','Entre $1 y $2 millones','💵'], ['2_3','Entre $2 y $3 millones','💎'], ['gt3','Más de $3 millones','👑'] ] },
-  { q:'¿Para qué lo vas a usar más?', opts:[ ['foto','Fotos y video','📸'], ['redes','Redes y mensajería','💬'], ['juegos','Juegos y rendimiento','🎮'], ['trabajo','Trabajo y productividad','💼'] ] },
-  { q:'¿Qué tan importante es la cámara?', opts:[ ['mucho','Es lo más importante','🌟'], ['algo','Buena, sin exagerar','👍'], ['poco','No me importa mucho','👌'] ] },
-  { q:'¿Cuánta capacidad necesitas?', opts:[ ['128','128 GB me sobra','🗂️'], ['256','256 GB','📦'], ['mas','Más de 256 GB','🛰️'] ] },
-  { q:'¿Qué tamaño prefieres?', opts:[ ['compacto','Compacto y liviano','🤏'], ['grande','Grande, para ver contenido','🖥️'], ['indif','No tengo preferencia','⚖️'] ] }
+  { key:'budget', q:'¿Cuál es tu presupuesto?', opts:[ ['lt1','Menos de $1 millón','💰'], ['1_2','Entre $1 y $2 millones','💵'], ['2_3','Entre $2 y $3 millones','💎'], ['gt3','Más de $3 millones','👑'] ] },
+  { key:'use', q:'¿Para qué lo vas a usar más?', opts:[ ['foto','Fotos y video','📸'], ['redes','Redes y mensajería','💬'], ['juegos','Juegos y rendimiento','🎮'], ['trabajo','Trabajo y productividad','💼'] ] },
+  { key:'cam', q:'¿Qué tan importante es la cámara?', opts:[ ['mucho','Es lo más importante','🌟'], ['algo','Buena, sin exagerar','👍'], ['poco','No me importa mucho','👌'] ] },
+  { key:'cap', q:'¿Cuánta capacidad necesitas?', opts:[ ['128','128 GB me sobra','🗂️'], ['256','256 GB','📦'], ['mas','Más de 256 GB','🛰️'] ] },
+  { key:'size', q:'¿Qué tamaño prefieres?', opts:[ ['compacto','Compacto y liviano','🤏'], ['grande','Grande, para ver contenido','🖥️'], ['indif','No tengo preferencia','⚖️'] ] }
 ];
 function recommendQuiz(answers){
-  const phones = CATALOG.filter(p => p.category === 'iphone');
+  const phones = PRODUCTS.filter(p => p.category === 'iphone');
   const score = {};
   phones.forEach(p => { score[p.id] = 0; });
   const add = (id, pts) => { if (score[id] != null) score[id] += pts; };
@@ -1994,20 +1971,20 @@ function recommendQuiz(answers){
     'lt1':  ['iphone-11','iphone-12','iphone-13'],
     '1_2':  ['iphone-13','iphone-14','iphone-14-pro','iphone-15'],
     '2_3':  ['iphone-15-pro','iphone-15-pro-max','iphone-16','iphone-16-pro'],
-    'gt3':  ['iphone-16-pro-max','iphone-17','iphone-17-air','iphone-17-pro','iphone-17-pro-max']
+    'gt3':  ['iphone-16-pro-max','iphone-17-air','iphone-17-pro','iphone-17-pro-max']
   };
   const pool = budgetPool[answers.budget] || budgetPool['1_2'];
   pool.forEach((id, i) => add(id, 3 - i * 0.75));
   if (answers.use === 'foto')  { add('iphone-17-pro-max',3); add('iphone-17-pro',3); add('iphone-16-pro',2); add('iphone-15-pro',1); }
   if (answers.use === 'juegos'){ add('iphone-17-pro-max',3); add('iphone-17-pro',2); add('iphone-16-pro',2); }
-  if (answers.use === 'redes') { add('iphone-17',2); add('iphone-16',2); add('iphone-15',1); }
-  if (answers.use === 'trabajo'){ add('iphone-17',2); add('iphone-17-pro',2); add('iphone-16',1); }
+  if (answers.use === 'redes') { add('iphone-17-pro',2); add('iphone-16',2); add('iphone-15',1); }
+  if (answers.use === 'trabajo'){ add('iphone-17-pro',2); add('iphone-17-pro',2); add('iphone-16',1); }
   if (answers.cam === 'mucho'){ add('iphone-17-pro-max',2); add('iphone-17-pro',2); add('iphone-16-pro',2); add('iphone-15-pro',1); }
   if (answers.cam === 'poco') { add('iphone-14',2); add('iphone-15',1); }
   if (answers.cap === '128') { add('iphone-15',1); add('iphone-14',1); }
-  if (answers.cap === '256') { add('iphone-17-pro',2); add('iphone-17',1); add('iphone-16-pro',1); }
+  if (answers.cap === '256') { add('iphone-17-pro',2); add('iphone-17-pro',1); add('iphone-16-pro',1); }
   if (answers.cap === 'mas') { add('iphone-17-pro-max',3); add('iphone-17-pro',2); }
-  if (answers.size === 'compacto'){ add('iphone-14',1.5); add('iphone-15',1.5); add('iphone-16',1.5); add('iphone-17',1); }
+  if (answers.size === 'compacto'){ add('iphone-14',1.5); add('iphone-15',1.5); add('iphone-16',1.5); add('iphone-17-pro',1); }
   if (answers.size === 'grande'){ add('iphone-17-pro-max',3); add('iphone-17-pro',1); }
   let best = null, bestScore = -Infinity;
   phones.forEach(p => { if (score[p.id] > bestScore) { bestScore = score[p.id]; best = p; } });
@@ -2020,7 +1997,7 @@ function recommendQuiz(answers){
   if (answers.cap === 'mas') reasons.push('Con capacidad de sobra para tus archivos');
   if (answers.size === 'grande') reasons.push('Pantalla grande, perfecta para contenido');
   if (answers.size === 'compacto') reasons.push('Cómodo de llevar y usar con una mano');
-  reasons.push('Excelente relación precio-valor dentro del catálogo demo');
+  reasons.push('Excelente relación precio-valor dentro del catálogo');
   return { id: best ? best.id : 'iphone-15', reasons: reasons.slice(0, 4) };
 }
 
@@ -2057,13 +2034,13 @@ function parseBudget(text){
 function findByName(text){
   const t = norm(text);
   let best = null, bestScore = 0;
-  CATALOG.forEach(p => {
+  PRODUCTS.forEach(p => {
     const n = norm(p.name);
     if (t.includes(n) && n.length > bestScore){ bestScore = n.length; best = p; }
   });
   if (best) return best;
   const tokens = ['pro max','pro','max','air','17','16','15','14','13','12','11','plus'];
-  CATALOG.forEach(p => {
+  PRODUCTS.forEach(p => {
     const n = norm(p.name);
     let sc = 0;
     tokens.forEach(tk => { if (t.includes(tk) && n.includes(tk)) sc += tk.length; });
@@ -2073,7 +2050,7 @@ function findByName(text){
 }
 function matchProducts(text){
   const found = [];
-  CATALOG.forEach(p => { if (norm(text).includes(norm(p.name))) found.push(p); });
+  PRODUCTS.forEach(p => { if (norm(text).includes(norm(p.name))) found.push(p); });
   if (found.length >= 2) return found.slice(0, 2);
   const a = findByName(text);
   if (a) found.push(a);
@@ -2100,14 +2077,14 @@ function botReply(raw, ctx){
   /* saludo */
   if (/^(hola|buenas|buen\s?d[ií]a|buenos\s?d[ií]as|buenas\s?tardes|buenas\s?noches|hey|quiubo|qu[eé]\s?m[aá]s|que\s?mas|saludos|holi)/.test(t)){
     const m = ctx.product
-      ? M.text('Hola 👋 Veo que estás mirando el ' + ctx.product.name + ' (' + fmtCOP(ctx.product.price) + ', precio demo). ¿Quieres que te cuente lo bueno, o lo comparamos con otros?')
+      ? M.text('Hola 👋 Veo que estás mirando el ' + ctx.product.name + ' (' + fmtCOP(ctx.product.price) + '). ¿Quieres que te cuente lo bueno, o lo comparamos con otros?')
       : M.text('Hola 👋 Soy el asesor IA de UltraCell. Cuéntame tu presupuesto o para qué usas el celular, y te recomiendo el ideal.');
     return { msgs:[chip(m, ctx.product ? ['¿Vale la pena?','¿En cuánto llega?','¿Qué incluye?'] : ['Quiero un iPhone','Tengo $2 millones','Quiero comparar modelos','¿Cuál es el más barato?'])], track:null };
   }
   /* presupuesto */
   const b = parseBudget(raw);
   if (b !== null){
-    const recs = CATALOG.filter(p => p.category === 'iphone' && p.price <= b * 1.06 && p.price >= b * 0.45).sort((a,c) => c.price - a.price).slice(0, 3);
+    const recs = PRODUCTS.filter(p => p.category === 'iphone' && p.price <= b * 1.06 && p.price >= b * 0.45).sort((a,c) => c.price - a.price).slice(0, 3);
     if (recs.length){
       aiState.lastProduct = recs[0].id;
       out.push(M.text('Con ' + fmtCOP(b) + ' te alcanza muy bien. Te recomiendo 👇'));
@@ -2116,18 +2093,18 @@ function botReply(raw, ctx){
         ['¿Cuál tiene mejor cámara?', 'Diferencia entre ' + recs[0].name + ' y ' + recs[recs.length-1].name, 'Quiero comprar el ' + recs[0].name]));
       return { msgs:out, track:'ai_product_recommendation' };
     }
-    const cheapest = CATALOG.filter(p => p.category === 'iphone').sort((a,c) => a.price - c.price)[0];
+    const cheapest = PRODUCTS.filter(p => p.category === 'iphone').sort((a,c) => a.price - c.price)[0];
     aiState.lastProduct = cheapest.id;
-    out.push(chip(M.text('Con ' + fmtCOP(b) + ' estás cerquita 👌 El iPhone más económico de la demo es el ' + cheapest.name + ' en ' + fmtCOP(cheapest.price) + '. Si estiras un poquito el presupuesto, te lo dejamos hoy. ¿Lo vemos?'),
+    out.push(chip(M.text('Con ' + fmtCOP(b) + ' estás cerquita 👌 El iPhone más económico es el ' + cheapest.name + ' en ' + fmtCOP(cheapest.price) + '. Si estiras un poquito el presupuesto, te lo dejamos hoy. ¿Lo vemos?'),
       ['Ver ' + cheapest.name, '¿Tienen algo de contado?', 'Háblame de pagos']));
     return { msgs:out, track:'ai_product_recommendation' };
   }
   /* comparar */
   if (/(diferencia|compar\w*|vs|versus|cu[aá]l es mejor|que es mejor)/.test(t)){
     const ids = [];
-    CATALOG.filter(p => p.category !== 'accesorios').forEach(p => { if (t.includes(norm(p.name)) && ids.length < 2 && !ids.includes(p.id)) ids.push(p.id); });
+    PRODUCTS.filter(p => p.category !== 'accesorios').forEach(p => { if (t.includes(norm(p.name)) && ids.length < 2 && !ids.includes(p.id)) ids.push(p.id); });
     if (ids.length >= 2){
-      const a = CATALOG.find(p => p.id === ids[0]), c = CATALOG.find(p => p.id === ids[1]);
+      const a = PRODUCTS.find(p => p.id === ids[0]), c = PRODUCTS.find(p => p.id === ids[1]);
       out.push(M.compare(a, c));
       out.push(chip(M.text('¿Quieres que te lleve al checkout con alguno? 😉'), ['Comprar ' + a.name, 'Comprar ' + c.name, 'Seguir mirando']));
       return { msgs:out, track:'ai_product_recommendation' };
@@ -2138,7 +2115,7 @@ function botReply(raw, ctx){
   }
   /* uso: cámara */
   if (/(fotos?|c[aá]maras?|video|instagram|tiktok|graba)/.test(t)){
-    const recs = CATALOG.filter(p => p.category === 'iphone' && p.tags.some(x => x === 'fotos' || x === 'camara')).sort((a,c) => c.price - a.price).slice(0, 3);
+    const recs = PRODUCTS.filter(p => p.category === 'iphone' && p.tags.some(x => x === 'fotos' || x === 'camara')).sort((a,c) => c.price - a.price).slice(0, 3);
     aiState.lastProduct = recs[0].id;
     out.push(M.text('Para foto y video, estos son mis favoritos 📸'));
     out.push(M.products(recs.map(p => p.id), ''));
@@ -2148,16 +2125,16 @@ function botReply(raw, ctx){
   }
   /* uso: batería */
   if (/(bater[ií]a|duraci[oó]n|autonom[ií]a|aguanta)/.test(t)){
-    const recs = CATALOG.filter(p => p.category === 'iphone' && p.tags.includes('bateria')).sort((a,c) => c.price - a.price).slice(0, 3);
+    const recs = PRODUCTS.filter(p => p.category === 'iphone' && p.tags.includes('bateria')).sort((a,c) => c.price - a.price).slice(0, 3);
     aiState.lastProduct = recs[0].id;
     out.push(M.text('Para que la batería te rinda todo el día 🔋'));
     out.push(M.products(recs.map(p => p.id), ''));
-    out.push(chip(M.text('El ' + recs[0].name + ' tiene la mejor autonomía del catálogo demo.'), ['Quiero comprarlo', '¿Cuál me dura más?']));
+    out.push(chip(M.text('El ' + recs[0].name + ' tiene la mejor autonomía del catálogo.'), ['Quiero comprarlo', '¿Cuál me dura más?']));
     return { msgs:out, track:'ai_product_recommendation' };
   }
   /* uso: rendimiento */
   if (/(juegos?|gaming|rendimiento|procesador|pesado|r[aá]pido|potente)/.test(t)){
-    const recs = CATALOG.filter(p => p.category === 'iphone' && (p.tags.includes('rendimiento') || p.tags.includes('pro'))).sort((a,c) => c.price - a.price).slice(0, 3);
+    const recs = PRODUCTS.filter(p => p.category === 'iphone' && (p.tags.includes('rendimiento') || p.tags.includes('pro'))).sort((a,c) => c.price - a.price).slice(0, 3);
     aiState.lastProduct = recs[0].id;
     out.push(M.text('Para rendimiento sin frenos 🚀'));
     out.push(M.products(recs.map(p => p.id), ''));
@@ -2181,12 +2158,12 @@ function botReply(raw, ctx){
   /* intención de compra */
   if (/(comprar|compra|ll[eé]vame|ll[eé]valo|agr[eé]gamelo|agregar|checkout|pagar|pago|pedido|pedir)/.test(t)){
     let p = ctx.product;
-    if (!p && aiState.lastProduct) p = CATALOG.find(x => x.id === aiState.lastProduct);
+    if (!p && aiState.lastProduct) p = PRODUCTS.find(x => x.id === aiState.lastProduct);
     if (!p) p = findByName(raw);
     if (p){
       aiState.intent = { product: p.id };
       aiState.lastProduct = p.id;
-      out.push(M.actions('Perfecto 🙌 El ' + p.name + ' queda en ' + fmtCOP(p.price) + ' (precio demo). ¿Quieres que te lleve directamente al checkout?', [
+      out.push(M.actions('Perfecto 🙌 El ' + p.name + ' queda en ' + fmtCOP(p.price) + '. ¿Quieres que te lleve directamente al checkout?', [
         { label:'Sí, ir al checkout', action:'checkout_intent', payload:p.id },
         { label:'Mejor agrégalo al carrito', action:'add', payload:p.id },
         { label:'Aún no, cuéntame más', action:'send', payload:'Cuéntame más del ' + p.name }
@@ -2199,31 +2176,31 @@ function botReply(raw, ctx){
   }
   /* atención: envíos */
   if (/(env[ií]o|envios|entrega|domicilio|demora|llega|cu[aá]ndo llega|cu[aá]nto tarda)/.test(t)){
-    out.push(chip(M.text('📦 Hacemos envíos a nivel nacional (demo). En ciudades principales estimamos 1-3 días hábiles. Compras sobre ' + fmtCOP(CONFIG.FREE_SHIPPING_OVER) + ' tienen envío gratis.'),
+    out.push(chip(M.text('📦 Hacemos envíos a nivel nacional. En ciudades principales estimamos 1-3 días hábiles. Compras sobre ' + fmtCOP(CONFIG.FREE_SHIPPING_OVER) + ' tienen envío gratis.'),
       ['Quiero comprar', 'Háblame de garantía', 'Contactar por WhatsApp']));
     return { msgs:out, track:null };
   }
   /* garantía */
   if (/(garant[ií]a)/.test(t)){
-    out.push(chip(M.text('🛡️ Garantía de 12 meses (términos demo, por confirmar con UltraCell). Cubre defectos de fábrica; no aplica por mal uso.'),
+    out.push(chip(M.text('🛡️ Garantía de 6 meses. Cubre defectos de fábrica; no aplica por mal uso.'),
       ['¿Y cambios?', 'Quiero comprar']));
     return { msgs:out, track:null };
   }
   /* cambios */
   if (/(cambio|devoluci[oó]n|reembolso)/.test(t)){
-    out.push(chip(M.text('🔄 Política de cambios demo: tienes un plazo corto para reportar novedades y hacemos el cambio si cumple las condiciones. Te confirmamos los términos exactos por WhatsApp.'),
+    out.push(chip(M.text('🔄 Política de cambios: tienes un plazo corto para reportar novedades y hacemos el cambio si cumple las condiciones. Te confirmamos los términos exactos por WhatsApp.'),
       ['Contactar por WhatsApp', 'Quiero comprar']));
     return { msgs:out, track:null };
   }
   /* horario */
   if (/(horario|atienden|abren|horas)/.test(t)){
-    out.push(chip(M.text('⏰ Atendemos ' + CONFIG.HOURS + ' (horario placeholder demo). Escríbenos por WhatsApp cuando quieras y te respondemos.'),
+    out.push(chip(M.text('⏰ Atendemos ' + CONFIG.HOURS + '. Escríbenos por WhatsApp cuando quieras y te respondemos.'),
       ['Contactar por WhatsApp', 'Necesito ayuda con mi compra']));
     return { msgs:out, track:null };
   }
   /* pagos */
   if (/(pago|pse|nequi|tarjeta|wompi|cuotas|contado|efectivo|m[eé]todos)/.test(t)){
-    out.push(chip(M.text('💳 Aceptamos tarjetas de crédito y débito, PSE y Nequi (pasarela Wompi en modo demo). También puedes coordinar tu compra por WhatsApp.'),
+    out.push(chip(M.text('💳 Aceptamos tarjetas de crédito y débito, PSE y Nequi (pasarela Wompi). También puedes coordinar tu compra por WhatsApp.'),
       ['Quiero comprar', '¿En cuánto llega?', 'Contactar por WhatsApp']));
     return { msgs:out, track:null };
   }
@@ -2239,7 +2216,7 @@ function botReply(raw, ctx){
   const p2 = findByName(raw);
   if (p2 && /(cu[aá]nto|precio|vale|stock|qu[eé] tal|como es|c[oó]mo es|incluye)/.test(t)){
     aiState.lastProduct = p2.id;
-    out.push(M.text(p2.name + ' 👌 Está en ' + fmtCOP(p2.price) + ' (precio demo)' + (p2.compareAtPrice ? ', antes ' + fmtCOP(p2.compareAtPrice) : '') + '. ' + p2.short));
+    out.push(M.text(p2.name + ' 👌 Está en ' + fmtCOP(p2.price) + '' + (p2.compareAtPrice ? ', antes ' + fmtCOP(p2.compareAtPrice) : '') + '. ' + p2.short));
     out.push(M.actions('¿Lo vemos?', [
       { label:'Ver producto', action:'view', payload:p2.id },
       { label:'Agregar al carrito', action:'add', payload:p2.id },
@@ -2249,12 +2226,12 @@ function botReply(raw, ctx){
   }
   /* stock */
   if (/(stock|disponible|disponibilidad|hay unidades|unidades)/.test(t)){
-    const p = ctx.product || (aiState.lastProduct ? CATALOG.find(x => x.id === aiState.lastProduct) : null);
+    const p = ctx.product || (aiState.lastProduct ? PRODUCTS.find(x => x.id === aiState.lastProduct) : null);
     if (p){
-      out.push(chip(M.text(p.stock > 0 ? 'Sí, hay ' + p.stock + ' unidades del ' + p.name + ' (stock demo). 🟢' : 'El ' + p.name + ' está agotado en la demo por ahora 😅'),
+      out.push(chip(M.text(p.stock > 0 ? 'Sí, hay ' + p.stock + ' unidades del ' + p.name + '. 🟢' : 'El ' + p.name + ' está agotado por ahora 😅'),
         ['Agrégalo al carrito', 'Quiero comprarlo']));
     } else {
-      out.push(chip(M.text('Dime el modelo y te confirmo el stock (demo).'), ['Quiero un iPhone', 'Muéstrame el catálogo']));
+      out.push(chip(M.text('Dime el modelo y te confirmo el stock.'), ['Quiero un iPhone', 'Muéstrame el catálogo']));
     }
     return { msgs:out, track:null };
   }
@@ -2279,21 +2256,21 @@ function botReply(raw, ctx){
    UI — COMPONENTES COMPARTIDOS
    ============================================================ */
 function starsHTML(r){ const filled = Math.round(r || 0); return '<span class="stars" aria-label="' + (r||0) + ' de 5">' + '★'.repeat(filled) + '☆'.repeat(5 - filled) + '</span>'; }
-function badgeHTML(p){ if (!p.badge) return ''; const cls = p.badge === 'Nuevo' ? 'badge-new' : p.badge === 'Oferta' ? 'badge-offer' : 'badge-best'; return '<span class="badge ' + cls + '">' + esc(p.badge) + '</span>'; }
-function demoTagHTML(dark){ return '<span class="demo-tag' + (dark ? ' dark' : '') + '">Precio demo</span>'; }
+function badgeHTML(p){ if (!p.badge) return ''; const cls = p.badge === 'Nuevo' ? 'badge-new' : p.badge === 'Oferta' ? 'badge-offer' : p.badge === 'Usado' ? 'badge-used' : 'badge-best'; return '<span class="badge ' + cls + '">' + esc(p.badge) + '</span>'; }
 function pcardHTML(p){
   const pct = p.compareAtPrice ? Math.round((1 - p.price / p.compareAtPrice) * 100) : 0;
+  const cardSrc = cardPhoto(p);
   return `<article class="pcard">
     <a class="pcard-art" href="#/producto/${p.id}" aria-label="Ver ${esc(p.name)}">
       ${badgeHTML(p)}
-      ${productArt(p, 'front')}
+      ${cardSrc ? '<img class="pcard-img" src="' + cardSrc + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">' : productArt(p, 'front')}
     </a>
     <div class="pcard-body">
       <div class="pcard-brand">${esc(p.brand)}</div>
       <h3 class="pcard-name"><a href="#/producto/${p.id}">${esc(p.name)}</a></h3>
-      <div class="pcard-rating">${starsHTML(p.rating)} <b>${p.rating}</b> <span>(${p.reviews})</span></div>
+      ${p.rating ? '<div class="pcard-rating">' + starsHTML(p.rating) + ' <b>' + p.rating + '</b> <span>(' + p.reviews + ')</span></div>' : ''}
       <div class="pcard-price">
-        ${fmtCOP(p.price)} ${demoTagHTML()}
+        ${fmtCOP(p.price)}
         ${p.compareAtPrice ? '<span class="was">' + fmtCOP(p.compareAtPrice) + '</span><span class="save">-' + pct + '%</span>' : ''}
       </div>
       <div class="pcard-actions">
@@ -2370,7 +2347,7 @@ function route(){
   }, 300);
 }
 function renderRoute(force){
-  /* Rutas hash de la demo: #/inicio · #/catalogo · #/producto/:id · #/carrito · #/checkout · #/confirmacion · #/nosotros · #/faq */
+  /* Rutas hash: #/inicio · #/catalogo · #/producto/:id · #/carrito · #/checkout · #/confirmacion · #/nosotros · #/faq */
   const r = currentRoute();
   const main = document.getElementById('app');
   if (!main) return;
@@ -2399,26 +2376,25 @@ function updateHeaderActive(r){
    ============================================================ */
 function renderHome(main){
   UC_CTX.product = null;
-  const iphones = CATALOG.filter(p => p.category === 'iphone');
-  const most = [ ...CATALOG ].filter(p => p.featured && p.badge).sort((a,b) => b.sold - a.sold).slice(0, 4);
+  const iphones = PRODUCTS.filter(p => p.category === 'iphone');
+  const most = [ ...PRODUCTS ].filter(p => p.featured && p.badge).sort((a,b) => b.sold - a.sold).slice(0, 4);
   main.innerHTML = `
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="hero-badge"><i></i> Demo comercial — precios de demostración</span>
+        <span class="hero-badge"><i></i> Equipos usados garantizados · 6 meses</span>
         <h1>Tu próximo <span class="grad">iPhone</span> está aquí.</h1>
         <p class="hero-sub">Somos tus aliados a la hora de cambiar tu celular. Asesoría personalizada, precios claros y envío a tu puerta.</p>
         <div class="hero-cta">
           <a class="btn btn-accent btn-lg" href="#/catalogo?categoria=iphone">Ver iPhone</a>
           <button class="btn btn-ghost btn-lg" data-action="open-chat">Hablar con un asesor IA</button>
         </div>
-        <p class="hero-note"><b>✓</b> Compra segura (demo) <b>✓</b> Envíos a todo el país <b>✓</b> Asesoría real por WhatsApp</p>
+        <p class="hero-note"><b>✓</b> Compra segura <b>✓</b> Envíos a todo el país <b>✓</b> Asesoría real por WhatsApp</p>
       </div>
       <div class="hero-art" id="heroArt">
         <div class="hero-glow"></div>
-        <div class="hero-phone back">${heroPhoneArt(CATALOG.find(p => p.id === 'iphone-16'), 'front', 'Rosa')}</div>
-        <div class="hero-phone">${heroPhoneArt(CATALOG.find(p => p.id === 'iphone-17-pro-max'), 'front')}</div>
-        <div class="hero-chip chip-price">iPhone 17 Pro Max<b>${fmtCOP(3750000)} <span style="font-size:11px;color:rgba(255,255,255,.6)">· precio demo</span></b></div>
+        <div class="hero-phone"><img src="assets/catalogo/hero-17pm-plata.webp" alt="iPhone 17 Pro Max plata — vista trasera" width="502" height="650" decoding="async"></div>
+        <div class="hero-chip chip-price">iPhone 17 Pro Max<b>${fmtCOP(3750000)} </b></div>
         <div class="hero-chip chip-ai"><span class="dot"></span> UltraCell IA en línea — <b>¡pregúntale!</b></div>
       </div>
     </div>
@@ -2426,13 +2402,13 @@ function renderHome(main){
   <div class="trustbar"><div class="container trust-grid">
     <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3 8 3z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Productos seleccionados</b><span>Catálogo curado, sin relleno</span></div></div>
     <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><div><b>Atención personalizada</b><span>Asesor IA + WhatsApp real</span></div></div>
-    <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><b>Compra segura</b><span>Tarjetas, PSE y Nequi (demo)</span></div></div>
+    <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><b>Compra segura</b><span>Tarjetas, PSE y Nequi</span></div></div>
     <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3V7h2M19 17h2v-6h-2M1 4h13v13H1zM14 8h4l4 4v5h-3"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><div><b>Envíos</b><span>Gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}</span></div></div>
   </div></div>
   <div class="container section" id="iphone-section">
     <div class="sec-head">
-      <div><h2>El iPhone que estás buscando</h2><p class="sub">Del más reciente al favorito de todos — precios de demostración.</p>
-        <p class="muted" style="margin-top:4px;font-size:13px">Catálogo de demostración: precios de referencia. Confirma disponibilidad y precio final por WhatsApp.</p></div>
+      <div><h2>El iPhone que estás buscando</h2><p class="sub">Del más reciente al favorito de todos — precios reales.</p>
+        <p class="muted" style="margin-top:4px;font-size:13px">Equipos usados en excelente estado (10/10). Confirma disponibilidad por WhatsApp.</p></div>
       <a class="see" href="#/catalogo?categoria=iphone">Ver todos →</a>
     </div>
     <div class="grid-4 stagger">${iphones.map(pcardHTML).join('')}</div>
@@ -2440,19 +2416,9 @@ function renderHome(main){
     <div class="sec-head"><div><h2>Comprar por categoría</h2><p class="sub">Todo lo que necesitas, en un solo lugar.</p></div></div>
     <div class="grid-4 stagger">
       <a class="cat-card" href="#/catalogo?categoria=iphone">
-        <div class="cat-art">${productArt(CATALOG.find(p => p.id === 'iphone-17'), 'front')}</div>
+        <div class="cat-art">${productArt(PRODUCTS.find(p => p.id === 'iphone-17-pro'), 'front')}</div>
         <h3>iPhone</h3><p>Los últimos modelos, listos para ti.</p>
         <span class="cat-go">Ver iPhone <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="cat-card" href="#/catalogo?categoria=accesorios">
-        <div class="cat-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;margin:auto;color:var(--accent)"><path d="M6 9V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v5"/><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M9 14h6"/></svg></div>
-        <h3>Accesorios</h3><p>Fundas, cargadores y complementos.</p>
-        <span class="cat-go">Ver accesorios <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="cat-card" href="#/catalogo?categoria=baterias">
-        <div class="cat-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;margin:auto;color:var(--accent)"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 10v4M9 10v4M12 10v4"/></svg></div>
-        <h3>Baterías</h3><p>Cambio de batería para todos los modelos.</p>
-        <span class="cat-go">Ver baterías <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="cat-card" href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20necesito%20servicio%20técnico" target="_blank" rel="noopener">
         <div class="cat-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;margin:auto;color:var(--accent)"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
@@ -2489,7 +2455,7 @@ function renderHome(main){
     </div>
   </div>
   <div class="container section">
-    <div class="sec-head"><div><h2>Los más buscados</h2><p class="sub">Los favoritos de nuestros clientes (demo).</p></div><a class="see" href="#/catalogo">Ver catálogo →</a></div>
+    <div class="sec-head"><div><h2>Los más buscados</h2><p class="sub">Los favoritos de nuestros clientes.</p></div><a class="see" href="#/catalogo">Ver catálogo →</a></div>
     <div class="grid-4 stagger">${most.map(pcardHTML).join('')}</div>
   </div>
   <div class="container section quiz-wrap" id="quizSection">
@@ -2520,15 +2486,15 @@ function renderQuiz(box){
   const total = QUIZ.length;
   if (st.step >= total){
     const res = recommendQuiz(st.answers);
-    const p = CATALOG.find(x => x.id === res.id);
+    const p = PRODUCTS.find(x => x.id === res.id);
     box.innerHTML = `<div class="quiz-result">
       <span class="res-badge">✓ Listo — esta es nuestra recomendación</span>
       <h3>Te recomendamos el ${esc(p.name)}</h3>
       <div class="res-card">
-        <div class="res-art">${productArt(p, 'front')}</div>
+        <div class="res-art">${p.img && hasImage(p.img) ? '<img class="pcard-img" src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">' : productArt(p, 'front')}</div>
         <div>
           <b>${esc(p.name)}</b>
-          <div class="res-price">${fmtCOP(p.price)} ${demoTagHTML()}</div>
+          <div class="res-price">${fmtCOP(p.price)}</div>
           <div class="res-reasons">${res.reasons.map(r => '<span>' + esc(r) + '</span>').join('')}</div>
         </div>
       </div>
@@ -2560,16 +2526,16 @@ let uiSort = 'featured';
 let lastSearch = null;
 let ofertaOnly = false;
 
-const CATS = ['iphone'];
-const CAT_LABEL = { iphone:'iPhone' };
+const CATS = ['iphone','ipad'];
+const CAT_LABEL = { iphone:'iPhone', ipad:'iPad' };
 const BRANDS = ['Apple'];
 const PRICE_PRESETS = [ ['', 'Todos los precios'], ['lt1m', 'Menos de $1.000.000'], ['1_3', '$1.000.000 – $3.000.000'], ['3_5', '$3.000.000 – $5.000.000'], ['gt5m', 'Más de $5.000.000'] ];
 
 function filtersFormHTML(prefix, ui){
-  const allColors = [ ...new Set(CATALOG.flatMap(p => p.colors || [])) ];
-  const storages = [ ...new Set(CATALOG.map(p => p.storage).filter(s => s && s !== '—')) ];
-  const estados = [ ...new Set(CATALOG.map(p => p.estado)) ];
-  const countBy = (key, val) => CATALOG.filter(p => p[key] === val).length;
+  const allColors = [ ...new Set(VARIANTS.flatMap(v => v.colores || [])) ];
+  const storages = [ ...new Set(VARIANTS.map(v => v.capacidad)) ];
+  const estados = [ ...new Set(VARIANTS.map(v => v.estado)) ];
+  const countBy = (key, val) => PRODUCTS.filter(p => p[key] === val).length;
   const opt = (name, val, label, checked, count) =>
     `<label><input type="checkbox" data-f="${name}" value="${esc(val)}" ${checked ? 'checked' : ''}><span>${esc(label)}</span><span class="fcount">${count}</span></label>`;
   return `
@@ -2591,11 +2557,11 @@ function filtersFormHTML(prefix, ui){
     <input type="number" data-f="max" placeholder="Máx $" value="${esc(ui.max)}" aria-label="Precio máximo">
   </div>
   <h4>Capacidad</h4>
-  <div class="fgroup">${storages.map(s => opt('storage', s, s, ui.storage.has(s), CATALOG.filter(p => p.storage === s).length)).join('')}</div>
+  <div class="fgroup">${storages.map(s => opt('storage', s, s, ui.storage.has(s), PRODUCTS.filter(p => (p.storageOptions || []).includes(s)).length)).join('')}</div>
   <h4>Estado</h4>
   <div class="fgroup">${estados.map(e => opt('estado', e, e, ui.estado.has(e), countBy('estado', e))).join('')}</div>
   <h4>Color</h4>
-  <div class="fgroup">${allColors.map(c => opt('color', c, c, ui.color.has(c), CATALOG.filter(p => (p.colors||[]).includes(c)).length)).join('')}</div>
+  <div class="fgroup">${allColors.map(c => opt('color', c, c, ui.color.has(c), PRODUCTS.filter(p => (p.colors||[]).includes(c)).length)).join('')}</div>
   <h4>Disponibilidad</h4>
   <div class="fgroup"><label><input type="checkbox" data-f="stock" ${ui.onlyStock ? 'checked' : ''}><span>Solo productos disponibles</span></label></div>
   <button class="f-clear" data-action="f-clear">✕ Limpiar filtros</button>`;
@@ -2614,7 +2580,7 @@ function applyUiFilters(list){
   l = applyPricePreset(l, uiFilters.pricePreset);
   if (uiFilters.min !== '') l = l.filter(p => p.price >= +uiFilters.min);
   if (uiFilters.max !== '') l = l.filter(p => p.price <= +uiFilters.max);
-  if (uiFilters.storage.size) l = l.filter(p => uiFilters.storage.has(p.storage));
+  if (uiFilters.storage.size) l = l.filter(p => (p.storageOptions||[]).some(s => uiFilters.storage.has(s)));
   if (uiFilters.estado.size) l = l.filter(p => uiFilters.estado.has(p.estado));
   if (uiFilters.color.size) l = l.filter(p => (p.colors||[]).some(c => uiFilters.color.has(c)));
   if (uiFilters.onlyStock) l = l.filter(p => p.stock > 0);
@@ -2643,7 +2609,7 @@ function renderCatalog(main, params){
   const q = params.get('q');
   if (q){ if (!lastSearch || lastSearch.query !== q){ lastSearch = smartSearch(q); track('search', { query: q, mode: lastSearch.mode }); } }
   else lastSearch = null;
-  let list = [ ...CATALOG ];
+  let list = [ ...PRODUCTS ];
   if (ofertaOnly) list = list.filter(p => p.compareAtPrice);
   if (lastSearch && lastSearch.filter) list = list.filter(lastSearch.filter);
   list = applyUiFilters(list);
@@ -2652,7 +2618,7 @@ function renderCatalog(main, params){
   main.innerHTML = `<div class="container page catalog-page">
     <div class="catalog-head" style="margin-bottom:22px">
       <h1 style="font-size:clamp(26px,3.4vw,36px)">${esc(title)}</h1>
-      <p class="muted" style="margin-top:6px">${sorted.length} producto${sorted.length === 1 ? '' : 's'} · precios de demostración</p>
+      <p class="muted" style="margin-top:6px">${sorted.length} producto${sorted.length === 1 ? '' : 's'} · precios reales</p>
     </div>
     ${lastSearch && lastSearch.msg ? `<div class="search-banner">${lastSearch.msg}</div>` : ''}
     <div class="catalog-layout">
@@ -2660,7 +2626,7 @@ function renderCatalog(main, params){
       <div class="catalog-main">
         <div class="catalog-toolbar">
           <button class="btn btn-outline btn-sm filter-btn-mobile" data-action="drawer-open">☰ Filtrar productos</button>
-          <span class="count">Mostrando <b>${sorted.length}</b> de ${CATALOG.length} productos (demo)</span>
+          <span class="count">Mostrando <b>${sorted.length}</b> de ${PRODUCTS.length} modelos</span>
           <div class="sort-row">
             <label for="sortSel">Ordenar:</label>
             <select id="sortSel">
@@ -2674,7 +2640,7 @@ function renderCatalog(main, params){
         </div>
         ${activeChipsHTML()}
         ${sorted.length
-          ? '<div class="grid-4 stagger">' + sorted.map(pcardHTML).join('') + '</div>'
+          ? '<div class="grid-3 stagger">' + sorted.map(pcardHTML).join('') + '</div>'
           : `<div class="empty-state">
               <div class="es-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M8.5 11h5"/></svg></div>
               <h3>No encontramos productos con esos filtros</h3>
@@ -2707,104 +2673,488 @@ function clearFilters(){
 /* ============================================================
    PÁGINA DE PRODUCTO
    ============================================================ */
-const pdpState = { variant:'front', color:null, storage:null, qty:1 };
+const pdpState = { productId:null, variant:'front', color:null, storage:null, qty:1 };
 /* ============================================================
    GALERÍA — vistas, variantes por color y nomenclatura de imágenes
    ============================================================ */
 const GALLERY_VIEWS = [
-  { key:'front',  label:'Vista frontal' },
-  { key:'back',   label:'Vista trasera' },
-  { key:'side',   label:'Vista lateral' },
-  { key:'camera', label:'Detalle de cámaras' }
+  { key:'back',     label:'Vista trasera' },
+  { key:'front',    label:'Vista frontal' },
+  { key:'side',     label:'Vista lateral' },
+  { key:'diagonal', label:'Vista diagonal' }
 ];
-/* Manifiesto de imágenes reales por color/vista (las provee el Director).
-   Nomenclatura: assets/catalogo/<modelo>-<color>-<vista>.webp
-   Solo se renderiza <img> para los archivos listados aquí; el resto usa el render SVG paramétrico.
-   Ejemplo a descomentar cuando exista el archivo:
-   IMAGE_MANIFEST.add('assets/catalogo/iphone-16-titanio-azul-front.webp');
-*/
-const IMAGE_MANIFEST = new Set([]);
-function imgSlug(s){ return norm(s).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
-function variantImageSrc(p, color, viewKey){
-  const model = imgSlug(p.name || '');
-  const cslug = imgSlug(color || '');
-  return 'assets/catalogo/' + model + '-' + cslug + '-' + viewKey + '.webp';
+/* ============================================================
+   BIBLIOTECA DE FOTOS REALES APROBADAS (87 imágenes · Apple Newsroom)
+   Estructura por modelo -> { front, back, side, diagonal } y, además, por color
+   (clave normalizada vía imgSlug) cuando el nombre de archivo lo indica.
+   Rutas relativas a la raíz del sitio (desplegado en GitHub Pages).
+   ============================================================ */
+const IMAGE_MANIFEST = {
+  'ipad-8a-generacion': {
+    front: ['assets/catalogo/ipad-8a-generacion-front-frontal-con-smart-keyboard.webp', 'assets/catalogo/ipad-8a-generacion-front-lineup-frontal.webp'],
+    back: ['assets/catalogo/ipad-8a-generacion-back-colores-silver-space-gray-gold.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-11': {
+    front: ['assets/catalogo/iphone-11-front-lineup-frontal-de-la-familia-iphone-11-6-colores.webp'],
+    back: ['assets/catalogo/iphone-11-back-roseta-de-los-6-colores-vistas-traseras.webp'],
+    side: [],
+    diagonal: ['assets/catalogo/iphone-11-diagonal-shot-de-resistencia-al-agua-ngulo-3-4-no-es-foto-de-cat-logo-limpia.webp'],
+    colors: {}
+  },
+  'iphone-12': {
+    front: ['assets/catalogo/iphone-12-front-nuevo-dise-o-de-bordes-planos-frontal.webp', 'assets/catalogo/iphone-12-front-2-up-iphone-12-12-mini-frontal.webp'],
+    back: ['assets/catalogo/iphone-12-back-color-individual-azul-trasera.webp', 'assets/catalogo/iphone-12-back-color-individual-blanco-trasera.webp', 'assets/catalogo/iphone-12-back-color-individual-negro-trasera.webp', 'assets/catalogo/iphone-12-back-color-individual-product-red-trasera-extra.webp', 'assets/catalogo/iphone-12-back-color-individual-verde-trasera-extra.webp'],
+    side: [], diagonal: [],
+    colors: {
+      azul:   { back: ['assets/catalogo/iphone-12-back-color-individual-azul-trasera.webp'] },
+      blanco: { back: ['assets/catalogo/iphone-12-back-color-individual-blanco-trasera.webp'] },
+      negro:  { back: ['assets/catalogo/iphone-12-back-color-individual-negro-trasera.webp'] },
+      rojo:   { back: ['assets/catalogo/iphone-12-back-color-individual-product-red-trasera-extra.webp'] },
+      verde:  { back: ['assets/catalogo/iphone-12-back-color-individual-verde-trasera-extra.webp'] }
+    }
+  },
+  'iphone-12-pro-max': {
+    front: ['assets/catalogo/iphone-12-pro-max-front-hero-2-up-12-pro-12-pro-max-frontal.webp'],
+    back: ['assets/catalogo/iphone-12-pro-max-back-trasera-sistema-de-c-maras.webp'],
+    side: [],
+    diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-gold-detalle-banda-de-acero-3-4.webp', 'assets/catalogo/iphone-12-pro-max-diagonal-color-individual-pacific-blue-azul-vista-3-4.webp'],
+    colors: {
+      azul: { diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-pacific-blue-azul-vista-3-4.webp'] },
+      oro:  { diagonal: ['assets/catalogo/iphone-12-pro-max-diagonal-color-individual-gold-detalle-banda-de-acero-3-4.webp'] }
+    }
+  },
+  'iphone-13': {
+    front: ['assets/catalogo/iphone-13-front-individual-rosa-pink.webp', 'assets/catalogo/iphone-13-front-hero-2-up-13-13-mini-frontal.webp'],
+    back: ['assets/catalogo/iphone-13-back-colores-traseras-apiladas.webp', 'assets/catalogo/iphone-13-back-dise-o-trasero-c-maras-diagonales.webp'],
+    side: [], diagonal: [],
+    colors: {
+      rosado: { front: ['assets/catalogo/iphone-13-front-individual-rosa-pink.webp'] }
+    }
+  },
+  'iphone-13-pro': {
+    front: ['assets/catalogo/iphone-13-pro-front-hero-2-up-13-pro-13-pro-max-frontal.webp', 'assets/catalogo/iphone-13-pro-front-closeup-azul-sierra-sierra-blue.webp'],
+    back: ['assets/catalogo/iphone-13-pro-back-colores-traseras.webp', 'assets/catalogo/iphone-13-pro-back-nuevo-sistema-de-c-maras-trasera.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-13-pro-max': {
+    front: ['assets/catalogo/iphone-13-pro-max-front-hero-2-up-13-pro-13-pro-max-frontal-imagen-compartida.webp'],
+    back: ['assets/catalogo/iphone-13-pro-max-back-colores-traseras-imagen-compartida.webp', 'assets/catalogo/iphone-13-pro-max-back-nuevo-sistema-de-c-maras-trasera-imagen-compartida.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-14': {
+    front: ['assets/catalogo/iphone-14-front-color-individual-midnight-negro.webp', 'assets/catalogo/iphone-14-front-hero-2-up-14-14-plus-frontal.webp', 'assets/catalogo/iphone-14-front-hero-5-colores-frontal.webp', 'assets/catalogo/iphone-14-front-color-individual-blue-extra.webp', 'assets/catalogo/iphone-14-front-color-individual-product-red-extra.webp', 'assets/catalogo/iphone-14-front-color-individual-purple-lila.webp', 'assets/catalogo/iphone-14-front-color-individual-starlight-blanco.webp'],
+    back: ['assets/catalogo/iphone-14-back-trasera-c-maras-nota-alojada-bajo-ruta-product-watch-en-el-cdn-de-apple.webp'],
+    side: [], diagonal: [],
+    colors: {
+      blanco: { front: ['assets/catalogo/iphone-14-front-color-individual-starlight-blanco.webp'] },
+      lila:   { front: ['assets/catalogo/iphone-14-front-color-individual-purple-lila.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-14-front-color-individual-midnight-negro.webp'] },
+      azul:   { front: ['assets/catalogo/iphone-14-front-color-individual-blue-extra.webp'] },
+      rojo:   { front: ['assets/catalogo/iphone-14-front-color-individual-product-red-extra.webp'] }
+    }
+  },
+  'iphone-14-plus': {
+    front: ['assets/catalogo/iphone-14-plus-front-color-individual-midnight-negro.webp', 'assets/catalogo/iphone-14-plus-front-hero-2-up-compartido.webp', 'assets/catalogo/iphone-14-plus-front-color-individual-starlight-blanco.webp'],
+    back: ['assets/catalogo/iphone-14-plus-back-trasera-c-maras-compartido.webp'],
+    side: [], diagonal: [],
+    colors: {
+      negro:  { front: ['assets/catalogo/iphone-14-plus-front-color-individual-midnight-negro.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-14-plus-front-color-individual-starlight-blanco.webp'] }
+    }
+  },
+  'iphone-14-pro': {
+    front: ['assets/catalogo/iphone-14-pro-front-color-individual-space-black-negro.webp', 'assets/catalogo/iphone-14-pro-front-hero-2-up-14-pro-14-pro-max-frontal.webp', 'assets/catalogo/iphone-14-pro-front-color-individual-deep-purple.webp', 'assets/catalogo/iphone-14-pro-front-color-individual-gold.webp', 'assets/catalogo/iphone-14-pro-front-color-individual-silver-blanco.webp'],
+    back: ['assets/catalogo/iphone-14-pro-back-trasera-c-maras-dynamic-island.webp'],
+    side: [], diagonal: [],
+    colors: {
+      morado: { front: ['assets/catalogo/iphone-14-pro-front-color-individual-deep-purple.webp'] },
+      oro:    { front: ['assets/catalogo/iphone-14-pro-front-color-individual-gold.webp'] },
+      blanco: { front: ['assets/catalogo/iphone-14-pro-front-color-individual-silver-blanco.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-14-pro-front-color-individual-space-black-negro.webp'] }
+    }
+  },
+  'iphone-14-pro-max': {
+    front: ['assets/catalogo/iphone-14-pro-max-front-color-individual-space-black-negro.webp', 'assets/catalogo/iphone-14-pro-max-front-hero-2-up-compartido.webp', 'assets/catalogo/iphone-14-pro-max-front-color-individual-silver-blanco.webp'],
+    back: ['assets/catalogo/iphone-14-pro-max-back-trasera-c-maras-compartido.webp'],
+    side: [], diagonal: [],
+    colors: {
+      blanco: { front: ['assets/catalogo/iphone-14-pro-max-front-color-individual-silver-blanco.webp'] },
+      negro:  { front: ['assets/catalogo/iphone-14-pro-max-front-color-individual-space-black-negro.webp'] }
+    }
+  },
+  'iphone-15': {
+    front: ['assets/catalogo/iphone-15-front-individual-azul.webp', 'assets/catalogo/iphone-15-front-hero-2-up-15-15-plus-frontal.webp'],
+    back: ['assets/catalogo/iphone-15-back-colores-traseras.webp', 'assets/catalogo/iphone-15-back-dise-o-trasero-vidrio-con-infusi-n-de-color.webp'],
+    side: [], diagonal: [],
+    colors: {
+      azul: { front: ['assets/catalogo/iphone-15-front-individual-azul.webp'] }
+    }
+  },
+  'iphone-15-plus': {
+    front: ['assets/catalogo/iphone-15-plus-front-hero-2-up-compartido.webp'],
+    back: ['assets/catalogo/iphone-15-plus-back-colores-compartido.webp', 'assets/catalogo/iphone-15-plus-back-dise-o-trasero-compartido.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-15-pro': {
+    front: ['assets/catalogo/iphone-15-pro-front-hero-2-up-15-pro-15-pro-max-frontal.webp', 'assets/catalogo/iphone-15-pro-front-individual-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-15-pro-back-colores-titanio-traseras.webp', 'assets/catalogo/iphone-15-pro-back-dise-o-titanio-trasera-alojada-en-art-culo-del-iphone-15.webp', 'assets/catalogo/iphone-15-pro-back-sistema-de-c-maras-trasera.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-15-pro-max': {
+    front: ['assets/catalogo/iphone-15-pro-max-front-hero-2-up-compartido.webp', 'assets/catalogo/iphone-15-pro-max-front-closeup-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-15-pro-max-back-colores-titanio-compartido.webp', 'assets/catalogo/iphone-15-pro-max-back-dise-o-titanio-compartido.webp', 'assets/catalogo/iphone-15-pro-max-back-sistema-de-c-maras-compartido.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-16': {
+    front: ['assets/catalogo/iphone-16-front-hero-2-up-16-16-plus-frontal.webp', 'assets/catalogo/iphone-16-front-lineup-frontal.webp'],
+    back: ['assets/catalogo/iphone-16-back-acabados-colores-traseras.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-16-plus': {
+    front: ['assets/catalogo/iphone-16-plus-front-hero-2-up-compartido.webp', 'assets/catalogo/iphone-16-plus-front-lineup-compartido.webp'],
+    back: ['assets/catalogo/iphone-16-plus-back-acabados-colores-compartido.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-16-pro': {
+    front: ['assets/catalogo/iphone-16-pro-front-hero-2-up-16-pro-16-pro-max-frontal.webp', 'assets/catalogo/iphone-16-pro-front-closeup-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-16-pro-back-acabados-titanio-traseras.webp', 'assets/catalogo/iphone-16-pro-back-sistema-de-c-maras-trasera.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-16-pro-max': {
+    front: ['assets/catalogo/iphone-16-pro-max-front-hero-2-up-compartido.webp'],
+    back: ['assets/catalogo/iphone-16-pro-max-back-acabados-titanio-compartido.webp', 'assets/catalogo/iphone-16-pro-max-back-sistema-de-c-maras-compartido.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-17-air': {
+    front: ['assets/catalogo/iphone-17-air-front-hero-individual-frontal.webp', 'assets/catalogo/iphone-17-air-front-lineup-familia-frontal.webp'],
+    back: ['assets/catalogo/iphone-17-air-back-colores-traseras.webp'],
+    side: ['assets/catalogo/iphone-17-air-side-perfil-lateral-delgadez-nico-ngulo-lateral-oficial.webp'],
+    diagonal: [], colors: {}
+  },
+  'iphone-17': {
+    front: ['assets/catalogo/iphone-17-front-hero-individual-frontal.webp', 'assets/catalogo/iphone-17-front-lineup-frontal.webp'],
+    back: ['assets/catalogo/iphone-17-back-colores-traseras.webp'],
+    side: [], diagonal: [], colors: {}
+  },
+  'iphone-17-pro': {
+    front: ['assets/catalogo/iphone-17-pro-front-individual-naranja-c-smico-cosmic-orange.webp', 'assets/catalogo/iphone-17-pro-front-lineup-de-colores-frontal.webp', 'assets/catalogo/iphone-17-pro-front-closeup-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-17-pro-back-c-mara-primer-plano-trasero.webp'],
+    side: [],
+    diagonal: ['assets/catalogo/iphone-17-pro-diagonal-color-individual-cosmic-orange-vista-3-4.webp'],
+    colors: {
+      naranja: { diagonal: ['assets/catalogo/iphone-17-pro-diagonal-color-individual-cosmic-orange-vista-3-4.webp'] }
+    }
+  },
+  'iphone-17-pro-max': {
+    front: ['assets/catalogo/iphone-17-pro-max-front-lineup-de-colores-compartido.webp'],
+    back: ['assets/catalogo/iphone-17-pro-max-back-c-mara-compartido.webp'],
+    side: [],
+    diagonal: ['assets/catalogo/iphone-17-pro-max-diagonal-color-individual-cosmic-orange-compartido.webp'],
+    colors: {
+      naranja: { diagonal: ['assets/catalogo/iphone-17-pro-max-diagonal-color-individual-cosmic-orange-compartido.webp'] }
+    }
+  }
+};
+/* Set plano de TODOS los archivos reales (placeholders de catálogo + 87 fotos aprobadas)
+   para hasImage(). */
+const IMAGE_FILES = new Set();
+Object.keys(IMAGE_MANIFEST).forEach(m => {
+  ['front','back','side','diagonal'].forEach(v => (IMAGE_MANIFEST[m][v]||[]).forEach(s => IMAGE_FILES.add(s)));
+  Object.keys(IMAGE_MANIFEST[m].colors||{}).forEach(c => {
+    ['front','back','side','diagonal'].forEach(v => (IMAGE_MANIFEST[m].colors[c][v]||[]).forEach(s => IMAGE_FILES.add(s)));
+  });
+});
+['iphone-17-pro-max','iphone-17-pro','iphone-17-air','iphone-16-pro-max','iphone-16-pro','iphone-16-plus','iphone-16','iphone-15-pro-max','iphone-15-pro','iphone-15-plus','iphone-15','iphone-14-pro-max','iphone-14-pro','iphone-14-plus','iphone-14','iphone-13-pro-max','iphone-13-pro','iphone-13','iphone-12-pro-max','iphone-12','iphone-11'].forEach(m => IMAGE_FILES.add('assets/catalogo/' + m + '.webp'));
+IMAGE_FILES.add('assets/catalogo/ipad-8a-generacion.webp');
+
+/* ============================================================
+   RENDERS INDIVIDUALES + FOTO INDIVIDUAL FOTOGRÁFICA (DEV-2026-052 / 053)
+   - TARJETA (DEV-2026-053): SIEMPRE render individual <modelo>-render.webp
+     (iPad: ipad-8a-generacion.webp). Consistencia total estilo Apple Store.
+   - PRINCIPAL DE FICHA: color con foto > foto individual fotográfica > render.
+   NUNCA una compuesta/lineup/2-up como tarjeta o principal.
+   ============================================================ */
+const RENDER_MODELS = ['iphone-11','iphone-12','iphone-12-pro-max','iphone-13','iphone-13-pro','iphone-13-pro-max','iphone-14','iphone-14-plus','iphone-14-pro','iphone-14-pro-max','iphone-15','iphone-15-plus','iphone-15-pro','iphone-15-pro-max','iphone-16','iphone-16-plus','iphone-16-pro','iphone-16-pro-max','iphone-17','iphone-17-air','iphone-17-pro','iphone-17-pro-max'];
+RENDER_MODELS.forEach(m => IMAGE_FILES.add('assets/catalogo/' + m + '-render.webp'));
+
+/* Foto individual FOTOGRÁFICA por modelo (un solo dispositivo completo). */
+const INDIVIDUAL_PHOTO = {
+  'ipad-8a-generacion': 'assets/catalogo/ipad-8a-generacion.webp',
+  'iphone-12': 'assets/catalogo/iphone-12-front-nuevo-dise-o-de-bordes-planos-frontal.webp',
+  'iphone-13': 'assets/catalogo/iphone-13-front-individual-rosa-pink.webp',
+  'iphone-14': 'assets/catalogo/iphone-14-front-color-individual-midnight-negro.webp',
+  'iphone-14-plus': 'assets/catalogo/iphone-14-plus-front-color-individual-midnight-negro.webp',
+  'iphone-14-pro': 'assets/catalogo/iphone-14-pro-front-color-individual-space-black-negro.webp',
+  'iphone-14-pro-max': 'assets/catalogo/iphone-14-pro-max-front-color-individual-space-black-negro.webp',
+  'iphone-15': 'assets/catalogo/iphone-15-front-individual-azul.webp',
+  'iphone-17-air': 'assets/catalogo/iphone-17-air-front-hero-individual-frontal.webp',
+  'iphone-17-pro': 'assets/catalogo/iphone-17-pro-front-individual-naranja-c-smico-cosmic-orange.webp'
+};
+function renderSrc(p){
+  const s = imgSlug((p && p.name) || '');
+  if (!s || s === 'ipad-8a-generacion') return null;
+  const r = 'assets/catalogo/' + s + '-render.webp';
+  return hasImage(r) ? r : null;
 }
-function hasImage(src){ return IMAGE_MANIFEST.has(src); }
+function isComposite(src){
+  return /(2-up|lineup|colores|roseta|familia|apiladas)/i.test(src || '');
+}
+/* Imagen de TARJETA de catálogo: render individual SIEMPRE (<modelo>-render.webp) > individual fotográfica (solo iPad) > fallback.
+   Consistencia total estilo Apple Store (DEV-2026-053): las tarjetas usan el render oficial del modelo;
+   las fotos fotográficas quedan SOLO en la galería de la ficha. */
+function cardPhoto(p){
+  const r = renderSrc(p);
+  if (r) return r;
+  const ind = INDIVIDUAL_PHOTO[imgSlug((p && p.name) || '')];
+  if (ind && hasImage(ind)) return ind;
+  return viewSrc(p, null, 'front');
+}
+
+/* Fotos individuales NEUTRAS por modelo (un solo dispositivo, sin color específico).
+   Se usan como principal cuando el color seleccionado no tiene foto propia;
+   NUNCA se usa una compuesta/lineup como principal de una variante. */
+const NEUTRAL_MANIFEST = {
+  'ipad-8a-generacion': {
+    front: ['assets/catalogo/ipad-8a-generacion-front-frontal-con-smart-keyboard.webp']
+  },
+  'iphone-11': {
+    diagonal: ['assets/catalogo/iphone-11-diagonal-shot-de-resistencia-al-agua-ngulo-3-4-no-es-foto-de-cat-logo-limpia.webp']
+  },
+  'iphone-12': {
+    front: ['assets/catalogo/iphone-12-front-nuevo-dise-o-de-bordes-planos-frontal.webp']
+  },
+  'iphone-12-pro-max': {
+    back: ['assets/catalogo/iphone-12-pro-max-back-trasera-sistema-de-c-maras.webp']
+  },
+  'iphone-13': {
+    back: ['assets/catalogo/iphone-13-back-dise-o-trasero-c-maras-diagonales.webp']
+  },
+  'iphone-13-pro': {
+    back: ['assets/catalogo/iphone-13-pro-back-nuevo-sistema-de-c-maras-trasera.webp']
+  },
+  'iphone-13-pro-max': {
+    back: ['assets/catalogo/iphone-13-pro-max-back-nuevo-sistema-de-c-maras-trasera-imagen-compartida.webp']
+  },
+  'iphone-14': {
+    back: ['assets/catalogo/iphone-14-back-trasera-c-maras-nota-alojada-bajo-ruta-product-watch-en-el-cdn-de-apple.webp']
+  },
+  'iphone-14-plus': {
+    back: ['assets/catalogo/iphone-14-plus-back-trasera-c-maras-compartido.webp']
+  },
+  'iphone-14-pro': {
+    back: ['assets/catalogo/iphone-14-pro-back-trasera-c-maras-dynamic-island.webp']
+  },
+  'iphone-14-pro-max': {
+    back: ['assets/catalogo/iphone-14-pro-max-back-trasera-c-maras-compartido.webp']
+  },
+  'iphone-15': {
+    back: ['assets/catalogo/iphone-15-back-dise-o-trasero-vidrio-con-infusi-n-de-color.webp']
+  },
+  'iphone-15-plus': {
+    back: ['assets/catalogo/iphone-15-plus-back-dise-o-trasero-compartido.webp']
+  },
+  'iphone-15-pro': {
+    front: ['assets/catalogo/iphone-15-pro-front-individual-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-15-pro-back-dise-o-titanio-trasera-alojada-en-art-culo-del-iphone-15.webp', 'assets/catalogo/iphone-15-pro-back-sistema-de-c-maras-trasera.webp']
+  },
+  'iphone-15-pro-max': {
+    front: ['assets/catalogo/iphone-15-pro-max-front-closeup-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-15-pro-max-back-dise-o-titanio-compartido.webp', 'assets/catalogo/iphone-15-pro-max-back-sistema-de-c-maras-compartido.webp']
+  },
+  'iphone-16': {},
+  'iphone-16-plus': {},
+  'iphone-16-pro': {
+    front: ['assets/catalogo/iphone-16-pro-front-closeup-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-16-pro-back-sistema-de-c-maras-trasera.webp']
+  },
+  'iphone-16-pro-max': {
+    back: ['assets/catalogo/iphone-16-pro-max-back-sistema-de-c-maras-compartido.webp']
+  },
+  'iphone-17-air': {
+    front: ['assets/catalogo/iphone-17-air-front-hero-individual-frontal.webp'],
+    side: ['assets/catalogo/iphone-17-air-side-perfil-lateral-delgadez-nico-ngulo-lateral-oficial.webp']
+  },
+  'iphone-17': {
+    front: ['assets/catalogo/iphone-17-front-hero-individual-frontal.webp']
+  },
+  'iphone-17-pro': {
+    front: ['assets/catalogo/iphone-17-pro-front-closeup-n-a-closeup.webp'],
+    back: ['assets/catalogo/iphone-17-pro-back-c-mara-primer-plano-trasero.webp']
+  },
+  'iphone-17-pro-max': {
+    back: ['assets/catalogo/iphone-17-pro-max-back-c-mara-compartido.webp']
+  }
+};
+
+function imgSlug(s){ return norm(s).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+function hasImage(src){ return IMAGE_FILES.has(src); }
+function manifestFor(p){ return p ? IMAGE_MANIFEST[imgSlug(p.name)] : null; }
+function colorEntryFor(p, color){
+  const m = manifestFor(p);
+  if (!m || !m.colors || !color) return null;
+  return m.colors[imgSlug(color)] || null;
+}
+/* Imagen real para (producto, color, vista): foto específica del color > individual NEUTRA > placeholder.
+   NUNCA una compuesta/lineup como principal de una variante (con o sin color). */
+function neutralSrc(p, view){
+  const nm = NEUTRAL_MANIFEST[imgSlug((p && p.name) || '')] || {};
+  return (nm[view] && nm[view][0]) || null;
+}
+function viewSrc(p, color, view){
+  const c = colorEntryFor(p, color);
+  if (c && c[view] && c[view].length) return c[view][0];
+  if (view === 'front'){
+    const ind = INDIVIDUAL_PHOTO[imgSlug((p && p.name) || '')];
+    if (ind && hasImage(ind)) return ind;
+    const r = renderSrc(p);
+    if (r) return r;
+    if (p.img && hasImage(p.img)) return p.img;
+    return null;
+  }
+  const n = neutralSrc(p, view);
+  if (n) return n;
+  return null;
+}
+function viewIsColor(p, color, view){
+  const c = colorEntryFor(p, color);
+  return !!(c && c[view] && c[view].length);
+}
+function colorHasPhoto(p, color){
+  const c = colorEntryFor(p, color);
+  return !!(c && ['front','back','side','diagonal'].some(v => c[v] && c[v].length));
+}
+/* Vista "primaria" para un color: la vista donde ese color tiene foto específica,
+   o 'front' si no tiene (se mantiene la foto válida del modelo + aviso). */
+function primaryViewFor(p, color){
+  const c = colorEntryFor(p, color);
+  if (c){
+    for (const v of GALLERY_VIEWS) if (c[v.key] && c[v.key].length) return v.key;
+  }
+  return 'front';
+}
+/* Entradas de galería (orden: trasera, frontal, lateral, diagonal) — solo vistas reales, sin vacías ni repetidas. */
+function galleryBuild(p){
+  const color = pdpState.color;
+  const m = manifestFor(p);
+  const entries = [];
+  GALLERY_VIEWS.forEach(v => {
+    if (v.key === 'front') return;   /* frontal se expande abajo */
+    const src = viewSrc(p, color, v.key);
+    if (src) entries.push({ key: v.key, label: v.label, src, isColor: viewIsColor(p, color, v.key) });
+  });
+  /* frontal: principal (individual / color) + secundarias (2-up/lineup y demás) */
+  const frontPrimary = viewSrc(p, color, 'front');
+  if (frontPrimary) entries.push({ key: 'front', label: 'Vista frontal', src: frontPrimary, isColor: viewIsColor(p, color, 'front') });
+  if (m && m.front){
+    m.front.forEach(s => {
+      if (!s) return;
+      if (entries.some(e => e.src === s)) return;   /* no repetir la principal */
+      const composite = isComposite(s);
+      entries.push({ key: 'front:' + s, label: composite ? 'Familia de colores' : 'Vista frontal', src: s, isColor: false });
+    });
+  }
+  if (!entries.length && p && p.img && hasImage(p.img)){
+    entries.push({ key: 'front', label: 'Vista frontal', src: p.img, isColor: false });
+  }
+  return entries;
+}
 /* Modelo de variantes por color (derivado de colors[] + PAL, sin duplicar productos) */
-function productVariants(p){
-  return (p.colors || []).map(color => {
+function productVariants(colors){
+  return (colors || []).map(color => {
     const pl = PAL[color];
     return {
       color,
       colorCode: pl ? pl.hex[0] : '#ccc',
-      colorGrad: pl ? 'linear-gradient(135deg,' + pl.hex[0] + ',' + pl.hex[1] + ')' : '#ccc',
-      images: {
-        front: variantImageSrc(p, color, 'front'),
-        back: variantImageSrc(p, color, 'back'),
-        side: variantImageSrc(p, color, 'side'),
-        camera: variantImageSrc(p, color, 'camera')
-      }
+      colorGrad: pl ? 'linear-gradient(135deg,' + pl.hex[0] + ',' + pl.hex[1] + ')' : '#ccc'
     };
   });
-}
-function productViews(p){
-  const phoneLike = ['phone','iphone','iphone-pro','android'].indexOf(p.art) >= 0;
-  return phoneLike ? GALLERY_VIEWS : GALLERY_VIEWS.slice(0, 2);
 }
 function galleryMediaHTML(p, color, viewKey, opts){
   opts = opts || {};
   const view = GALLERY_VIEWS.find(v => v.key === viewKey) || { key: viewKey, label: viewKey };
-  const src = variantImageSrc(p, color, viewKey);
   const alt = esc((view.label || viewKey) + ' — ' + (p.name || '') + (color ? ' ' + color : ''));
-  if (hasImage(src)){
+  const src = viewSrc(p, color, viewKey);
+  if (src){
     return `<img class="gal-img" src="${src}" alt="${alt}" ${opts.lazy ? 'loading="lazy" ' : ''}decoding="async">`;
   }
   return productArt(p, viewKey, color);
 }
+function galleryImgHTML(src, alt, lazy){
+  return `<img class="gal-img" src="${src}" alt="${esc(alt)}" ${lazy ? 'loading="lazy" ' : ''}decoding="async">`;
+}
 function renderGallery(p){
   if (!p) return;
   const color = pdpState.color;
-  const views = productViews(p);
-  if (!pdpState.variant || !views.some(v => v.key === pdpState.variant)) pdpState.variant = views[0].key;
+  const entries = galleryBuild(p);
+  let mainKey = pdpState.variant;
+  if (!entries.some(e => e.key === mainKey)){
+    mainKey = primaryViewFor(p, color);
+    if (!entries.some(e => e.key === mainKey)) mainKey = entries[0] ? entries[0].key : 'front';
+    pdpState.variant = mainKey;
+  }
+  const mainEntry = entries.find(e => e.key === mainKey) || entries[0];
   const main = document.getElementById('galMain');
   const thumbs = document.getElementById('galThumbs');
-  if (main){
+  if (main && mainEntry){
     main.innerHTML = badgeHTML(p) +
-      '<span class="gal-stage">' + galleryMediaHTML(p, color, pdpState.variant) + '</span>' +
+      '<span class="gal-stage">' + galleryImgHTML(mainEntry.src, mainEntry.label + ' — ' + p.name) + '</span>' +
       '<span class="gal-zoom" aria-hidden="true">🔍</span>';
   }
   if (thumbs){
-    thumbs.innerHTML = views.map(v => {
-      const active = v.key === pdpState.variant;
-      return `<button type="button" class="${active ? 'active' : ''}" data-action="gal" data-payload="${v.key}" aria-label="${esc(v.label)} — ${esc(p.name)}" aria-pressed="${active}">${galleryMediaHTML(p, color, v.key, { lazy:true })}</button>`;
+    thumbs.innerHTML = entries.map(e => {
+      const active = e.key === mainEntry.key;
+      return `<button type="button" class="${active ? 'active' : ''}" data-action="gal" data-payload="${e.key}" aria-label="${esc(e.label)} — ${esc(p.name)}" aria-pressed="${active}">${galleryImgHTML(e.src, e.label + ' — ' + p.name + (e.isColor ? ' ' + color : ''), true)}</button>`;
     }).join('');
   }
 }
+function colorNoticeHTML(p){
+  const color = pdpState.color || '';
+  const waMsg = 'Hola, quiero confirmar disponibilidad del ' + p.name + ' en color ' + color + '.';
+  const askMsg = '¿Tienes disponible el ' + p.name + ' en color ' + color + '?';
+  return `<span aria-hidden="true">💬</span><span>¿Buscas este color? Confirma disponibilidad por <a href="#" data-action="wa" data-msg="${esc(waMsg)}" style="color:var(--accent);font-weight:600">WhatsApp</a> o pregúntale a nuestro <a href="#" data-action="open-chat" data-ask="${esc(askMsg)}" style="color:var(--accent);font-weight:600">asesor IA</a>.</span>`;
+}
+function renderColorNotice(){
+  const p = UC_CTX.product;
+  const el = document.getElementById('colorNotice');
+  if (!el || !p) return;
+  if (!colorHasPhoto(p, pdpState.color)){
+    el.innerHTML = colorNoticeHTML(p);
+    el.style.display = 'flex';
+  } else {
+    el.innerHTML = '';
+    el.style.display = 'none';
+  }
+}
 function renderProduct(main, id){
-  const p = CATALOG.find(x => x.id === id);
+  const p = productById(id);
   if (!p){
     main.innerHTML = `<div class="container page"><div class="empty-state">
       <div class="es-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></div>
-      <h3>Producto no encontrado</h3><p>Este producto no existe en la demo.</p>
+      <h3>Producto no encontrado</h3><p>Este producto no existe en el catálogo.</p>
       <a class="btn btn-accent" href="#/catalogo">Volver al catálogo</a>
     </div></div>`;
     return;
   }
   UC_CTX.product = p;
-  pdpState.variant = 'front';
-  pdpState.color = p.colors && p.colors[0] ? p.colors[0] : null;
-  pdpState.storage = p.storage !== '—' ? p.storage : null;
-  pdpState.qty = 1;
-  track('product_view', { product: p.id, name: p.name, price: p.price });
-  const pct = p.compareAtPrice ? Math.round((1 - p.price / p.compareAtPrice) * 100) : 0;
-  const hasStorage = p.storageOptions && p.storageOptions.length;
-  const hasColors = p.colors && p.colors.length > 1;
+  const vs = variantsOf(p.id).slice().sort((a,b) => capSort(a.capacidad) - capSort(b.capacidad));
+  const cheapest = vs.slice().sort((a,b) => a.precio - b.precio)[0];
+  if (pdpState.productId !== p.id){
+    pdpState.productId = p.id;
+    pdpState.storage = cheapest.capacidad;
+    pdpState.color = cheapest.colores && cheapest.colores[0] ? cheapest.colores[0] : null;
+    pdpState.variant = pdpState.color ? primaryViewFor(p, pdpState.color) : 'front';
+    pdpState.qty = 1;
+  }
+  const v = vs.find(x => x.capacidad === pdpState.storage) || cheapest;
+  if (!(v.colores || []).includes(pdpState.color)) pdpState.color = (v.colores && v.colores[0]) || null;
+  track('product_view', { product: p.id, name: p.name, price: v.precio });
   const feats = [
     ['🚀', 'Rendimiento', p.specs && p.specs[0] ? p.specs[0].replace(/^[^:]+:\s*/, '') : '—'],
     ['📸', 'Cámara', p.specs && p.specs[2] ? p.specs[2].replace(/^[^:]+:\s*/, '') : '—'],
     ['🔋', 'Batería', p.specs && p.specs[3] ? p.specs[3].replace(/^[^:]+:\s*/, '') : '—']
   ];
+  const swatches = productVariants(v.colores);
   main.innerHTML = `<div class="container page">
     <nav class="breadcrumbs" style="font-size:13px;color:var(--faint);margin-bottom:18px">
       <a href="#/inicio" style="color:var(--muted)">Inicio</a> / <a href="#/catalogo?categoria=${p.category}" style="color:var(--muted)">${CAT_LABEL[p.category] || 'Catálogo'}</a> / <span style="color:var(--text);font-weight:600">${esc(p.name)}</span>
@@ -2815,59 +3165,59 @@ function renderProduct(main, id){
         <div class="gal-thumbs" id="galThumbs"></div>
       </div>
       <div class="pdp-info">
-        <div class="pdp-brand">${esc(p.brand)} · ${esc(p.estado)}</div>
+        <div class="pdp-brand">${esc(p.brand)} · ${esc(v.estado)}</div>
         <h1>${esc(p.name)}</h1>
-        <div class="pdp-rating">${starsHTML(p.rating)} <b style="color:var(--ink)">${p.rating}</b> <span>(${p.reviews} opiniones demo)</span></div>
+        ${p.rating ? '<div class="pdp-rating">' + starsHTML(p.rating) + ' <b style="color:var(--ink)">' + p.rating + '</b> <span>(' + p.reviews + ' opiniones)</span></div>' : ''}
         <div class="pdp-price-block">
-          <span class="pdp-price">${fmtCOP(p.price)}</span> ${demoTagHTML()}
-          ${p.compareAtPrice ? `<span class="pdp-was">${fmtCOP(p.compareAtPrice)}</span><span class="pdp-save">Ahorra ${pct}%</span>` : ''}
+          <span class="pdp-price">${fmtCOP(v.precio)}</span>
         </div>
         <div class="pdp-stock">
-          ${p.stock > 0 ? `<span class="badge badge-stock">● Disponible — quedan ${p.stock} (demo)</span>` : '<span class="badge badge-stock-out">Agotado (demo)</span>'}
-          <span class="muted" style="font-size:13px">${esc(p.storage)} · ${esc(pdpState.color || '')}</span>
+          ${v.stock > 0 ? `<span class="badge badge-stock">● Disponible — quedan ${v.stock}</span>` : '<span class="badge badge-stock-out">Agotado</span>'}
+          <span class="muted" style="font-size:13px">${esc(v.capacidad)} · ${esc(pdpState.color || '')}</span>
         </div>
         <div class="pdp-opts">
-          ${hasColors ? `<div class="opt-block"><h5>Color: <span>${esc(pdpState.color)}</span></h5>
-            <div class="color-grid">${productVariants(p).map(v => {
-              const active = v.color === pdpState.color;
-              return `<button type="button" class="color-opt ${active ? 'active' : ''}" data-action="pcolor" data-payload="${esc(v.color)}" aria-pressed="${active}" aria-label="Color ${esc(v.color)}" title="${esc(v.color)}"><span class="color-dot" style="background:${v.colorGrad}"></span><span class="color-name">${esc(v.color)}</span></button>`;
-            }).join('')}</div></div>` : ''}
-          ${hasStorage ? `<div class="opt-block"><h5>Capacidad: <span>${esc(pdpState.storage)}</span></h5>
-            <div class="opt-row">${p.storageOptions.map(s => `<button class="opt-pill ${s === pdpState.storage ? 'active' : ''}" data-action="pstorage" data-payload="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>` : ''}
+          <div class="opt-block"><h5>Capacidad: <span>${esc(v.capacidad)}</span></h5>
+            <div class="opt-row">${vs.map(x => `<button class="opt-pill ${x.capacidad === v.capacidad ? 'active' : ''}" data-action="pstorage" data-payload="${esc(x.capacidad)}" ${x.stock <= 0 ? 'disabled' : ''}>${esc(x.capacidad)}</button>`).join('')}</div></div>
+          <div class="opt-block"><h5>Color: <span>${esc(pdpState.color || '')}</span></h5>
+            <div class="color-grid">${swatches.map(s => {
+              const active = s.color === pdpState.color;
+              return `<button type="button" class="color-opt ${active ? 'active' : ''}" data-action="pcolor" data-payload="${esc(s.color)}" aria-pressed="${active}" aria-label="Color ${esc(s.color)}" title="${esc(s.color)}"><span class="color-dot" style="background:${s.colorGrad}"></span><span class="color-name">${esc(s.color)}</span></button>`;
+            }).join('')}</div>
+            <div class="color-notice" id="colorNotice" style="display:none;align-items:flex-start;gap:8px;margin-top:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:13px;color:var(--muted);line-height:1.45"></div></div>
           <div class="opt-block">
             <h5>Cantidad</h5>
             <div class="qty-row">
               <div class="qty-stepper">
                 <button data-action="qty" data-payload="dec" aria-label="Disminuir cantidad">−</button>
-                <span id="pdpQty">1</span>
+                <span id="pdpQty">${pdpState.qty}</span>
                 <button data-action="qty" data-payload="inc" aria-label="Aumentar cantidad">+</button>
               </div>
-              <span class="muted" style="font-size:13px">Subtotal: <b id="pdpSub" style="color:var(--ink)">${fmtCOP(p.price)}</b> (demo)</span>
+              <span class="muted" style="font-size:13px">Subtotal: <b id="pdpSub" style="color:var(--ink)">${fmtCOP(v.precio * pdpState.qty)}</b></span>
             </div>
           </div>
         </div>
         <div class="pdp-cta">
-          <button class="btn btn-dark btn-lg" data-action="pdp-add" data-payload="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>Agregar al carrito</button>
-          <button class="btn btn-accent btn-lg" data-action="pdp-buy" data-payload="${p.id}" ${p.stock <= 0 ? 'disabled' : ''}>Comprar ahora</button>
+          <button class="btn btn-dark btn-lg" data-action="pdp-add" data-payload="${v.id}" ${v.stock <= 0 ? 'disabled' : ''}>Agregar al carrito</button>
+          <button class="btn btn-accent btn-lg" data-action="pdp-buy" data-payload="${v.id}" ${v.stock <= 0 ? 'disabled' : ''}>Comprar ahora</button>
         </div>
         <div class="pdp-ship">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3V7h2M19 17h2v-6h-2M1 4h13v13H1zM14 8h4l4 4v5h-3"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Envío gratis en compras sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)} (demo) · Entrega estimada 1-3 días hábiles</span>
+          <span>Envío gratis en compras sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)} · Entrega estimada 1-3 días hábiles</span>
         </div>
         <div class="pdp-ship">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.7 9.7 0 0 1-4.94-1.35l-.35-.21-3.67.96.98-3.58-.23-.37a9.7 9.7 0 0 1-1.49-5.19c0-5.37 4.37-9.74 9.75-9.74a9.68 9.68 0 0 1 6.9 2.85 9.68 9.68 0 0 1 2.85 6.9c0 5.38-4.37 9.73-9.79 9.73z"/></svg>
-          <span>¿Prefieres comprar por chat? <button class="btn btn-outline btn-sm" style="margin-left:6px" data-action="wa" data-msg="${esc('Hola, estoy interesado en el ' + p.name + ' que vi en UltraCell.')}">Hablar por WhatsApp</button></span>
+          <span>¿Prefieres comprar por chat? <button class="btn btn-outline btn-sm" style="margin-left:6px" data-action="wa" data-msg="${esc('Hola, estoy interesado en el ' + p.name + ' ' + v.capacidad + ' (' + fmtCOP(v.precio) + ') que vi en UltraCell.')}">Hablar por WhatsApp</button></span>
         </div>
       </div>
     </div>
     <div class="pdp-sec">
       <h2>Detalles del producto</h2>
-      <details class="acc" open><summary>Descripción</summary><div class="acc-body"><p>${esc(p.description)}</p><p><span class="demo-tag">Demo</span> Texto de demostración para la reunión comercial.</p></div></details>
+      <details class="acc" open><summary>Descripción</summary><div class="acc-body"><p>${esc(p.description)}</p></div></details>
       <details class="acc"><summary>Características</summary><div class="acc-body"><div class="feat-grid">${feats.map(f => `<div class="feat-item"><span class="fi-ico">${f[0]}</span><div><b>${esc(f[1])}</b>${esc(f[2])}</div></div>`).join('')}</div></div></details>
-      <details class="acc"><summary>Especificaciones</summary><div class="acc-body"><table class="spec-table">${p.specs.map(s => { const i = s.indexOf(':'); const k = i > -1 ? s.slice(0, i) : ''; const v = i > -1 ? s.slice(i + 1) : s; return `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`; }).join('')}</table><p style="margin-top:10px"><span class="demo-tag">Demo</span> Especificaciones ilustrativas.</p></div></details>
+      <details class="acc"><summary>Especificaciones</summary><div class="acc-body"><table class="spec-table">${p.specs.map(s => { const i = s.indexOf(':'); const k = i > -1 ? s.slice(0, i) : ''; const vv = i > -1 ? s.slice(i + 1) : s; return `<tr><th>${esc(k)}</th><td>${esc(vv)}</td></tr>`; }).join('')}<tr><th>Almacenamiento</th><td>${esc(v.capacidad)}</td></tr></table><p style="margin-top:10px">Especificaciones de referencia.</p></div></details>
       <details class="acc"><summary>¿Qué incluye?</summary><div class="acc-body"><ul>${toList(p.includes).map(i => `<li>${esc(i)}</li>`).join('')}</ul></div></details>
-      <details class="acc"><summary>Envío</summary><div class="acc-body"><p>Envíos a nivel nacional (demo). Envío gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}; de lo contrario ${fmtCOP(CONFIG.SHIPPING_COST)}. Entrega estimada 1-3 días hábiles en ciudades principales. (Estimación demo.)</p></div></details>
-      <details class="acc"><summary>Garantía</summary><div class="acc-body"><p>Garantía de 12 meses (términos demo, por confirmar con UltraCell). No cubre daños por mal uso. <span class="demo-tag">Texto demo</span></p></div></details>
+      <details class="acc"><summary>Envío</summary><div class="acc-body"><p>Envíos a nivel nacional. Envío gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}; de lo contrario ${fmtCOP(CONFIG.SHIPPING_COST)}. Entrega estimada 1-3 días hábiles en ciudades principales.</p></div></details>
+      <details class="acc"><summary>Estado y garantía</summary><div class="acc-body"><p><b>Estado:</b> Usado · Condición ${esc(v.estado)} (10/10).<br><b>Batería:</b> ${v.bateria}% de salud.<br><b>Garantía:</b> ${esc(v.garantia)} por defectos de fábrica; no cubre daños por mal uso.</p></div></details>
       <details class="acc"><summary>Preguntas frecuentes</summary><div class="acc-body">
         ${p.faq.map(f => `<p><b>${esc(f.q)}</b><br>${esc(f.a)}</p>`).join('<br>')}
       </div></details>
@@ -2887,6 +3237,7 @@ function renderProduct(main, id){
     </div>
   </div>`;
   renderGallery(p);
+  renderColorNotice();
 }
 function pdpRefreshArt(){
   const p = UC_CTX.product;
@@ -2898,13 +3249,13 @@ const lightboxState = { items:[], index:0, open:false };
 function openLightbox(p, startView){
   if (!p) return;
   const color = pdpState.color;
-  const views = productViews(p);
-  lightboxState.items = views.map(v => ({
-    view: v.key,
-    label: (color ? color + ' · ' : '') + v.label,
-    html: galleryMediaHTML(p, color, v.key)
+  const entries = galleryBuild(p);
+  lightboxState.items = entries.map(e => ({
+    view: e.key,
+    label: (e.isColor ? color + ' · ' : '') + e.label,
+    html: galleryImgHTML(e.src, (e.isColor ? color + ' · ' : '') + e.label + ' — ' + p.name)
   }));
-  let idx = views.findIndex(v => v.key === (startView || pdpState.variant));
+  let idx = entries.findIndex(e => e.key === (startView || pdpState.variant));
   lightboxState.index = idx >= 0 ? idx : 0;
   renderLightbox();
   lightboxState.open = true;
@@ -2941,10 +3292,12 @@ function lightboxNav(dir){
 }
 function pdpRefreshQty(){
   const p = UC_CTX.product;
+  const v = p ? variantsOf(p.id).find(x => x.capacidad === pdpState.storage) : null;
+  const price = v ? v.precio : (p ? p.price : 0);
   const qEl = document.getElementById('pdpQty');
   const subEl = document.getElementById('pdpSub');
   if (qEl) qEl.textContent = pdpState.qty;
-  if (subEl && p) subEl.textContent = fmtCOP(p.price * pdpState.qty);
+  if (subEl) subEl.textContent = fmtCOP(price * pdpState.qty);
 }
 /* ============================================================
    CARRITO
@@ -2964,25 +3317,25 @@ function renderCart(main){
       </div></div>`;
     return;
   }
-  const hasIphone = cart.some(l => { const p = CATALOG.find(x => x.id === l.id); return p && p.category === 'iphone'; });
+  const hasIphone = cart.some(l => { const p = productById(l.productId); return p && p.category === 'iphone'; });
   const sugg = hasIphone
-    ? ['iphone-13','iphone-14'].filter(id => !cart.some(l => l.id === id)).map(id => CATALOG.find(x => x.id === id)).filter(Boolean)
+    ? ['iphone-13','iphone-14'].filter(id => !cart.some(l => l.productId === id)).map(id => productById(id)).filter(Boolean)
     : [];
   const missing = t.freeShip ? 0 : CONFIG.FREE_SHIPPING_OVER - t.sub;
   main.innerHTML = `<div class="container page">
-    <div style="margin-bottom:22px"><h1 style="font-size:clamp(26px,3.4vw,36px)">Tu carrito</h1><p class="muted" style="margin-top:6px">${t.count} producto${t.count === 1 ? '' : 's'} · precios demo</p></div>
+    <div style="margin-bottom:22px"><h1 style="font-size:clamp(26px,3.4vw,36px)">Tu carrito</h1><p class="muted" style="margin-top:6px">${t.count} producto${t.count === 1 ? '' : 's'} · precios reales</p></div>
     <div class="cart-layout">
       <div>
         <div class="cart-lines">
           ${cart.map((l, i) => {
-            const p = CATALOG.find(x => x.id === l.id) || { name:'Producto (demo)', art:'iphone' };
+            const p = productById(l.productId) || { name:'Producto', art:'phone' };
             const pl = PAL[l.color];
             return `<div class="cline">
               <a class="cline-art" href="#/producto/${l.id}">${productArt(p, 'front', l.color)}</a>
               <div class="cline-info">
-                <h4><a href="#/producto/${l.id}">${esc(p.name)}</a></h4>
+                <h4><a href="#/producto/${l.productId}">${esc(p.name)}</a></h4>
                 <div class="cline-var"><span class="dotc" style="background:${pl ? pl.hex[0] : '#ccc'}"></span>${esc(l.color)} · ${esc(l.storage)}</div>
-                <div class="cline-price">${fmtCOP(l.price)} c/u <span class="demo-tag">Precio demo</span></div>
+                <div class="cline-price">${fmtCOP(l.price)} c/u</div>
               </div>
               <div class="cline-right">
                 <div class="qty-stepper">
@@ -3012,13 +3365,13 @@ function renderCart(main){
       <aside class="summary">
         <h3>Resumen del pedido</h3>
         <div class="ship-meter">
-          <div class="sm-label">${t.freeShip ? '🎉 ¡Tienes envío gratis (demo)!' : 'Te faltan <b>' + fmtCOP(missing) + '</b> para envío gratis'}</div>
+          <div class="sm-label">${t.freeShip ? '🎉 ¡Tienes envío gratis!' : 'Te faltan <b>' + fmtCOP(missing) + '</b> para envío gratis'}</div>
           <div class="sm-bar"><i style="width:${Math.min(100, Math.round(t.sub / CONFIG.FREE_SHIPPING_OVER * 100))}%"></i></div>
         </div>
         <div class="sum-row"><span>Subtotal</span><b>${fmtCOP(t.sub)}</b></div>
         <div class="sum-row"><span>Envío</span>${t.freeShip ? '<span class="free">Gratis</span>' : '<b>' + fmtCOP(t.ship) + '</b>'}</div>
         <div class="sum-row total"><span>Total</span><span>${fmtCOP(t.total)}</span></div>
-        <span class="demo-tag" style="margin:10px 0 14px">Precios demo</span>
+        
         <button class="btn btn-accent btn-lg" data-action="goto" data-payload="/checkout">Continuar compra →</button>
         <p class="sum-note">Pago seguro demo (Wompi Sandbox). No se realizan cobros reales.</p>
       </aside>
@@ -3078,17 +3431,17 @@ function renderCheckout(main){
       <aside class="co-summary">
         <h3>Tu pedido</h3>
         ${cart.map(l => {
-          const p = CATALOG.find(x => x.id === l.id) || { name:'Producto (demo)' };
+          const p = productById(l.productId) || { name:'Producto' };
           return `<div class="co-line">
             <div class="cl-art">${productArt(p, 'front', l.color)}</div>
-            <div class="cl-info"><b>${esc(p.name)}</b><span>${l.qty} × ${fmtCOP(l.price)} · ${esc(l.color)}</span></div>
+            <div class="cl-info"><b>${esc(p.name)}</b><span>${l.qty} × ${fmtCOP(l.price)} · ${esc(l.color)} · ${esc(l.storage)}</span></div>
             <span class="cl-sub">${fmtCOP(l.price * l.qty)}</span>
           </div>`;
         }).join('')}
         <div class="sum-row" style="margin-top:12px"><span>Subtotal</span><b>${fmtCOP(t.sub)}</b></div>
         <div class="sum-row"><span>Envío</span>${t.freeShip ? '<span class="free">Gratis</span>' : '<b>' + fmtCOP(t.ship) + '</b>'}</div>
         <div class="sum-row total"><span>Total</span><span>${fmtCOP(t.total)}</span></div>
-        <span class="demo-tag" style="margin-top:12px">Precios demo</span>
+        
       </aside>
     </div>
   </div>`;
@@ -3131,22 +3484,22 @@ function processPayment(method){
 function renderConfirmacion(main){
   UC_CTX.product = null;
   const order = lastOrder();
-  if (!order){ toast('Aún no hay ningún pedido en la demo.', { type:'err' }); navigate('/inicio'); return; }
-  const waMsg = 'Hola UltraCell! Hice el pedido ' + esc(order.id) + ' en la demo.\\n\\nProductos:\\n' +
+  if (!order){ toast('Aún no hay ningún pedido.', { type:'err' }); navigate('/inicio'); return; }
+  const waMsg = 'Hola UltraCell! Hice el pedido ' + esc(order.id) + '.\\n\\nProductos:\\n' +
     order.items.map(l => {
-      const p = CATALOG.find(x => x.id === l.id) || {name:'Producto'};
-      return '- ' + esc(p.name) + ' x' + l.qty + ' — ' + fmtCOP(l.price * l.qty);
+      const p = productById(l.productId) || {name:'Producto'};
+      return '- ' + esc(p.name) + ' ' + esc(l.storage) + ' ' + esc(l.color) + ' x' + l.qty + ' — ' + fmtCOP(l.price * l.qty);
     }).join('\\n') +
     '\\n\\nTotal: ' + fmtCOP(order.totals.total) + '. Quiero confirmar disponibilidad y entrada.';
   main.innerHTML = `<div class="container page confirm-wrap">
     <div class="confirm-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></div>
-    <h1>¡Compra realizada! 🎉</h1>
-    <p class="c-sub">Gracias por comprar en UltraCell. Te enviamos los detalles a tu correo y WhatsApp. (Mensaje de demostración.)</p>
+    <h1>Pedido enviado por WhatsApp</h1>
+    <p class="c-sub">Te contactaremos para confirmar disponibilidad y pago.</p>
     <div class="order-num">🧾 ${esc(order.id)}</div>
     <div class="order-card">
       <h3>Detalle del pedido <span class="status"><i></i> ${esc(order.status)}</span></h3>
       ${order.items.map(l => {
-        const p = CATALOG.find(x => x.id === l.id) || { name:'Producto (demo)' };
+        const p = productById(l.productId) || { name:'Producto' };
         return `<div class="co-line">
           <div class="cl-art">${productArt(p, 'front', l.color)}</div>
           <div class="cl-info"><b>${esc(p.name)}</b><span>${l.qty} × ${fmtCOP(l.price)} · ${esc(l.color)} · ${esc(l.storage)}</span></div>
@@ -3156,7 +3509,7 @@ function renderConfirmacion(main){
       <div class="oc-rows" style="margin-top:12px">
         <div><span>Subtotal</span><b>${fmtCOP(order.totals.sub)}</b></div>
         <div><span>Envío</span><b>${order.totals.ship === 0 ? 'Gratis' : fmtCOP(order.totals.ship)}</b></div>
-        <div><span>Total pagado</span><b style="font-size:17px">${fmtCOP(order.totals.total)}</b></div>
+        <div><span>Total</span><b style="font-size:17px">${fmtCOP(order.totals.total)}</b></div>
       </div>
     </div>
     <div class="order-card">
@@ -3177,6 +3530,12 @@ function renderConfirmacion(main){
   </div>`;
 }
 function orderModalHTML(order){
+  const waMsg = 'Hola UltraCell! Hice el pedido ' + order.id + '.\n\nProductos:\n' +
+    order.items.map(l => {
+      const p = productById(l.productId) || { name:'Producto' };
+      return '- ' + p.name + ' ' + l.storage + ' ' + l.color + ' x' + l.qty + ' — ' + fmtCOP(l.price * l.qty);
+    }).join('\n') +
+    '\n\nTotal: ' + fmtCOP(order.totals.total) + '. Quiero confirmar disponibilidad y entrega.';
   return `<div class="modal-body">
     <h3>Pedido ${esc(order.id)}</h3>
     <p>Estado: <b style="color:#177a37">${esc(order.status)}</b> · ${new Date(order.date).toLocaleString('es-CO')}</p>
@@ -3204,35 +3563,35 @@ function renderNosotros(main){
     <div class="about-grid stagger">
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></span><h3>Quiénes somos</h3><p>UltraCell es un almacén de celulares ubicado en el C.C. San Andresito el Pupi, Local 30 de Barranquilla. Vendemos celulares nuevos y usados, accesorios, baterías y ofrecemos servicio técnico. Somos tus aliados a la hora de cambiar tu celular.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2.4 6.9L21 9l-5 4.4L17.8 21 12 17l-5.8 4 1.8-7.6L3 9l6.6-.1z"/></svg></span><h3>Por qué elegirnos</h3><p>Asesoría personalizada, catálogo curado de iPhone y acompañamiento antes, durante y después de la compra. Servicio técnico propio.</p></div>
-      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3 8 3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Nuestra selección</h3><p>Trabajamos una selección de iPhone nuevos y usados, accesorios, baterías y servicio técnico. Todos los precios son de demostración.</p></div>
+      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3 8 3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Nuestra selección</h3><p>Trabajamos una selección de iPhone nuevos y usados, accesorios, baterías y servicio técnico. Todos los equipos cuentan con garantía de 6 meses.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><h3>Atención personalizada</h3><p>Te atendemos por WhatsApp y con nuestro asesor IA. Horario: lunes a sábado, 9:00 am – 6:00 pm. Ciudad: Barranquilla.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Compra segura</h3><p>Pasarela de pagos (Wompi) lista para integrar: tarjetas, PSE y Nequi. En la demo el pago es simulado en Sandbox.</p></div>
-      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 17H3V7h2M19 17h2v-6h-2M1 4h13v13H1zM14 8h4l4 4v5h-3"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><h3>Envíos</h3><p>Envíos a nivel nacional con entrega estimada de 1-3 días hábiles (demo). Envío gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}.</p></div>
+      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 17H3V7h2M19 17h2v-6h-2M1 4h13v13H1zM14 8h4l4 4v5h-3"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><h3>Envíos</h3><p>Envíos a nivel nacional con entrega estimada de 1-3 días hábiles. Envío gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}.</p></div>
     </div>
     <div class="story-card">
       <h2>Nuestra historia</h2>
       <p>UltraCell es un almacén de celulares en el C.C. San Andresito el Pupi, Local 30 de Barranquilla. Nos dedicamos a la venta de celulares nuevos y usados, accesorios, baterías y servicio técnico. Somos tus aliados a la hora de cambiar tu celular.</p>
-      <p><span class="demo-tag">Demo</span></p>
+      
     </div>
   </div></div>`;
 }
 const FAQ_ITEMS = [
-  { id:'productos', q:'¿Los productos son nuevos u originales?', a:'(Respuesta demo) En la demo los productos se marcan como "Nuevo" o "Seminuevo". El estado real de cada equipo lo confirma UltraCell antes de la compra.' },
-  { id:'que-iphone', q:'¿Qué iPhone me recomiendan?', a:'(Respuesta demo) Depende de tu presupuesto y uso. Usa el recomendador de la página de inicio (5 preguntas) o pregúntale al asesor IA: te recomienda al instante según tu presupuesto.' },
-  { id:'modelos', q:'¿Cuáles modelos de iPhone tienen?', a:'(Respuesta demo) En la demo: iPhone desde el 11 hasta el 17 Pro Max, en varios colores y capacidades. También accesorios, baterías y servicio técnico.' },
-  { id:'pagos', q:'¿Qué métodos de pago aceptan?', a:'(Respuesta demo) Tarjetas de crédito/débito, PSE y Nequi mediante la pasarela Wompi. En esta demo el pago es simulado (Sandbox); en producción se conecta con llaves privadas solo en el backend.' },
-  { id:'envios', q:'¿Cuánto demora el envío?', a:'(Respuesta demo) En ciudades principales estimamos 1-3 días hábiles. Compras sobre $1.000.000 tienen envío gratis; de lo contrario $25.000 (valores demo).' },
-  { id:'garantia', q:'¿Tienen garantía?', a:'(Respuesta demo) Garantía por defectos de fábrica, con términos que confirma UltraCell. Servicio técnico propio en Barranquilla.' },
-  { id:'whatsapp', q:'¿Puedo comprar por WhatsApp?', a:'(Respuesta demo) Sí: el botón "Hablar por WhatsApp" abre un chat con el equipo de UltraCell (+57 300 752 7308) con un mensaje pre-escrito.' },
-  { id:'ia', q:'¿Cómo funciona el asesor IA?', a:'(Respuesta demo) Es un asistente con reglas locales que conoce el catálogo: recomienda por presupuesto o uso, compara modelos, resuelve dudas de envíos y te lleva hasta el checkout. No comparte tus datos con nadie; funciona offline.' },
-  { id:'elegir', q:'¿Cómo sé qué iPhone elegir?', a:'(Respuesta demo) Tres caminos: 1) el recomendador con 5 preguntas, 2) el asesor IA (botón flotante), 3) WhatsApp con un asesor humano. Todos te dan una recomendación concreta.' },
-  { id:'cambios', q:'¿Hacen cambios o devoluciones?', a:'(Respuesta demo) Sí, con un plazo corto para reportar novedades y condiciones que confirma UltraCell. El proceso se coordina por WhatsApp.' }
+  { id:'productos', q:'¿Los productos son nuevos u originales?', a:'Los productos usados se marcan como "Usado" y se venden en excelente estado (10/10). El estado real de cada equipo lo confirma UltraCell antes de la compra.' },
+  { id:'que-iphone', q:'¿Qué iPhone me recomiendan?', a:'Depende de tu presupuesto y uso. Usa el recomendador de la página de inicio (5 preguntas) o pregúntale al asesor IA: te recomienda al instante según tu presupuesto.' },
+  { id:'modelos', q:'¿Cuáles modelos de iPhone tienen?', a:'iPhone usados desde el 11 hasta el 17 Pro Max, en varios colores y capacidades. También accesorios, baterías y servicio técnico.' },
+  { id:'pagos', q:'¿Qué métodos de pago aceptan?', a:'Tarjetas de crédito/débito, PSE y Nequi mediante la pasarela Wompi. Las llaves privadas se configuran solo en el backend (nunca en el frontend).' },
+  { id:'envios', q:'¿Cuánto demora el envío?', a:'En ciudades principales estimamos 1-3 días hábiles. Compras sobre $1.000.000 tienen envío gratis; de lo contrario $25.000.' },
+  { id:'garantia', q:'¿Tienen garantía?', a:'Garantía por defectos de fábrica, con términos que confirma UltraCell. Servicio técnico propio en Barranquilla.' },
+  { id:'whatsapp', q:'¿Puedo comprar por WhatsApp?', a:'Sí: el botón "Hablar por WhatsApp" abre un chat con el equipo de UltraCell (+57 300 752 7308) con un mensaje pre-escrito.' },
+  { id:'ia', q:'¿Cómo funciona el asesor IA?', a:'Es un asistente con reglas locales que conoce el catálogo: recomienda por presupuesto o uso, compara modelos, resuelve dudas de envíos y te lleva hasta el checkout. No comparte tus datos con nadie; funciona offline.' },
+  { id:'elegir', q:'¿Cómo sé qué iPhone elegir?', a:'Tres caminos: 1) el recomendador con 5 preguntas, 2) el asesor IA (botón flotante), 3) WhatsApp con un asesor humano. Todos te dan una recomendación concreta.' },
+  { id:'cambios', q:'¿Hacen cambios o devoluciones?', a:'Sí, con un plazo corto para reportar novedades y condiciones que confirma UltraCell. El proceso se coordina por WhatsApp.' }
 ];
 function renderFaq(main, params){
   UC_CTX.product = null;
   const openId = params.get('t') || '';
   main.innerHTML = `<div class="container page faq-wrap">
-    <div style="margin-bottom:26px"><h1 style="font-size:clamp(26px,3.4vw,36px)">Preguntas frecuentes</h1><p class="muted" style="margin-top:6px">Respuestas de demostración — los datos reales los confirma UltraCell.</p></div>
+    <div style="margin-bottom:26px"><h1 style="font-size:clamp(26px,3.4vw,36px)">Preguntas frecuentes</h1><p class="muted" style="margin-top:6px">Respuestas rápidas a tus dudas más comunes.</p></div>
     ${FAQ_ITEMS.map(f => `<details class="acc" id="faq-${f.id}" ${openId === f.id ? 'open' : ''}>
       <summary>${esc(f.q)}</summary><div class="acc-body"><p>${esc(f.a)}</p></div>
     </details>`).join('')}
@@ -3240,7 +3599,7 @@ function renderFaq(main, params){
       <h4>💬 ¿No encontraste tu respuesta?</h4>
       <p>Pregúntale al asesor IA o escríbenos por WhatsApp — te respondemos rapidísimo.</p>
       <button class="btn btn-accent" style="margin-top:12px" data-action="open-chat">Abrir asesor IA</button>
-      <button class="btn btn-outline" style="margin-top:12px;margin-left:10px" data-action="wa" data-msg="Hola, tengo una pregunta sobre UltraCell (demo).">WhatsApp</button>
+      <button class="btn btn-outline" style="margin-top:12px;margin-left:10px" data-action="wa" data-msg="Hola, tengo una pregunta sobre UltraCell.">WhatsApp</button>
     </div>
   </div>`;
 }
@@ -3265,11 +3624,11 @@ function renderChatMsgs(){
     if (m.role === 'user') return '<div class="msg user"><div class="bubble">' + esc(m.text) + '</div></div>';
     const m2 = m.m;
     if (m2.type === 'products'){
-      const items = m2.ids.map(id => CATALOG.find(x => x.id === id)).filter(Boolean);
+      const items = m2.ids.map(id => PRODUCTS.find(x => x.id === id)).filter(Boolean);
       return '<div class="msg">' + botAvatar() + '<div class="bubble">' + (m2.text ? esc(m2.text) + '<br>' : '') +
         '<div class="b-products">' + items.map(p =>
           '<div class="b-prod"><div class="bp-art">' + productArt(p, 'front') + '</div>' +
-          '<div><b>' + esc(p.name) + '</b><span>' + fmtCOP(p.price) + ' · precio demo</span></div>' +
+          '<div><b>' + esc(p.name) + '</b><span>' + fmtCOP(p.price) + '</span></div>' +
           '<div class="bp-acts"><button data-action="bot-act" data-type="view" data-payload="' + p.id + '">Ver</button><button class="primary" data-action="bot-act" data-type="add" data-payload="' + p.id + '">Agregar</button></div></div>'
         ).join('') + '</div></div></div>';
     }
@@ -3363,7 +3722,7 @@ function execBotAction(type, payload){
   else if (type === 'add'){
     const r = addToCart(payload, 1);
     if (r.ok){ toast('Producto agregado al carrito ✓', { link:{ label:'Ver carrito', href:'#/carrito' } }); bumpCart();
-      const p = CATALOG.find(x => x.id === payload);
+      const p = PRODUCTS.find(x => x.id === payload);
       botSay([{ type:'text', text:'¡Listo! 🛒 Agregué el ' + (p ? p.name : 'producto') + ' a tu carrito. ¿Vamos al checkout o seguimos viendo?', chips:['Ir al checkout','Seguir mirando'] }], null);
     } else toast(r.msg, { type:'err' });
   }
@@ -3375,11 +3734,11 @@ function execBotAction(type, payload){
     renderChatMsgs();
   }
   else if (type === 'checkout_intent'){
-    const p = CATALOG.find(x => x.id === payload);
+    const p = PRODUCTS.find(x => x.id === payload);
     if (!p) return;
     openModal(`<div class="modal-body">
       <h3>¿Quieres que te lleve al checkout?</h3>
-      <div class="m-prod"><div class="mp-art">${productArt(p, 'front')}</div><div><b>${esc(p.name)}</b><span>${fmtCOP(p.price)} · precio demo</span></div></div>
+      <div class="m-prod"><div class="mp-art">${p.img && hasImage(p.img) ? '<img class="pcard-img" src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">' : productArt(p, 'front')}</div><div><b>${esc(p.name)}</b><span>${fmtCOP(p.price)}</span></div></div>
       <p>Agrego el ${esc(p.name)} a tu carrito y te llevo directo al pago (simulado, sin cobros reales).</p>
       <div class="modal-cta">
         <button class="btn btn-accent" data-action="checkout-go" data-payload="${p.id}">Ir al checkout</button>
@@ -3400,7 +3759,7 @@ function submitLead(formEl){
   leads.unshift({ name: name.trim(), whatsapp: wa.replace(/\D/g, ''), email: email.trim(), product: UC_CTX.product ? UC_CTX.product.name : 'Consulta general', page: UC_CTX.page, source:'chatbot_ultracell_ia', ts: new Date().toISOString() });
   sSet('uc_leads_v1', leads);
   track('lead_created', { product: UC_CTX.product ? UC_CTX.product.id : null });
-  chatState.msgs.push({ role:'bot', m:{ type:'text', text:'¡Listo! 🎉 Guardé tus datos. Te contactaremos muy pronto (demo — en producción esto alimenta el CRM). ¿Algo más mientras tanto?', chips:['Quiero un iPhone','Seguir comprando'] } });
+  chatState.msgs.push({ role:'bot', m:{ type:'text', text:'¡Listo! 🎉 Guardé tus datos. Te contactaremos muy pronto. ¿Algo más mientras tanto?', chips:['Quiero un iPhone','Seguir comprando'] } });
   renderChatMsgs();
 }
 
@@ -3426,21 +3785,22 @@ function handleAction(action, el){
       break;
     }
     case 'buy-now': { addToCart(payload, 1); bumpCart(); navigate('/checkout'); break; }
-    case 'pdp-add': { const r = addToCart(payload, pdpState.qty, { color:pdpState.color, storage:pdpState.storage }); if (r.ok){ toast('Producto agregado al carrito ✓', { link:{ label:'Ver carrito', href:'#/carrito' } }); bumpCart(); } else toast(r.msg, { type:'err' }); break; }
-    case 'pdp-buy': { addToCart(payload, pdpState.qty, { color:pdpState.color, storage:pdpState.storage }); bumpCart(); navigate('/checkout'); break; }
+    case 'pdp-add': { const r = addToCart(payload, pdpState.qty, { color:pdpState.color }); if (r.ok){ toast('Producto agregado al carrito ✓', { link:{ label:'Ver carrito', href:'#/carrito' } }); bumpCart(); } else toast(r.msg, { type:'err' }); break; }
+    case 'pdp-buy': { addToCart(payload, pdpState.qty, { color:pdpState.color }); bumpCart(); navigate('/checkout'); break; }
     case 'qty': {
       if (payload === 'inc') pdpState.qty = Math.min(pdpState.qty + 1, 99);
       else pdpState.qty = Math.max(pdpState.qty - 1, 1);
       pdpRefreshQty(); break;
     }
-    case 'pcolor': { pdpState.color = payload; pdpRefreshArt();
-      document.querySelectorAll('.color-opt').forEach(s => s.classList.toggle('active', s.dataset.payload === payload));
-      document.querySelectorAll('.color-opt').forEach(s => s.setAttribute('aria-pressed', s.dataset.payload === payload ? 'true' : 'false'));
-      const lab = document.querySelector('.opt-block h5 span'); if (lab) lab.textContent = payload;
+    case 'pcolor': { pdpState.color = payload;
+      pdpState.variant = primaryViewFor(UC_CTX.product, payload);
+      reRenderCurrent();
       break; }
     case 'pstorage': { pdpState.storage = payload;
-      document.querySelectorAll('.opt-pill').forEach(s => s.classList.toggle('active', s.dataset.payload === payload));
-      const lab = document.querySelectorAll('.opt-block h5 span')[1]; if (lab) lab.textContent = payload;
+      const cv = variantsOf(UC_CTX.product.id).find(x => x.capacidad === payload);
+      pdpState.color = cv && cv.colores && cv.colores[0] ? cv.colores[0] : null;
+      pdpState.variant = pdpState.color ? primaryViewFor(UC_CTX.product, pdpState.color) : 'front';
+      reRenderCurrent();
       break; }
     case 'gal': { pdpState.variant = payload; pdpRefreshArt(); break; }
     case 'lightbox-open': openLightbox(UC_CTX.product, pdpState.variant); break;
@@ -3451,8 +3811,9 @@ function handleAction(action, el){
     case 'wa': waClick(el.dataset.msg || null); break;
     case 'goto': navigate(payload); break;
     case 'quiz-option': {
-      quizState.answers[el.dataset.q] = el.dataset.a;
-      quizState.step = +el.dataset.q + 1;
+      const qi = +el.dataset.q;
+      quizState.answers[QUIZ[qi].key] = el.dataset.a;
+      quizState.step = qi + 1;
       const box = document.getElementById('quizBody');
       if (box) renderQuiz(box);
       break;
@@ -3494,9 +3855,9 @@ function handleAction(action, el){
 }
 function legalHTML(which){
   const t = which === 'terminos' ? 'Términos y condiciones' : 'Privacidad';
-  return `<div class="modal-body"><h3>${t} <span class="demo-tag">Demo</span></h3>
-    <p>Este documento es un placeholder de demostración. UltraCell debe completar aquí sus términos reales.</p>
-    <p>Nota importante: este sitio es una demo comercial. Los precios, productos y textos son ficticios; no se realizan ventas ni cobros reales.</p>
+  return `<div class="modal-body"><h3>${t}</h3>
+    <p>Este documento es un texto de referencia que UltraCell completará con sus términos reales.</p>
+    <p>Nota importante: los precios y productos del catálogo son reales. El pago en línea se procesa en modo de prueba y no se realizan cobros reales.</p>
     <div class="modal-cta"><button class="btn btn-dark" data-action="modal-close">Entendido</button></div></div>`;
 }
 function handleFilterChange(el){
@@ -3534,7 +3895,7 @@ function initApp(){
   /* WhatsApp display en footer */
   const w = CONFIG.WHATSAPP;
   const wd = document.getElementById('waDisplay');
-  if (wd) wd.textContent = '+' + w.slice(0,2) + ' ' + w.slice(2,5) + ' ' + w.slice(5,8) + ' ' + w.slice(8) + ' (demo)';
+  if (wd) wd.textContent = '+' + w.slice(0,2) + ' ' + w.slice(2,5) + ' ' + w.slice(5,8) + ' ' + w.slice(8);
   /* header: hamburguesa, menú móvil, buscador */
   const ham = document.getElementById('hamburgerBtn');
   const mMenu = document.getElementById('mobileMenu');
@@ -3620,7 +3981,7 @@ const __test = {
   reset: () => { sSet('uc_cart_v1', []); sSet('uc_order_seq', 100); sSet('uc_orders_v1', []); sSet('uc_last_order', null); sSet('uc_leads_v1', []); },
   addToCart, updateQty, removeLine, getCart, cartTotals, cartCount, placeOrder, lastOrder,
   parseBudget, botReply, smartSearch, recommendQuiz, findByName, fmtCOP, norm, esc,
-  CONFIG, CATALOG
+  CONFIG, PRODUCTS, VARIANTS
 };
 if (typeof module !== 'undefined' && module.exports) module.exports = __test;
 

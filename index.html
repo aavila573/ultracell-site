@@ -257,9 +257,9 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 /* ---------- categorías ---------- */
 .cat-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .3s,box-shadow .3s;min-height:230px;position:relative;overflow:hidden}
 .cat-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
-.cat-card .cat-art{height:110px;display:flex;align-items:flex-end;justify-content:center}
-.cat-card .cat-art svg{width:96px;transition:transform .35s}
-.cat-card:hover .cat-art svg{transform:translateY(-4px) scale(1.05)}
+.cat-card .cat-art{height:110px;display:flex;align-items:center;justify-content:center}
+.cat-card .cat-art svg,.cat-card .cat-art img{width:60px;height:60px;transition:transform .35s}
+.cat-card:hover .cat-art svg,.cat-card:hover .cat-art img{transform:translateY(-4px) scale(1.05)}
 .cat-card h3{font-size:18px}
 .cat-card p{color:var(--muted);font-size:14px;flex:1}
 .cat-card .cat-go{color:var(--accent);font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px;min-height:44px}
@@ -813,6 +813,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
     <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
       <a href="#/inicio" data-nav="inicio">Inicio</a>
       <a href="#/catalogo?categoria=iphone" data-nav="iphone">iPhone</a>
+      <a href="blog/" data-nav="blog">Blog</a>
       <a href="#/nosotros" data-nav="nosotros">Nosotros</a>
     </nav>
     <div class="header-actions">
@@ -842,6 +843,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
     <a href="#/inicio">Inicio</a>
     <a href="#/catalogo?categoria=iphone">iPhone</a>
+    <a href="blog/">Blog</a>
     
     
     
@@ -2417,12 +2419,12 @@ function renderHome(main){
     <div class="sec-head"><div><h2>Comprar por categoría</h2><p class="sub">Todo lo que necesitas, en un solo lugar.</p></div></div>
     <div class="grid-4 stagger">
       <a class="cat-card" href="#/catalogo?categoria=iphone">
-        <div class="cat-art">${productArt(PRODUCTS.find(p => p.id === 'iphone-17-pro'), 'front')}</div>
+        <div class="cat-art"><img src="assets/logo-apple.svg" alt="Apple" width="60" height="60"></div>
         <h3>iPhone</h3><p>Los últimos modelos, listos para ti.</p>
         <span class="cat-go">Ver iPhone <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="cat-card" href="https://wa.me/573007527308?text=Hola%20UltraCell%2C%20necesito%20servicio%20técnico" target="_blank" rel="noopener">
-        <div class="cat-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;margin:auto;color:var(--accent)"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="cat-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3>Servicio técnico</h3><p>Reparaciones y mantenimiento.</p>
         <span class="cat-go">Consultar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>

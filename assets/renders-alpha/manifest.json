@@ -1,0 +1,452 @@
+[
+  {
+    "archivo": "iphone-12-black.webp",
+    "modelo": "iPhone 12",
+    "modelo_slug": "iphone-12",
+    "color": "Negro",
+    "color_slug": "black",
+    "anio": "2020",
+    "size": [
+      900,
+      1180
+    ],
+    "alpha_pct": 76.1,
+    "kb_webp": 26,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-12-blue.webp",
+    "modelo": "iPhone 12",
+    "modelo_slug": "iphone-12",
+    "color": "Azul",
+    "color_slug": "blue",
+    "anio": "2020",
+    "size": [
+      900,
+      1180
+    ],
+    "alpha_pct": 76.1,
+    "kb_webp": 34,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-12-green.webp",
+    "modelo": "iPhone 12",
+    "modelo_slug": "iphone-12",
+    "color": "Verde",
+    "color_slug": "green",
+    "anio": "2020",
+    "size": [
+      900,
+      1180
+    ],
+    "alpha_pct": 76.1,
+    "kb_webp": 34,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-12-purple.webp",
+    "modelo": "iPhone 12",
+    "modelo_slug": "iphone-12",
+    "color": "Morado",
+    "color_slug": "purple",
+    "anio": "2021",
+    "size": [
+      900,
+      1182
+    ],
+    "alpha_pct": 76.1,
+    "kb_webp": 32,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-12-red.webp",
+    "modelo": "iPhone 12",
+    "modelo_slug": "iphone-12",
+    "color": "Rojo",
+    "color_slug": "red",
+    "anio": "2020",
+    "size": [
+      900,
+      1180
+    ],
+    "alpha_pct": 76.1,
+    "kb_webp": 40,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-12-white.webp",
+    "modelo": "iPhone 12",
+    "modelo_slug": "iphone-12",
+    "color": "Blanco",
+    "color_slug": "white",
+    "anio": "2020",
+    "size": [
+      900,
+      1182
+    ],
+    "alpha_pct": 76.1,
+    "kb_webp": 29,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-13-blue.webp",
+    "modelo": "iPhone 13",
+    "modelo_slug": "iphone-13",
+    "color": "Azul",
+    "color_slug": "blue",
+    "anio": "2021",
+    "size": [
+      900,
+      1182
+    ],
+    "alpha_pct": 83.8,
+    "kb_webp": 35,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-13-midnight.webp",
+    "modelo": "iPhone 13",
+    "modelo_slug": "iphone-13",
+    "color": "Medianoche",
+    "color_slug": "midnight",
+    "anio": "2021",
+    "size": [
+      900,
+      1182
+    ],
+    "alpha_pct": 83.8,
+    "kb_webp": 28,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-13-pink.webp",
+    "modelo": "iPhone 13",
+    "modelo_slug": "iphone-13",
+    "color": "Rosado",
+    "color_slug": "pink",
+    "anio": "2021",
+    "size": [
+      900,
+      1182
+    ],
+    "alpha_pct": 83.8,
+    "kb_webp": 31,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-13-starlight.webp",
+    "modelo": "iPhone 13",
+    "modelo_slug": "iphone-13",
+    "color": "Blanco estrella",
+    "color_slug": "starlight",
+    "anio": "2021",
+    "size": [
+      900,
+      1182
+    ],
+    "alpha_pct": 83.8,
+    "kb_webp": 30,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-14-blue.webp",
+    "modelo": "iPhone 14",
+    "modelo_slug": "iphone-14",
+    "color": "Azul",
+    "color_slug": "blue",
+    "anio": "202209",
+    "size": [
+      900,
+      1153
+    ],
+    "alpha_pct": 56.8,
+    "kb_webp": 39,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-14-midnight.webp",
+    "modelo": "iPhone 14",
+    "modelo_slug": "iphone-14",
+    "color": "Medianoche",
+    "color_slug": "midnight",
+    "anio": "202209",
+    "size": [
+      900,
+      1153
+    ],
+    "alpha_pct": 56.8,
+    "kb_webp": 31,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-14-purple.webp",
+    "modelo": "iPhone 14",
+    "modelo_slug": "iphone-14",
+    "color": "Morado",
+    "color_slug": "purple",
+    "anio": "202209",
+    "size": [
+      900,
+      1153
+    ],
+    "alpha_pct": 56.8,
+    "kb_webp": 37,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-14-red.webp",
+    "modelo": "iPhone 14",
+    "modelo_slug": "iphone-14",
+    "color": "Rojo",
+    "color_slug": "red",
+    "anio": "202209",
+    "size": [
+      900,
+      1153
+    ],
+    "alpha_pct": 56.8,
+    "kb_webp": 40,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-14-starlight.webp",
+    "modelo": "iPhone 14",
+    "modelo_slug": "iphone-14",
+    "color": "Blanco estrella",
+    "color_slug": "starlight",
+    "anio": "202209",
+    "size": [
+      900,
+      1153
+    ],
+    "alpha_pct": 56.8,
+    "kb_webp": 36,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-15-black.webp",
+    "modelo": "iPhone 15",
+    "modelo_slug": "iphone-15",
+    "color": "Negro",
+    "color_slug": "black",
+    "anio": "202309",
+    "size": [
+      900,
+      1142
+    ],
+    "alpha_pct": 56.5,
+    "kb_webp": 59,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-15-blue.webp",
+    "modelo": "iPhone 15",
+    "modelo_slug": "iphone-15",
+    "color": "Azul",
+    "color_slug": "blue",
+    "anio": "202309",
+    "size": [
+      900,
+      1142
+    ],
+    "alpha_pct": 56.5,
+    "kb_webp": 64,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-15-green.webp",
+    "modelo": "iPhone 15",
+    "modelo_slug": "iphone-15",
+    "color": "Verde",
+    "color_slug": "green",
+    "anio": "202309",
+    "size": [
+      900,
+      1142
+    ],
+    "alpha_pct": 56.5,
+    "kb_webp": 63,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-15-pink.webp",
+    "modelo": "iPhone 15",
+    "modelo_slug": "iphone-15",
+    "color": "Rosado",
+    "color_slug": "pink",
+    "anio": "202309",
+    "size": [
+      900,
+      1142
+    ],
+    "alpha_pct": 56.5,
+    "kb_webp": 63,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-15-yellow.webp",
+    "modelo": "iPhone 15",
+    "modelo_slug": "iphone-15",
+    "color": "Amarillo",
+    "color_slug": "yellow",
+    "anio": "202309",
+    "size": [
+      900,
+      1142
+    ],
+    "alpha_pct": 56.5,
+    "kb_webp": 66,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-black.webp",
+    "modelo": "iPhone 16",
+    "modelo_slug": "iphone-16",
+    "color": "Negro",
+    "color_slug": "black",
+    "anio": "202409",
+    "size": [
+      900,
+      967
+    ],
+    "alpha_pct": 52.6,
+    "kb_webp": 29,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-pink.webp",
+    "modelo": "iPhone 16",
+    "modelo_slug": "iphone-16",
+    "color": "Rosado",
+    "color_slug": "pink",
+    "anio": "202409",
+    "size": [
+      900,
+      967
+    ],
+    "alpha_pct": 52.6,
+    "kb_webp": 37,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-plus-black.webp",
+    "modelo": "iPhone 16 Plus",
+    "modelo_slug": "iphone-16-plus",
+    "color": "Negro",
+    "color_slug": "black",
+    "anio": "202409",
+    "size": [
+      900,
+      1058
+    ],
+    "alpha_pct": 44.5,
+    "kb_webp": 26,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-plus-pink.webp",
+    "modelo": "iPhone 16 Plus",
+    "modelo_slug": "iphone-16-plus",
+    "color": "Rosado",
+    "color_slug": "pink",
+    "anio": "202409",
+    "size": [
+      900,
+      1058
+    ],
+    "alpha_pct": 44.5,
+    "kb_webp": 33,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-plus-teal.webp",
+    "modelo": "iPhone 16 Plus",
+    "modelo_slug": "iphone-16-plus",
+    "color": "Verde azulado",
+    "color_slug": "teal",
+    "anio": "202409",
+    "size": [
+      900,
+      1058
+    ],
+    "alpha_pct": 44.5,
+    "kb_webp": 34,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-plus-ultramarine.webp",
+    "modelo": "iPhone 16 Plus",
+    "modelo_slug": "iphone-16-plus",
+    "color": "Azul ultramarino",
+    "color_slug": "ultramarine",
+    "anio": "202409",
+    "size": [
+      900,
+      1058
+    ],
+    "alpha_pct": 44.5,
+    "kb_webp": 34,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-plus-white.webp",
+    "modelo": "iPhone 16 Plus",
+    "modelo_slug": "iphone-16-plus",
+    "color": "Blanco",
+    "color_slug": "white",
+    "anio": "202409",
+    "size": [
+      900,
+      1058
+    ],
+    "alpha_pct": 44.5,
+    "kb_webp": 30,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-teal.webp",
+    "modelo": "iPhone 16",
+    "modelo_slug": "iphone-16",
+    "color": "Verde azulado",
+    "color_slug": "teal",
+    "anio": "202409",
+    "size": [
+      900,
+      967
+    ],
+    "alpha_pct": 52.6,
+    "kb_webp": 37,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-ultramarine.webp",
+    "modelo": "iPhone 16",
+    "modelo_slug": "iphone-16",
+    "color": "Azul ultramarino",
+    "color_slug": "ultramarine",
+    "anio": "202409",
+    "size": [
+      900,
+      967
+    ],
+    "alpha_pct": 52.6,
+    "kb_webp": 38,
+    "verificado_visual": "PENDIENTE"
+  },
+  {
+    "archivo": "iphone-16-white.webp",
+    "modelo": "iPhone 16",
+    "modelo_slug": "iphone-16",
+    "color": "Blanco",
+    "color_slug": "white",
+    "anio": "202409",
+    "size": [
+      900,
+      967
+    ],
+    "alpha_pct": 52.6,
+    "kb_webp": 33,
+    "verificado_visual": "PENDIENTE"
+  }
+]

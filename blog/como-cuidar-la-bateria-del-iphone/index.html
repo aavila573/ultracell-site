@@ -283,7 +283,15 @@
       .cta-card{padding:30px 24px}
       .article-wrap{padding:8px 18px 60px}
     }
-  </style>
+  
+    .cat-links{max-width:1000px;margin:48px auto 0;padding:0 20px}
+    .cat-links h2{font-size:clamp(20px,2.6vw,26px);letter-spacing:-.02em;margin-bottom:6px}
+    .cat-links .cl-sub{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+    .cl-grid{display:flex;flex-wrap:wrap;gap:12px}
+    .cl-chip{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-size:14.5px;font-weight:700;color:inherit;text-decoration:none;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .cl-chip:hover{transform:translateY(-2px);box-shadow:var(--sh-lg);border-color:var(--accent);color:var(--accent)}
+    .cl-chip .cl-arrow{font-weight:800;color:var(--accent)}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -491,6 +499,16 @@
         <a href="../iphone-16-vs-iphone-17/">iPhone 16 vs iPhone 17: ¿cuál comprar en Colombia?</a>
         <span class="rl-text">¿Cuántos GB necesito en mi iPhone? <span class="soon">Próximamente</span></span>
         <span class="rl-text">¿Vale la pena comprar un iPhone usado o nuevo? <span class="soon">Próximamente</span></span>
+      </div>
+    </section>
+    <section class="cat-links">
+      <h2>Equipos con batería al 100%</h2>
+      <p class="cl-sub">Todos nuestros iPhone salen con batería verificada al 100%.</p>
+      <div class="cl-grid">
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-14">iPhone 14 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-15">iPhone 15 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-16">iPhone 16 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-17">iPhone 17 <span class="cl-arrow">→</span></a>
       </div>
     </section>
   </article>

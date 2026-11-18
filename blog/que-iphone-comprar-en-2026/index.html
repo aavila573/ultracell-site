@@ -274,7 +274,27 @@
       .cta-card{padding:30px 24px}
       .article-wrap{padding:8px 18px 60px}
     }
-  </style>
+  
+    .next-read{max-width:1000px;margin:56px auto 0;padding:0 20px}
+    .next-read h2{font-size:clamp(20px,2.6vw,26px);letter-spacing:-.02em;margin-bottom:6px}
+    .next-read .nr-sub{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+    .nr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .nr-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .3s,box-shadow .3s,border-color .3s;text-decoration:none;color:inherit}
+    .nr-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:#dcdce4}
+    .nr-card .nr-k{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+    .nr-card h3{font-size:17px;font-weight:750;line-height:1.3;letter-spacing:-.01em}
+    .nr-card p{font-size:14px;color:var(--muted);line-height:1.5;flex:1}
+    .nr-card .nr-more{font-size:13.5px;font-weight:700;color:var(--accent)}
+    @media(max-width:760px){.nr-grid{grid-template-columns:1fr}}
+
+    .cat-links{max-width:1000px;margin:48px auto 0;padding:0 20px}
+    .cat-links h2{font-size:clamp(20px,2.6vw,26px);letter-spacing:-.02em;margin-bottom:6px}
+    .cat-links .cl-sub{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+    .cl-grid{display:flex;flex-wrap:wrap;gap:12px}
+    .cl-chip{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-size:14.5px;font-weight:700;color:inherit;text-decoration:none;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .cl-chip:hover{transform:translateY(-2px);box-shadow:var(--sh-lg);border-color:var(--accent);color:var(--accent)}
+    .cl-chip .cl-arrow{font-weight:800;color:var(--accent)}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -491,6 +511,36 @@
             <span class="rel-link">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
           </span>
         </a>
+      </div>
+    </section>
+    <section class="next-read">
+      <h2>Sigue leyendo</h2>
+      <p class="nr-sub">Dos guías que complementan esta.</p>
+      <div class="nr-grid">
+        <a class="nr-card" href="../iphone-16-vs-iphone-17/">
+          <span class="nr-k">Comparativa</span>
+          <h3>iPhone 16 vs iPhone 17</h3>
+          <p>Si estás dudando entre estas dos generaciones, aquí están las diferencias que sí importan: cámara, batería, pantalla y precio.</p>
+          <span class="nr-more">Ver comparativa →</span>
+        </a>
+        <a class="nr-card" href="../como-cuidar-la-bateria-del-iphone/">
+          <span class="nr-k">Consejos</span>
+          <h3>Cómo cuidar la batería de tu iPhone</h3>
+          <p>Ya elegiste modelo. Ahora aprende los 8 hábitos que alargan la vida de la batería y los mitos que puedes ignorar.</p>
+          <span class="nr-more">Leer consejos →</span>
+        </a>
+      </div>
+    </section>
+    <section class="cat-links">
+      <h2>Explora los modelos que mencionamos</h2>
+      <p class="cl-sub">Todos usados, revisados 10/10, con 6 meses de garantía.</p>
+      <div class="cl-grid">
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-11">iPhone 11 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-13">iPhone 13 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-14">iPhone 14 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-15">iPhone 15 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-16">iPhone 16 <span class="cl-arrow">→</span></a>
+        <a class="cl-chip" href="../../#/catalogo?q=iphone-17">iPhone 17 <span class="cl-arrow">→</span></a>
       </div>
     </section>
   </article>

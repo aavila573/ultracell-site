@@ -4119,6 +4119,16 @@ function initApp(){
   /* router */
   window.addEventListener('hashchange', route);
   updateCartBadge();
+  /* RUTAS SEO (DEV-2026-066): los enlaces viejos #/producto/<id> redirigen a las
+     paginas estaticas /producto/<id>/ para que Google las indexe como URLs propias. */
+  const __oldProd = location.hash.match(/^#\/producto\/([a-z0-9\-]+)/i);
+  if (__oldProd) {
+    const __enRaiz = (location.pathname === '/' || location.pathname === '/index.html');
+    if (__enRaiz) {
+      location.replace('/producto/' + __oldProd[1].toLowerCase() + '/');
+      return;
+    }
+  }
   if (!location.hash) location.replace('#/inicio');
   else route();
 }

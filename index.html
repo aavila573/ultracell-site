@@ -116,8 +116,7 @@ h1,h2,h3,h4{letter-spacing:-.02em;color:var(--ink);line-height:1.15;font-weight:
 .sec-head a.see{color:var(--accent);font-weight:600;font-size:15px;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
 .sec-head a.see:hover{color:var(--accent2)}
 .section{padding:64px 0}
-.demo-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--line);padding:2px 7px;border-radius:6px;vertical-align:middle}
-.demo-tag.dark{color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
+
 /* ---------- botones ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease,color .2s ease;white-space:nowrap}
 .btn:active{transform:scale(.97)}
@@ -502,18 +501,10 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 .field.err input,.field.err select{border-color:var(--danger)}
 .field .f-err{display:none;font-size:12.5px;color:var(--danger);margin-top:5px;font-weight:600}
 .field.err .f-err{display:block}
-.pay-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.pay-opt{border:1.5px solid var(--line);border-radius:14px;padding:16px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:border .2s,box-shadow .2s;background:var(--surface);min-height:104px}
-.pay-opt:hover{border-color:#cfcfd8}
-.pay-opt.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.pay-opt .po-ico{width:44px;height:44px;border-radius:12px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--muted)}
-.pay-opt.active .po-ico{background:var(--accent-soft);color:var(--accent)}
-.pay-opt b{font-size:14px}
-.pay-opt span{font-size:11.5px;color:var(--faint);text-align:center}
-.wompi-note{display:flex;gap:12px;background:var(--surface2);border:1px dashed var(--line);border-radius:14px;padding:16px;font-size:13px;color:var(--muted);margin-top:18px;line-height:1.5}
-.wompi-note svg{width:20px;height:20px;flex:none;color:var(--accent)}
-.demo-pay-btn{width:100%;margin-top:6px}
-.demo-pay-btn .demo-tag{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.35);color:#fff}
+
+.pay-info{display:flex;gap:12px;background:var(--surface2);border:1px dashed var(--line);border-radius:14px;padding:16px;font-size:13px;color:var(--muted);margin-top:18px;line-height:1.5}
+.pay-info svg{width:20px;height:20px;flex:none;color:var(--accent)}
+.confirm-btn{width:100%;margin-top:6px}
 .co-summary{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;position:sticky;top:88px}
 .co-summary h3{font-size:18px;margin-bottom:14px}
 .co-line{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line2);align-items:center}
@@ -544,7 +535,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 .oc-rows div span{color:var(--muted)}
 .oc-rows div b{text-align:right}
 .confirm-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-.demo-watermark{border:1.5px dashed rgba(255,69,58,.4);background:rgba(255,69,58,.05);color:#b0241b;border-radius:14px;padding:16px 20px;font-size:14px;font-weight:700;margin-top:26px;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center}
+
 /* ============================================================
    NOSOTROS / FAQ
    ============================================================ */
@@ -773,8 +764,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
   .sec-head{flex-direction:column;align-items:flex-start;gap:10px}
   .feat-grid{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
-  .pay-methods{grid-template-columns:1fr 1fr}
-  .pay-opt{min-height:96px}
+
   .cline{grid-template-columns:64px 1fr;padding:12px}
   .cline-art{width:64px;height:64px}
   .cline-art svg{width:40px}
@@ -1949,7 +1939,7 @@ function registrarPedidoSupabase(order){
     console.warn('[UltraCell] Error inesperado registrando el pedido en Supabase.', e && e.message);
   }
 }
-function placeOrder(form, method){
+function placeOrder(form){
   const cart = getCart();
   if (!cart.length) return { ok:false, msg:'El carrito está vacío' };
   let seq = +(sGet('uc_order_seq', 100)) + 1;   // Primer pedido: UC-000123
@@ -1961,7 +1951,7 @@ function placeOrder(form, method){
     items: cart.map(l => ({ ...l })),
     totals,
     customer: { ...form },
-    payment: { method, label: ({ card:'Tarjeta de crédito/débito', pse:'PSE', nequi:'Nequi' })[method] || method },
+    payment: { method: 'por_coordinar', label: 'Por coordinar por WhatsApp' },
     status: 'Confirmado'
   };
   const orders = sGet('uc_orders_v1', []);
@@ -1970,7 +1960,7 @@ function placeOrder(form, method){
   sSet('uc_last_order', order);
   saveCart([]);
   registrarPedidoSupabase(order);   /* POST fire-and-forget a Supabase: no bloquea el checkout */
-  track('payment_success', { order: order.id, total: totals.total, method });
+  track('order_registered', { order: order.id, total: totals.total });
   return { ok:true, order };
 }
 function lastOrder(){ return sGet('uc_last_order', null); }
@@ -2266,7 +2256,7 @@ function botReply(raw, ctx){
   }
   /* pagos */
   if (/(pago|pse|nequi|tarjeta|wompi|cuotas|contado|efectivo|m[eé]todos)/.test(t)){
-    out.push(chip(M.text('💳 Aceptamos tarjetas de crédito y débito, PSE y Nequi (pasarela Wompi). También puedes coordinar tu compra por WhatsApp.'),
+    out.push(chip(M.text('💳 Aceptamos transferencia, efectivo y contraentrega — coordinamos el pago por WhatsApp al confirmar tu pedido.'),
       ['Quiero comprar', '¿En cuánto llega?', 'Contactar por WhatsApp']));
     return { msgs:out, track:null };
   }
@@ -2468,7 +2458,7 @@ function renderHome(main){
   <div class="trustbar"><div class="container trust-grid">
     <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3 8 3z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Productos seleccionados</b><span>Catálogo curado, sin relleno</span></div></div>
     <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><div><b>Atención personalizada</b><span>Asesor IA + WhatsApp real</span></div></div>
-    <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><b>Compra segura</b><span>Tarjetas, PSE y Nequi</span></div></div>
+    <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><b>Compra segura</b><span>Transferencia, efectivo o contraentrega</span></div></div>
     <div class="trust-item"><span class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3V7h2M19 17h2v-6h-2M1 4h13v13H1zM14 8h4l4 4v5h-3"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><div><b>Envíos</b><span>Gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}</span></div></div>
   </div></div>
   <div class="container section" id="iphone-section">
@@ -3523,7 +3513,7 @@ function renderCart(main){
         <div class="sum-row total"><span>Total</span><span>${fmtCOP(t.total)}</span></div>
         
         <button class="btn btn-accent btn-lg" data-action="goto" data-payload="/checkout">Continuar compra →</button>
-        <p class="sum-note">Pago seguro demo (Wompi Sandbox). No se realizan cobros reales.</p>
+        <p class="sum-note">Pago seguro</p>
       </aside>
     </div>
   </div>`;
@@ -3539,7 +3529,7 @@ function renderCheckout(main){
   const t = cartTotals();
   track('begin_checkout', { count: t.count, total: t.total });
   main.innerHTML = `<div class="container page">
-    <div style="margin-bottom:22px"><h1 style="font-size:clamp(26px,3.4vw,36px)">Finalizar compra</h1><p class="muted" style="margin-top:6px">Demo — no se realiza ningún cobro real.</p></div>
+    <div style="margin-bottom:22px"><h1 style="font-size:clamp(26px,3.4vw,36px)">Finalizar compra</h1><p class="muted" style="margin-top:6px">Completa tus datos y confirma tu pedido. Te contactaremos por WhatsApp para coordinar el pago.</p></div>
     <div class="checkout-layout">
       <div>
         <div class="co-card">
@@ -3566,16 +3556,11 @@ function renderCheckout(main){
         </div>
         <div class="co-card">
           <h3><span class="step-n">3</span> Método de pago</h3>
-          <div class="pay-methods" id="payMethods">
-            <div class="pay-opt active" data-pay="card"><span class="po-ico">💳</span><b>Tarjeta</b><span>Crédito y débito</span></div>
-            <div class="pay-opt" data-pay="pse"><span class="po-ico">🏦</span><b>PSE</b><span>Débito desde tu banco</span></div>
-            <div class="pay-opt" data-pay="nequi"><span class="po-ico">📲</span><b>Nequi</b><span>Pago desde el celular</span></div>
+          <div class="pay-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 20l1-5.2a8.5 8.5 0 1 1 17-3.3z"/></svg>
+            <span>Pago: transferencia, efectivo o contraentrega — lo coordinamos por WhatsApp al confirmar tu pedido.</span>
           </div>
-          <div class="wompi-note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span><b>Integración Wompi preparada.</b> Este botón simula la aprobación en Sandbox para la demo. Las llaves privadas de Wompi se configuran <b>solo en el backend</b> en producción — nunca en el frontend. Ningún cobro real se realiza aquí.</span>
-          </div>
-          <button class="btn btn-accent btn-lg demo-pay-btn" id="demoPayBtn" data-action="pay">Demo de pago <span class="demo-tag">DEMO</span></button>
+          <button class="btn btn-accent btn-lg confirm-btn" id="confirmOrderBtn">Confirmar pedido</button>
         </div>
       </div>
       <aside class="co-summary">
@@ -3595,15 +3580,10 @@ function renderCheckout(main){
       </aside>
     </div>
   </div>`;
-  let payMethod = 'card';
-  document.querySelectorAll('.pay-opt').forEach(el => el.addEventListener('click', () => {
-    payMethod = el.dataset.pay;
-    document.querySelectorAll('.pay-opt').forEach(x => x.classList.toggle('active', x === el));
-  }));
-  document.getElementById('demoPayBtn').addEventListener('click', () => processPayment(payMethod));
+  document.getElementById('confirmOrderBtn').addEventListener('click', () => processPayment());
 }
 function fieldVal(id){ const el = document.getElementById(id); return el ? el.value.trim() : ''; }
-function processPayment(method){
+function processPayment(){
   const req = [ ['coNombre','f-nombre'], ['coApellido','f-apellido'], ['coEmail','f-email'], ['coTel','f-tel'], ['coCiudad','f-ciudad'], ['coDepto','f-depto'], ['coDir','f-dir'], ['coRecibe','f-recibe'] ];
   let ok = true;
   req.forEach(([fid, wid]) => {
@@ -3613,18 +3593,18 @@ function processPayment(method){
     if (!valid) ok = false;
   });
   if (!ok){ toast('Revisa los campos marcados en rojo.', { type:'err' }); return; }
-  const btn = document.getElementById('demoPayBtn');
+  const btn = document.getElementById('confirmOrderBtn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span> Procesando pago demo…';
+  btn.innerHTML = '<span class="spin"></span> Registrando tu pedido…';
   setTimeout(() => {
     const form = {
       nombre: fieldVal('coNombre'), apellido: fieldVal('coApellido'), email: fieldVal('coEmail'),
       tel: fieldVal('coTel'), ciudad: fieldVal('coCiudad'), depto: fieldVal('coDepto'),
       direccion: fieldVal('coDir'), complemento: fieldVal('coComp'), recibe: fieldVal('coRecibe')
     };
-    const res = placeOrder(form, method);
+    const res = placeOrder(form);
     if (res.ok) navigate('/confirmacion');
-    else { btn.disabled = false; btn.innerHTML = 'Demo de pago <span class="demo-tag">DEMO</span>'; toast(res.msg, { type:'err' }); }
+    else { btn.disabled = false; btn.innerHTML = 'Confirmar pedido'; toast(res.msg, { type:'err' }); }
   }, 1600);
 }
 
@@ -3668,7 +3648,7 @@ function renderConfirmacion(main){
         <div><span>Recibe</span><b>${esc(order.customer.recibe)}</b></div>
         <div><span>Dirección</span><b style="text-align:right">${esc(order.customer.direccion + (order.customer.complemento ? ' · ' + order.customer.complemento : ''))}</b></div>
         <div><span>Ciudad</span><b>${esc(order.customer.ciudad)} · ${esc(order.customer.depto)}</b></div>
-        <div><span>Método de pago</span><b>${esc(order.payment.label)} (demo)</b></div>
+        <div><span>Método de pago</span><b>${esc(order.payment.label)}</b></div>
       </div>
     </div>
     <div class="confirm-cta">
@@ -3676,7 +3656,7 @@ function renderConfirmacion(main){
       <a class="btn btn-dark" href="#/catalogo">Volver al catálogo</a>
       <button class="btn btn-accent" data-action="open-chat">Hablar con UltraCell IA</button>
     </div>
-    <div class="demo-watermark">⚠️ Demostración — no es una compra real. No se realizó ningún cobro.</div>
+
   </div>`;
 }
 function orderModalHTML(order){
@@ -3689,8 +3669,8 @@ function orderModalHTML(order){
   return `<div class="modal-body">
     <h3>Pedido ${esc(order.id)}</h3>
     <p>Estado: <b style="color:#177a37">${esc(order.status)}</b> · ${new Date(order.date).toLocaleString('es-CO')}</p>
-    <div class="m-prod"><div class="mp-art">📦</div><div><b>${order.items.length} producto${order.items.length === 1 ? '' : 's'}</b><span>Total: ${fmtCOP(order.totals.total)} (demo)</span></div></div>
-    <p>Este pedido es parte de la demostración de UltraCell y se guardó localmente en tu navegador. En producción, este flujo se integra con el backend y Wompi.</p>
+    <div class="m-prod"><div class="mp-art">📦</div><div><b>${order.items.length} producto${order.items.length === 1 ? '' : 's'}</b><span>Total: ${fmtCOP(order.totals.total)}</span></div></div>
+    <p>Tu pedido fue registrado. Te contactaremos por WhatsApp para coordinar el pago y la entrega.</p>
     <div class="modal-cta">
       <button class="btn btn-outline" data-action="modal-close">Cerrar</button>
       <button class="btn btn-accent" data-action="wa" data-msg="${esc(waMsg)}">Preguntar por WhatsApp</button>
@@ -3715,7 +3695,7 @@ function renderNosotros(main){
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l2.4 6.9L21 9l-5 4.4L17.8 21 12 17l-5.8 4 1.8-7.6L3 9l6.6-.1z"/></svg></span><h3>Por qué elegirnos</h3><p>Asesoría personalizada, catálogo curado de iPhone y acompañamiento antes, durante y después de la compra. Servicio técnico propio.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3 8 3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Nuestra selección</h3><p>Trabajamos una selección de iPhone nuevos y usados, accesorios, baterías y servicio técnico. Todos los equipos cuentan con garantía de 6 meses.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><h3>Atención personalizada</h3><p>Te atendemos por WhatsApp y con nuestro asesor IA. Horario: lunes a sábado, 9:00 am – 6:00 pm. Ciudad: Barranquilla.</p></div>
-      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Compra segura</h3><p>Pasarela de pagos (Wompi) lista para integrar: tarjetas, PSE y Nequi. En la demo el pago es simulado en Sandbox.</p></div>
+      <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Compra segura</h3><p>Pago: transferencia, efectivo o contraentrega — lo coordinamos por WhatsApp al confirmar tu pedido.</p></div>
       <div class="about-card"><span class="a-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 17H3V7h2M19 17h2v-6h-2M1 4h13v13H1zM14 8h4l4 4v5h-3"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><h3>Envíos</h3><p>Envíos a nivel nacional con entrega estimada de 1-3 días hábiles. Envío gratis sobre ${fmtCOP(CONFIG.FREE_SHIPPING_OVER)}.</p></div>
     </div>
     <div class="story-card">
@@ -3729,7 +3709,7 @@ const FAQ_ITEMS = [
   { id:'productos', q:'¿Los productos son nuevos u originales?', a:'Los productos usados se marcan como "Usado" y se venden en excelente estado (10/10). El estado real de cada equipo lo confirma UltraCell antes de la compra.' },
   { id:'que-iphone', q:'¿Qué iPhone me recomiendan?', a:'Depende de tu presupuesto y uso. Usa el recomendador de la página de inicio (5 preguntas) o pregúntale al asesor IA: te recomienda al instante según tu presupuesto.' },
   { id:'modelos', q:'¿Cuáles modelos de iPhone tienen?', a:'iPhone usados desde el 11 hasta el 17 Pro Max, en varios colores y capacidades. También accesorios, baterías y servicio técnico.' },
-  { id:'pagos', q:'¿Qué métodos de pago aceptan?', a:'Tarjetas de crédito/débito, PSE y Nequi mediante la pasarela Wompi. Las llaves privadas se configuran solo en el backend (nunca en el frontend).' },
+  { id:'pagos', q:'¿Qué métodos de pago aceptan?', a:'Transferencia, efectivo o contraentrega. Coordinamos el pago por WhatsApp al confirmar tu pedido.' },
   { id:'envios', q:'¿Cuánto demora el envío?', a:'En ciudades principales estimamos 1-3 días hábiles. Compras sobre $1.000.000 tienen envío gratis; de lo contrario $25.000.' },
   { id:'garantia', q:'¿Tienen garantía?', a:'Garantía por defectos de fábrica, con términos que confirma UltraCell. Servicio técnico propio en Barranquilla.' },
   { id:'whatsapp', q:'¿Puedo comprar por WhatsApp?', a:'Sí: el botón "Hablar por WhatsApp" abre un chat con el equipo de UltraCell (+57 300 752 7308) con un mensaje pre-escrito.' },
@@ -3889,7 +3869,7 @@ function execBotAction(type, payload){
     openModal(`<div class="modal-body">
       <h3>¿Quieres que te lleve al checkout?</h3>
       <div class="m-prod"><div class="mp-art">${p.img && hasImage(p.img) ? '<img class="pcard-img" src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">' : productArt(p, 'front')}</div><div><b>${esc(p.name)}</b><span>${fmtCOP(p.price)}</span></div></div>
-      <p>Agrego el ${esc(p.name)} a tu carrito y te llevo directo al pago (simulado, sin cobros reales).</p>
+      <p>Agrego el ${esc(p.name)} a tu carrito y te llevo directo al checkout para confirmar tu pedido.</p>
       <div class="modal-cta">
         <button class="btn btn-accent" data-action="checkout-go" data-payload="${p.id}">Ir al checkout</button>
         <button class="btn btn-outline" data-action="modal-close">Seguir viendo</button>
@@ -4006,7 +3986,7 @@ function legalHTML(which){
   const t = which === 'terminos' ? 'Términos y condiciones' : 'Privacidad';
   return `<div class="modal-body"><h3>${t}</h3>
     <p>Este documento es un texto de referencia que UltraCell completará con sus términos reales.</p>
-    <p>Nota importante: los precios y productos del catálogo son reales. El pago en línea se procesa en modo de prueba y no se realizan cobros reales.</p>
+    <p>Nota importante: los precios y productos del catálogo son reales. El pago se coordina por WhatsApp (transferencia, efectivo o contraentrega) tras confirmar tu pedido; no se realiza ningún cobro automático en el sitio.</p>
     <div class="modal-cta"><button class="btn btn-dark" data-action="modal-close">Entendido</button></div></div>`;
 }
 function handleFilterChange(el){
@@ -4119,16 +4099,6 @@ function initApp(){
   /* router */
   window.addEventListener('hashchange', route);
   updateCartBadge();
-  /* RUTAS SEO (DEV-2026-066): los enlaces viejos #/producto/<id> redirigen a las
-     paginas estaticas /producto/<id>/ para que Google las indexe como URLs propias. */
-  const __oldProd = location.hash.match(/^#\/producto\/([a-z0-9\-]+)/i);
-  if (__oldProd) {
-    const __enRaiz = (location.pathname === '/' || location.pathname === '/index.html');
-    if (__enRaiz) {
-      location.replace('/producto/' + __oldProd[1].toLowerCase() + '/');
-      return;
-    }
-  }
   if (!location.hash) location.replace('#/inicio');
   else route();
 }

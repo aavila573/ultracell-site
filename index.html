@@ -1503,6 +1503,55 @@ PRODUCTS.forEach(p => {
   p.bateria = 100;
   p.garantia = '6 meses';
 });
+
+/* ============================================================
+   JSON-LD · ItemList de productos (datos de comerciante reales)
+   Se genera desde PRODUCTS/VARIANTS para no divergir del catálogo.
+   SIN aggregateRating ni review (no hay reseñas reales todavía).
+   ============================================================ */
+(function injectProductListJsonLd(){
+  if (typeof document === 'undefined' || !document.head) return;
+  const BASE = 'https://ultracell.com.co';
+  const list = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Catálogo de celulares y accesorios UltraCell',
+    numberOfItems: PRODUCTS.length,
+    itemListElement: PRODUCTS.map(p => ({
+      '@type': 'Product',
+      name: p.name,
+      image: BASE + '/' + p.img,
+      url: BASE + '/#/producto/' + p.id,
+      brand: { '@type': 'Brand', name: p.brand },
+      offers: {
+        '@type': 'Offer',
+        price: p.price,
+        priceCurrency: 'COP',
+        availability: 'https://schema.org/InStock',
+        validFrom: '2026-11-19',
+        shippingDetails: {
+          '@type': 'OfferShippingDetails',
+          shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'CO' },
+          shippingLabel: 'Envio a todo el pais - costo y tiempo se coordinan por WhatsApp'
+        },
+        hasMerchantReturnPolicy: {
+          '@type': 'MerchantReturnPolicy',
+          applicableCountry: 'CO',
+          merchantReturnDays: 180,
+          returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+          returnMethod: 'https://schema.org/ReturnInStore',
+          description: 'Garantia de 6 meses en equipos usados'
+        }
+      }
+    }))
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.id = 'ld-product-list';
+  s.textContent = JSON.stringify(list);
+  document.head.appendChild(s);
+})();
+
 /* Accesores y utilidades de capacidad. */
 const productById = id => PRODUCTS.find(p => p.id === id);
 const variantById = id => VARIANTS.find(v => v.id === id);

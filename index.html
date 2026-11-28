@@ -453,6 +453,7 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 .cline:hover{box-shadow:var(--sh-md)}
 .cline-art{width:92px;height:92px;border-radius:14px;background:radial-gradient(120% 120% at 50% 0%,#fff 30%,var(--line2));display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cline-art svg{width:56px}
+.cline-art img{width:100%;height:100%;object-fit:contain;padding:7px;box-sizing:border-box}
 .cline-info h4{font-size:15.5px;margin-bottom:3px}
 .cline-info h4 a:hover{color:var(--accent)}
 .cline-var{font-size:13px;color:var(--muted)}
@@ -508,8 +509,9 @@ details.acc .acc-body ul{padding-left:18px;display:flex;flex-direction:column;ga
 .co-summary{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;position:sticky;top:88px}
 .co-summary h3{font-size:18px;margin-bottom:14px}
 .co-line{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line2);align-items:center}
-.co-line .cl-art{width:52px;height:52px;flex:none;border-radius:10px;background:var(--line2);display:flex;align-items:center;justify-content:center}
+.co-line .cl-art{width:52px;height:52px;flex:none;border-radius:10px;background:var(--line2);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .co-line .cl-art svg{width:36px}
+.co-line .cl-art img{width:100%;height:100%;object-fit:contain;padding:4px;box-sizing:border-box}
 .co-line .cl-info{flex:1;min-width:0}
 .co-line b{font-size:13.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .co-line span{font-size:12.5px;color:var(--muted)}
@@ -3099,6 +3101,18 @@ function cardPhoto(p){
   return viewSrc(p, null, 'front');
 }
 
+/* Miniatura de un item del carrito/checkout: imagen REAL del producto con la
+   MISMA regla de la ficha (foto del color si existe en colors{} > render del
+   modelo <modelo>-render.webp > individual fotografica). NUNCA el icono/SVG
+   generico de smartphone. (DEV-2026-069) */
+function cartThumb(p, color){
+  const src = viewSrc(p, color, 'front');
+  if (src && hasImage(src)){
+    return `<img src="${src}" alt="${esc((p && p.name) || 'Producto')}" loading="lazy" decoding="async">`;
+  }
+  return productArt(p, 'front', color);
+}
+
 /* Fotos individuales NEUTRAS por modelo (un solo dispositivo, sin color específico).
    Se usan como principal cuando el color seleccionado no tiene foto propia;
    NUNCA se usa una compuesta/lineup como principal de una variante. */
@@ -3520,7 +3534,7 @@ function renderCart(main){
             const p = productById(l.productId) || { name:'Producto', art:'phone' };
             const pl = PAL[l.color];
             return `<div class="cline">
-              <a class="cline-art" href="#/producto/${l.id}">${productArt(p, 'front', l.color)}</a>
+              <a class="cline-art" href="#/producto/${l.id}">${cartThumb(p, l.color)}</a>
               <div class="cline-info">
                 <h4><a href="#/producto/${l.productId}">${esc(p.name)}</a></h4>
                 <div class="cline-var"><span class="dotc" style="background:${pl ? pl.hex[0] : '#ccc'}"></span>${esc(l.color)} · ${esc(l.storage)}</div>
@@ -3617,7 +3631,7 @@ function renderCheckout(main){
         ${cart.map(l => {
           const p = productById(l.productId) || { name:'Producto' };
           return `<div class="co-line">
-            <div class="cl-art">${productArt(p, 'front', l.color)}</div>
+            <div class="cl-art">${cartThumb(p, l.color)}</div>
             <div class="cl-info"><b>${esc(p.name)}</b><span>${l.qty} × ${fmtCOP(l.price)} · ${esc(l.color)} · ${esc(l.storage)}</span></div>
             <span class="cl-sub">${fmtCOP(l.price * l.qty)}</span>
           </div>`;
@@ -3680,7 +3694,7 @@ function renderConfirmacion(main){
       ${order.items.map(l => {
         const p = productById(l.productId) || { name:'Producto' };
         return `<div class="co-line">
-          <div class="cl-art">${productArt(p, 'front', l.color)}</div>
+          <div class="cl-art">${cartThumb(p, l.color)}</div>
           <div class="cl-info"><b>${esc(p.name)}</b><span>${l.qty} × ${fmtCOP(l.price)} · ${esc(l.color)} · ${esc(l.storage)}</span></div>
           <span class="cl-sub">${fmtCOP(l.price * l.qty)}</span>
         </div>`;
